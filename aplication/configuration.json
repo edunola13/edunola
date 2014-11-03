@@ -1,0 +1,54 @@
+{
+    "base_url": "http://localhost/edunola/",
+    "environment": "development",
+    "calculate_performance": "TRUE",
+    "configuration": "configuration/",
+    "charset": "UTF-8",
+      
+    "controllers": {
+        "index": {"class": "Index", "url": ""},
+        "informacion": {"class": "Informacion", "url": "informacion"},
+        "enolaphp": {"class": "EnolaPhp", "url": "enola-php"},
+        "uiservices": {"class": "UiServices", "url": "ui-services"},
+        "games": {"location": "libraries/EnolaMVC/", "class": "EnolaMVC", "url": "games*",
+            "params": {"config": "enolamvc-games.json"}
+        },
+        "blog": {"location": "libraries/EnolaMVC/", "class": "EnolaMVC", "url": "blog*",
+            "params": {"config": "enolamvc-blog.json"}
+        },
+        "contacto": {"class": "Contacto", "url": "contacto"},
+        "login": {"class": "Login", "url": "login"},
+        "cerrarSesion": {"class": "CerrarSesion", "url": "cerrarSesion"},        
+        "admin": {"location": "libraries/EnolaMVC/", "class": "EnolaMVC", "url": "admin*",
+            "params": {"config": "enolamvc-admin.json"}
+        }
+    },
+
+    "filters": {
+        "authorization": {"class": "Authorization", "filtered": "/*"}
+    },
+            
+    "filters_after_processing": {
+    },
+            
+    "i18n": {
+        "default": "es",
+        "locales": "en,fr,me"
+    },
+            
+    "components":{
+        "slider-blog": {"class": "SliderBlog"}
+    },
+            
+    "database": {
+        "configuration": "database.json",
+        "conexion_load": "FALSE",
+        "active_record": "TRUE"
+    },
+                
+    "libraries": {
+        "validacion": {"class": "Validation"},
+        "paginador": {"class": "Paginator"},
+        "uiservices": {"class": "ServiciosUI-0.2/servicioui"}
+    }
+}

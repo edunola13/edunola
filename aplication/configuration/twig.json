@@ -1,0 +1,6 @@
+{
+    "ambiente": "development",
+    "template_dir": "source/view",
+    "cache_dir": "cache",
+    "uiservices": "FALSE"
+}

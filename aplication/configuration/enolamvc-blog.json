@@ -1,0 +1,11 @@
+{
+    "base_url": "",
+    
+    "controllers": {
+        "index": {"class": "blog/Blog", "url": "blog"},
+        "index-page": {"class": "blog/Blog", "url": "blog/page"},
+        "index-search": {"class": "blog/Blog", "url": "blog/search"},
+        "index-fecha": {"class": "blog/Blog", "url": "blog/fecha"},
+        "post": {"class": "blog/Blog", "url": "blog/post"}
+    }
+}

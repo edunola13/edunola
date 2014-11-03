@@ -1,0 +1,29 @@
+{
+    "default": {
+        "permit": {
+            "front": "/*"
+        },
+        "deny": {
+            "administracion": "admin*"
+        },
+        "error": "login"
+    },    
+    "administrador": {
+        "permit": {
+            "front-back": "/*"
+        },
+        "deny": {
+            
+        },
+        "error": "sesion/autorizacion"
+    },
+    "blogger": {
+        "permit": {
+            "front-back": "/*"
+        },
+        "deny": {
+            "usuarios": "admin/usuarios*"
+        },
+        "error": "admin"
+    }
+}
