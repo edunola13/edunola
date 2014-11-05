@@ -10,16 +10,16 @@
         "informacion": {"class": "Informacion", "url": "informacion"},
         "enolaphp": {"class": "EnolaPhp", "url": "enola-php"},
         "uiservices": {"class": "UiServices", "url": "ui-services"},
-        "games": {"location": "libraries/EnolaMVC/", "class": "EnolaMVC", "url": "games*",
+        "games": {"location": "libraries/EnolaMVC-0.2/", "class": "EnolaMVC", "url": "games*",
             "params": {"config": "enolamvc-games.json"}
         },
-        "blog": {"location": "libraries/EnolaMVC/", "class": "EnolaMVC", "url": "blog*",
+        "blog": {"location": "libraries/EnolaMVC-0.2/", "class": "EnolaMVC", "url": "blog*",
             "params": {"config": "enolamvc-blog.json"}
         },
         "contacto": {"class": "Contacto", "url": "contacto"},
         "login": {"class": "Login", "url": "login"},
         "cerrarSesion": {"class": "CerrarSesion", "url": "cerrarSesion"},        
-        "admin": {"location": "libraries/EnolaMVC/", "class": "EnolaMVC", "url": "admin*",
+        "admin": {"location": "libraries/EnolaMVC-0.2/", "class": "EnolaMVC", "url": "admin*",
             "params": {"config": "enolamvc-admin.json"}
         }
     },

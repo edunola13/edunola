@@ -4,16 +4,7 @@
     "controllers": {
         "index": {"class": "admin/Admin", "url": ""},
         "usuarios": {"class": "admin/Usuarios", "url": "usuarios"},
-        "usuarios_add": {"class": "admin/Usuarios", "url": "usuarios/add"},
-        "usuarios_update": {"class": "admin/Usuarios", "url": "usuarios/update"},
-        "usuarios_delete": {"class": "admin/Usuarios", "url": "usuarios/delete"},
         "blog": {"class": "admin/Posts", "url": "blog"},
-        "page": {"class": "admin/Posts", "url": "blog/page"},
-        "add": {"class": "admin/Posts", "url": "blog/add"},
-        "update": {"class": "admin/Posts", "url": "blog/update"},
-        "delete": {"class": "admin/Posts", "url": "blog/delete"},
-        "images": {"class": "admin/Images", "url": "blog/images"},
-        "images_search": {"class": "admin/Images", "url": "blog/images/search"},
-        "image_add": {"class": "admin/Images", "url": "blog/images/add"}
+        "images": {"class": "admin/Images", "url": "blog/images"}
     }
 }

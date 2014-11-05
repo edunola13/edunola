@@ -1,4 +1,4 @@
-var url= "http://localhost/edunola-2.0/";
+var url= "http://localhost/edunola/";
 //var url= "http://www.edunola.com.ar/";
 
 function buscar_post(){

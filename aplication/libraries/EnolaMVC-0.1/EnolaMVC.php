@@ -175,7 +175,6 @@ class EnolaMVC implements Controller{
         $base_mvc= $config['base_url'];
         //URIAPP relativa al MVC        
         $uriapp= $this->uriapp_mvc($base_mvc);
-
         /*
          * Analizo los controladores para ver cual mapea
          */
