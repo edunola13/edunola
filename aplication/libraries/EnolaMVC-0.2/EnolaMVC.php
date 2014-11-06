@@ -82,7 +82,7 @@ class EnolaMVC implements Controller{
         if(! isset($this->config)){
             $this->config= 'enolamvc.json';
         }
-        $json_configuration= file_get_contents(PATHAPP . CONFIGURATION . $this->config); //-------------------------
+        $json_configuration= file_get_contents(PATHAPP . CONFIGURATION . $this->config);
         $config= json_decode($json_configuration, true);
         //Base desde donde trabaja el MVC
         $base_mvc= $config['base_url'];
@@ -118,7 +118,7 @@ class EnolaMVC implements Controller{
                 }
                 //Consigue la clase del controlador, analiza que contenga el metodo y lo ejecuta pasandole los
                 //parametros correspondiente
-                $dir= PATHAPP . 'source/controllers/' . $controller['class'] . '.php';  //-------------------------------
+                $dir= PATHAPP . 'source/controllers/' . $controller['class'] . '.php';
                 require $dir;
                 $dir= explode("/", $controller['class']);
                 $class= $dir[count($dir) - 1];
