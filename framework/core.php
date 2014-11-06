@@ -50,6 +50,11 @@
     ini_set('default_charset', $config['charset']);    
     // Define las constantes del sistema
     // BASE_URL: Base url de la aplicacion - definida por el usuario en el archivo de configuracion
+    
+    $pos= strlen($config['base_url']) - 1;
+    if($config['base_url'][$pos] != '/'){
+        $config['base_url'] .= '/';
+    }
     define('BASEURL', $config['base_url']);    
     //CONFIGURATION: carpeta base de configuracion - definida por el usuario en el archivo de configuracion
     define('CONFIGURATION', $config['configuration']);    

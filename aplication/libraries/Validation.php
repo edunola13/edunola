@@ -5,6 +5,8 @@
  * @author Enola
  */
 class Validation {
+    //Configuro donde se encuentran los mensajes
+    public $dir_content= '../source/content/messages';
     //Variable con toda la informacion sobre los datos/campos
     private $campos_datos;
     private $archivo= NULL;
@@ -13,7 +15,14 @@ class Validation {
     
     public function __construct($locale = NULL) {
         $this->locale= $locale;
-    }    
+    }
+    /**
+     * Cambia el locale. Si se desea no especificar locale llamar al metodo sin argumentos
+     * @param type $locale 
+     */
+    public function change_locale($locale = NULL){
+        $this->locale= $locale;
+    }
     /**
      * Agregar una regla de validacion que luego sera validada
      * @param string $nombre
@@ -119,15 +128,56 @@ class Validation {
     private function load_messages(){
         if($this->archivo == NULL){
             if($this->locale == NULL){
-                $this->messages= load_application_file('source/content/messages' . '.ini');
-                $this->messages= parse_properties($this->messages);
+                $this->messages= file(realpath(dirname(__FILE__)). '/' . $this->dir_content . '.ini');
+                $this->messages= $this->parse_properties($this->messages);
             }
             else{
-                $this->messages= load_application_file('source/content/messages' . "_$this->locale" . '.ini');
-                $this->messages= parse_properties($this->messages);
+                $this->messages= file(realpath(dirname(__FILE__)). '/' . $this->dir_content . "_$this->locale" . '.ini');
+                $this->messages= $this->parse_properties($this->messages);
             }
         }
     }    
+    /**
+     * Este proceso analiza de a una las lineas del archivo de mensajes usado. En este caso ini file y me arma lo que seria
+     * un array asociativo clave valor en base a la linea.
+     * Codigo descargado de: http://blog.rafaelsanches.com/2009/08/05/reading-java-style-properties-file-in-php/
+     * @param type $lineas
+     * @return type
+     */
+    function parse_properties($lineas) {
+        $isWaitingOtherLine = false;
+        $result= NULL;
+        foreach($lineas as $i=>$linea) {
+            if(empty($linea) || !isset($linea) || strpos($linea,"#") === 0){
+                continue;
+            }
+
+            if(!$isWaitingOtherLine) {
+                $key = substr($linea,0,strpos($linea,'='));
+                $value = substr($linea,strpos($linea,'=') + 1, strlen($linea));
+            }
+            else {
+                $value .= $linea;
+            }
+
+            /* Check if ends with single '\' */
+            if(strrpos($value,"\\") === strlen($value)-strlen("\\")) {
+                $value = substr($value, 0, strlen($value)-1)."\n";
+                $isWaitingOtherLine = true;
+            }
+            else {
+                $isWaitingOtherLine = false;
+            }
+            $result[$key] = $value;
+            unset($lineas[$i]);
+        }
+        return $result;
+    }
+    
+    /*
+     * ACA EMPIEZAN LAS REGLAS
+     */
+    
     /**
      * Regla requerido: analiza si el campo fue completado 
      * @param string $nombre

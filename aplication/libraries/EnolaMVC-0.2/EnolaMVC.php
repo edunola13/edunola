@@ -4,21 +4,26 @@
  * @author Enola
  */
 class EnolaMVC implements Controller{
+    public $uriapp_completa;
+    
+    public function __construct() {
+        $this->uriapp_completa= URIAPP;
+    }
     
     /**
-     *Devuelve la uriapp relativa desde la bse url en la que trabaja el MVC 
+     * Devuelve la uriapp relativa desde la base url en la que trabaja el MVC 
      */
     private function uriapp_mvc($base_mvc){
         //Armo la URI MVC entre la URIAPP y el BASE MVC        
         $base_mvc= trim($base_mvc, "/");
         $uriapp= "";
         if($base_mvc == ""){
-            $uriapp= URIAPP;
+            $uriapp= $this->uriapp_completa;
         }
         else{
             $base_mvc= explode("/", $base_mvc);
             $count_base_mvc= count($base_mvc);
-            $uriapp= explode("/", URIAPP);
+            $uriapp= explode("/", $this->uriapp_completa);
             $new_uri= "";
             $count_uriapp= count($uriapp);
             for($j= 1; $j < $count_uriapp; $j++){
@@ -34,7 +39,7 @@ class EnolaMVC implements Controller{
     
     /**
      * Devuelve la posicion actual en la queda el indice en el arreglo partes_uri_actual si mapea
-     * false en caso contrario 
+     * FALSE en caso contrario 
      */
     private function maps_controller($partes_url, $partes_uri_actual){
         $mapea= TRUE;
@@ -42,24 +47,29 @@ class EnolaMVC implements Controller{
         $pos_actual= 0;
         if(count($partes_uri_actual) >= count($partes_url)){
             $count_partes_uri_actual= count($partes_uri_actual);
+            //Recorro todas las partes de la uri actual
             for($i= 0; $i < $count_partes_uri_actual; $i++){            
                 $pos_actual= $i;
+                //Si partes url tiene partes se controla
                 if(count($partes_url) >= ($i + 1)){                
                     if($partes_url[$i] != $partes_uri_actual[$i]){
-						$mapea= FALSE;
-						break;
+			$mapea= FALSE;
+			break;
                     }
                 }
                 else{
+                    //Si no tiene mas partes coinciden
                     $mapea= TRUE;
                     break;
                 }
             }
         }
-		else{
-			$mapea= FALSE;
-		}
+	else{
+            //Si es mas grande la url del archivo de configuracion no coinciden
+            $mapea= FALSE;
+	}
         if($mapea){
+            //Devuelve la posicion actual de donde termina la coincidencia
             return $pos_actual;
         }
         else{
@@ -72,7 +82,7 @@ class EnolaMVC implements Controller{
         if(! isset($this->config)){
             $this->config= 'enolamvc.json';
         }
-        $json_configuration= file_get_contents(PATHAPP . CONFIGURATION . $this->config);
+        $json_configuration= file_get_contents(PATHAPP . CONFIGURATION . $this->config); //-------------------------
         $config= json_decode($json_configuration, true);
         //Base desde donde trabaja el MVC
         $base_mvc= $config['base_url'];
@@ -108,7 +118,7 @@ class EnolaMVC implements Controller{
                 }
                 //Consigue la clase del controlador, analiza que contenga el metodo y lo ejecuta pasandole los
                 //parametros correspondiente
-                $dir= PATHAPP . 'source/controllers/' . $controller['class'] . '.php';
+                $dir= PATHAPP . 'source/controllers/' . $controller['class'] . '.php';  //-------------------------------
                 require $dir;
                 $dir= explode("/", $controller['class']);
                 $class= $dir[count($dir) - 1];
