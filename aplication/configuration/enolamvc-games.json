@@ -2,8 +2,6 @@
     "base_url": "",
     
     "controllers": {
-        "index": {"class": "games/IndexGame", "url": "games"},
-        "desarrollos": {"class": "games/IndexGame", "url": "games/desarrollos"},
-        "tecnologias": {"class": "games/IndexGame", "url": "games/tecnologias"}
+        "index": {"class": "games/IndexGame", "url": "games"}
     }
 }

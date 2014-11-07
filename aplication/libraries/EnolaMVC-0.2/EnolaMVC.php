@@ -5,9 +5,11 @@
  */
 class EnolaMVC implements Controller{
     public $uriapp_completa;
+    public $folder_controllers;
     
     public function __construct() {
         $this->uriapp_completa= URIAPP;
+        $this->folder_controllers= PATHAPP . 'source/controllers';
     }
     
     /**
@@ -96,12 +98,18 @@ class EnolaMVC implements Controller{
             $url= $controller['url'];
             $url= trim($url, "/"); 
             $partes_url= explode("/", $url);
+            if($partes_url[0] == ''){
+                $partes_url= array();
+            }
 
             //Saco de la uri actual los parametros
             $uri_explode= explode("?", $uriapp);
             $uri_front= $uri_explode[0];
             //Separo la uri actual
-            $partes_uri_actual= explode("/", $uri_front);        
+            $partes_uri_actual= explode("/", $uri_front);    
+            if($partes_uri_actual[0] == ''){
+                $partes_uri_actual= array();
+            }
             //Llama al metodo para ver si mapea
             $mapea= $this->maps_controller($partes_url, $partes_uri_actual);
                         
@@ -110,7 +118,7 @@ class EnolaMVC implements Controller{
                 $pos_actual= $mapea;
                 //Sacar el nombre del mensaje
                 $mensaje= "";
-                if(count($partes_uri_actual) == count($partes_url)){
+                if(count($partes_uri_actual) == count($partes_url) || count($partes_uri_actual) == 0){
                     $mensaje= 'index';
                 }
                 else{
@@ -118,7 +126,8 @@ class EnolaMVC implements Controller{
                 }
                 //Consigue la clase del controlador, analiza que contenga el metodo y lo ejecuta pasandole los
                 //parametros correspondiente
-                $dir= PATHAPP . 'source/controllers/' . $controller['class'] . '.php';
+                $this->folder_controllers= trim($this->folder_controllers, "/");
+                $dir= $this->folder_controllers . '/' . $controller['class'] . '.php';
                 require $dir;
                 $dir= explode("/", $controller['class']);
                 $class= $dir[count($dir) - 1];
@@ -134,6 +143,9 @@ class EnolaMVC implements Controller{
                     $controlador->$mensaje();
                     $ejecutado= TRUE;
                     break;
+                }
+                else{
+                    unset($controlador);
                 }
                 //Si el mensaje no existe pasa al proximo controlador
             }
