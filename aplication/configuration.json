@@ -25,7 +25,7 @@
     },
 
     "filters": {
-        "authorization": {"class": "Authorization", "filtered": "/*"}
+        "authorization": {"class": "Authorization", "filtered": "/*"}        
     },
             
     "filters_after_processing": {
@@ -42,13 +42,13 @@
             
     "database": {
         "configuration": "database.json",
-        "conexion_load": "FALSE",
-        "active_record": "TRUE"
+        "conexion_load": "FALSE"
     },
                 
     "libraries": {
         "validacion": {"class": "Validation"},
         "paginador": {"class": "Paginator"},
-        "uiservices": {"class": "ServiciosUI-0.2/servicioui"}
+        "uiservices": {"class": "ServiciosUI-0.2/servicioui"},
+        "active-record": {"class": "php-activerecord/configAR-Enola"}
     }
 }

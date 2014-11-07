@@ -121,15 +121,16 @@
      */
     require PATHFRA . 'modules/database.php';
     $conf_bd= $config['database'];
-    if($conf_bd['active_record'] == 'TRUE' || $conf_bd['active_record'] == 'true'){
-        require PATHFRA . 'modules/php-activerecord/ActiveRecord.php';
-        conect_bd_ar();
+    if($conf_bd['conexion_load'] == 'TRUE' || $conf_bd['conexion_load'] == 'true'){
+        conect_bd();
     }
-    else{
-        if($conf_bd['conexion_load'] == 'TRUE' || $conf_bd['conexion_load'] == 'true'){
-            conect_bd();
-        }
-    }       
+    
+    /**
+     * Configuracion Inicial: Despues de la libreria y la BD de Enola PHP
+     * Antes de atender el requerimiento HTTP 
+     */
+    require PATHAPP . 'load_user_config.php';    
+    
     /*
      * Cargo el modulo HTTP 
      */
@@ -170,7 +171,7 @@
     /**
      *Ejecuto el controlador correspondiente 
      */
-    execute_controller($actual_controller);         
+    execute_controller($actual_controller);
     /**
      * Lee los filtros que se deben ejecutar despues del procesamiento de la variable config y delega trabajo a archivo filtros.php
      * En caso de que no haya filtros asignados no delega ningun trabajo

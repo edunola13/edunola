@@ -56,7 +56,8 @@ class Posts extends En_Controller{
     
     public function delete(){
         if($this->request->request_method == "POST"){
-            $usuario= $this->request->session->get('usuario_session');           
+            $usuario= $this->request->session->get('usuario_session');
+            $filtro= array('id_usuario' => $usuario->id);
             
             if($this->request->param_post('id') != NULL){
                 if($usuario->tipo_usuario == 'administrador'){
@@ -72,15 +73,15 @@ class Posts extends En_Controller{
                     $this->mensaje= "Hubo un error eliminando el post.";
                 }
                 $pagina= $this->request->param_post('page');
-                $cantidad= $this->servicioPost->cant_posts();
+                $cantidad= $this->servicioPost->cant_posts($filtro);
                 $paginador= new Paginator($this->cant_por_pagina, $cantidad, $pagina);
                 if($paginador->number_of_pages() >= $pagina && $pagina > 0){
-                    $this->posts= $this->servicioPost->posts(array(), $this->cant_por_pagina, $paginador->element_start_position());
+                    $this->posts= $this->servicioPost->posts($filtro, $this->cant_por_pagina, $paginador->element_start_position());
                     $this->load_view("admin/sections_post/tabla_posts", $paginador);
                 }
                 else{
                     $paginador= new Paginator($this->cant_por_pagina, $cantidad, 1);
-                    $this->posts= $this->servicioPost->posts(array(), $this->cant_por_pagina);
+                    $this->posts= $this->servicioPost->posts($filtro, $this->cant_por_pagina);
                     $this->load_view("admin/sections_post/tabla_posts", $paginador);
                 }
             }

@@ -48,39 +48,7 @@
         else{
             return $GLOBALS['gbd'];
         }
-    }    
-    /**
-     * Realiza la conexion a la BD para la implementacion del patron Active Record
-     */
-    function conect_bd_ar(){
-        //Leo archivo de configuracion de BD
-        if(defined('JSON_CONFIG_BD')){
-            $json_basededatos= file_get_contents(PATHAPP . CONFIGURATION . JSON_CONFIG_BD);
-        }
-        else {
-            general_error('Data Base', 'The configuration file of the Data Base is not especified', 'error_bd');
-        }
-        $config_bd= json_decode($json_basededatos, TRUE);
-        //Consulta la bd actual
-        $bd_actual= $config_bd['actual_db'];
-        unset($config_bd['actual_db']);        
-        try{
-            $cfg = ActiveRecord\Config::instance();            
-            $cfg->set_model_directory(PATHAPP . 'source/models');
-
-            $conexiones= array();
-            foreach ($config_bd as $key => $conexion) {
-                $conexiones["$key"]= ''.$conexion['driverbd'].'://'.$conexion['user'].':'.$conexion['pass'].'@'.$conexion['hostname'].'/'.$conexion['database'].'?charset='.$conexion['charset'].'';
-            }     
-            $cfg->set_connections($conexiones);
-            $cfg->set_default_connection($bd_actual);            
-            
-            ActiveRecord\DateTime::$DEFAULT_FORMAT = 'Y-m-d';
-        }
-        catch(Exception $e){
-            general_error('Conexion Error', $e->getMessage(), 'error_bd');
-        }        
-    }    
+    }        
     /**
      * Cierra la conexion a la BD
      */

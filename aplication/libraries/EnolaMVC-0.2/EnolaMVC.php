@@ -151,7 +151,7 @@ class EnolaMVC implements Controller{
             }
         }        
         if(! $ejecutado){
-            general_error('Error Enola MVC', 'Any controller map with the actual requirement');
+            throw new Exception('Error Enola MVC' . 'Any controller map with the actual requirement');
         }
     }
     
