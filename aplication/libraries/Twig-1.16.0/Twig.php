@@ -8,45 +8,41 @@ class Twig {
     private $loader; // Instance of Twig_Loader_Filesystem
     private $environment; // Instance of Twig_Environment
     
+    public $con_environment= "production";
+    //public $template_dir= "../../source/view";
+    public $template_dir= "source/view";
+    //public $cache_dir= "../../cache";
+    public $cache_dir= "cache";
+    public $uiservices= FALSE;
+    
     /**
      * Realiza toda la configuracion con Twig para que la libreria quede lista para ser usada por el usuario
      */
     public function __construct(){
         //Configuracion Twig
-        $json_twig= file_get_contents(PATHAPP . CONFIGURATION . 'twig.json');
-        $config_twig= json_decode($json_twig, TRUE);
+//        $json_twig= file_get_contents(PATHAPP . CONFIGURATION . 'twig.json');
+//        $config_twig= json_decode($json_twig, TRUE);
         
         require_once 'lib/Twig/Autoloader.php';
         // Twig's autoloader will take care of loading required classes
         Twig_Autoloader::register();
         
         //$config_twig esta definida en twig.php
-        $this->loader = new Twig_Loader_Filesystem(PATHAPP . $config_twig['template_dir']);
+        $this->loader = new Twig_Loader_Filesystem(PATHAPP . $this->template_dir);
+        //$this->loader = new Twig_Loader_Filesystem(realpath(dirname(__FILE__)) . '/' . $this->template_dir);
         
-        if($config_twig['ambiente'] == 'production'){
+        if($this->con_environment == 'production'){
             //Para produccion
-            $this->environment = new Twig_Environment($this->loader, array('cache' => PATHAPP . $config_twig['cache_dir']));
+            $this->environment = new Twig_Environment($this->loader, array('cache' => PATHAPP . $this->cache_dir));
+            //$this->environment = new Twig_Environment($this->loader, array('cache' => realpath(dirname(__FILE__)) . '/' . $this->cache_dir));
         }
         else{
             //Para Desarrollo, no usa cache
             $this->environment = new Twig_Environment($this->loader);
         }     
-        
-        //Cargamos funciones de la vista del framework a Twig
-        $this->environment->addFunction('base', new Twig_Function_Function('base'));
-        $this->environment->addFunction('base_locale', new Twig_Function_Function('base_locale'));
-        $this->environment->addFunction('locale', new Twig_Function_Function('locale'));
-        $this->environment->addFunction('locale_uri', new Twig_Function_Function('locale_uri'));
-        $this->environment->addFunction('replace', new Twig_Function_Function('replace'));
-        $this->environment->addFunction('replaces_space', new Twig_Function_Function('replaces_space'));
-        $this->environment->addFunction("component", new Twig_Function_Function('component'));
-        $this->environment->addFunction('i18n', new Twig_Function_Function('i18n'));
-        $this->environment->addFunction('i18n_change_locale', new Twig_Function_Function('i18n_change_locale'));
-        $this->environment->addFunction("i18n_value", new Twig_Function_Function('i18n_value'));
-        $this->environment->addFunction("i18n_locale", new Twig_Function_Function('i18n_locale'));
-        
+                
         //Servicios UI
-        if($config_twig['uiservices'] == 'TRUE' || $config_twig['uiservices'] == 'true'){
+        if($this->uiservices == TRUE){
             require_once 'servicioui.php';
             $this->environment->addFunction('ui_theme', new Twig_Function_Function('ui_theme'));
             $this->environment->addFunction('ui_javaScript', new Twig_Function_Function('ui_javaScript'));
@@ -144,6 +140,21 @@ class Twig {
             $this->environment->addFunction('ui_table_row', new Twig_Function_Function('ui_table_row'));
             $this->environment->addFunction('ui_end_table_row', new Twig_Function_Function('ui_end_table_row'));
         }
+        /*
+         * Solo para Enola PHP
+         * Cargamos funciones de la vista del framework a Twig
+         */
+        $this->environment->addFunction('base', new Twig_Function_Function('base'));
+        $this->environment->addFunction('base_locale', new Twig_Function_Function('base_locale'));
+        $this->environment->addFunction('locale', new Twig_Function_Function('locale'));
+        $this->environment->addFunction('locale_uri', new Twig_Function_Function('locale_uri'));
+        $this->environment->addFunction('replace', new Twig_Function_Function('replace'));
+        $this->environment->addFunction('replaces_space', new Twig_Function_Function('replaces_space'));
+        $this->environment->addFunction("component", new Twig_Function_Function('component'));
+        $this->environment->addFunction('i18n', new Twig_Function_Function('i18n'));
+        $this->environment->addFunction('i18n_change_locale', new Twig_Function_Function('i18n_change_locale'));
+        $this->environment->addFunction("i18n_value", new Twig_Function_Function('i18n_value'));
+        $this->environment->addFunction("i18n_locale", new Twig_Function_Function('i18n_locale'));
     }
     
     /**
