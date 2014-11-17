@@ -427,6 +427,71 @@ class Validation {
             $this->add_message($nombre, 'fecha', array('formato' => $formato));
             return FALSE;
         }        
-    }    
+    }
+	
+	/**
+     * Regla username: analiza si un string cumple con un mínimo de 6 caracteres y un máximo de 15, y que se usen sólo letras, números y guión bajo
+     * @param string $nombre
+     * @param string $dato
+     * @return boolean
+     */
+    private function userName ($nombre, $dato){
+    	$expresion = '/^[a-z\d_]{6,15}$/i';
+    	if(preg_match($expresion, $dato)){
+    		return TRUE;
+    	}
+    	else{
+    		$this->add_message($nombre, 'userName');
+    		return FALSE;
+    	}
+    }
+    /**
+     * Regla letras: analiza si un string contiene sólo letras y vocales con acento
+     * @param string $nombre
+     * @param string $dato
+     * @return boolean
+     */
+    private function letters ($nombre, $dato){
+    	$expresion = '/^[a-zA-Záéíóúñ\s]*$/';
+    	if(preg_match($expresion, $dato)){
+    		return TRUE;
+    	}
+    	else{
+    		$this->add_message($nombre, 'letters');
+    		return FALSE;
+    	}
+    }
+    /**
+     * Regla letras y nums: analiza si un string contiene sólo letras y/o números
+     * @param string $nombre
+     * @param string $dato
+     * @return boolean
+     */
+    private function lettersNumbers ($nombre, $dato){
+    	$expresion = '/^[a-zA-Z0-9]*$/';
+    	if(preg_match($expresion, $dato)){
+    		return TRUE;
+    	}
+    	else{
+    		$this->add_message($nombre, 'lettersNumbers');
+    		return FALSE;
+    	}
+    }
+    /**
+     * Regla telefono: analiza si un número de teléfono es correcto según la lista de wikipedia
+     * @param string $nombre
+     * @param string $dato
+     * @return boolean
+     */
+    private function telephone ($nombre, $dato){
+    	$expresion = '/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/';
+    	if(preg_match($expresion, $dato)){
+    		return TRUE;
+    	}
+    	else{
+    		$this->add_message($nombre, 'telephone');
+    		return FALSE;
+    	}
+    }
 }
 ?>
