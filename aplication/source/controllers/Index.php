@@ -11,7 +11,7 @@ class Index extends En_Controller{
         parent::__construct();
     }
     
-    public function doGet(){
+    public function doGet(){        
         $this->load_view("index");
     }
 }

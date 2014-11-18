@@ -3,7 +3,14 @@
  * @author Enola
  */
 abstract class Enola {
-    protected $type;     
+    protected $type;  
+    
+    public function __construct($type) {
+        $this->type= $type;
+        $this->load_libraries();
+    }
+
+
     /**
      * Agrega la instancia de una libreria a la instancia de una clase que extienda de Controlador
      * @param Clase de la Libreria $clase

@@ -36,4 +36,5 @@ Stack trace:
 #4 C:\xampp\htdocs\edunola\framework\modules\load_files.php(71): add_instance('Twig', Object(Index), 'twig')
 #5 C:\xampp\htdocs\edunola\framework\classes\Enola.php(28): load_librarie_in_class(Object(Index), 'controller')
 #6 C:\xampp\htdocs\edunola\
+----------\n[2014-11-18 20:48:19.000000 127.0.0.1  - Error Fatal - Parse - Strict ] Call to undefined function conect_db_ar()
 ----------\n

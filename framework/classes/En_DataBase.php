@@ -10,9 +10,8 @@ class En_DataBase extends Enola{
      * Constructor que conecta a la bd y carga las librerias que se indicaron en el archivo de configuracion
      */
     function __construct() {
+        parent::__construct('db');
         $this->bd= conectar_bd();
-        $this->type= 'db';
-        $this->load_libraries();
     }
 }
 ?>

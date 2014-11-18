@@ -9,8 +9,7 @@ class En_Filter extends Enola implements Filter{
      * Constructor que carga las librerias correspondientes
      */
     function __construct() {
-        $this->type= 'filter';
-        $this->load_libraries();
+        parent::__construct('filter');
         $this->request= En_HttpRequest::getInstance();
     }    
     /**

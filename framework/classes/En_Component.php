@@ -3,9 +3,8 @@
  * @author Enola
  */
 class En_Component extends Enola implements Component{    
-    public function __construct() {
-        $this->type= 'component';
-        $this->load_libraries();
+    public function __construct() {        
+        parent::__construct('component');
     }    
     /**
      * Funcion que es llamada para que el componente realice su trabajo

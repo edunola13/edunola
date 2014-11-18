@@ -11,8 +11,7 @@ class En_Controller extends Enola implements Controller{
      * Constructor que carga las librerias y carga los parametros limpiandolos
      */
     function __construct(){
-        $this->type= 'controller';
-        $this->load_libraries();
+        parent::__construct('controller');
         $this->request= En_HttpRequest::getInstance();
     }    
     /**
