@@ -148,7 +148,7 @@
     /*
      * Cargo el modulo HTTP 
      */
-    require PATHFRA . 'modules/http.php';    
+    require PATHFRA . 'modules/http.php';
     /*
      * Lee los controladores de la variable config. En caso de que no haya controladores avisa del error
      * Me quedo con el controlador que mapea
@@ -160,7 +160,7 @@
     }
     else{
         general_error('Controller Error', 'There isent define any controller');
-    }    
+    }
     //Creo el HTTP REQUEST correspondiente en base a la URL que mapeo
     create_request($actual_controller['url']);
     /*

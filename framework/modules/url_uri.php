@@ -256,7 +256,7 @@
         if(substr($url, 0, 1) == "/"){
             $url= substr($url, 1);
         }        
-        //Separa al filtro y la uri en partes para poder analizarlas
+        //Separa la url y la uri en partes para poder analizarlas
         $partes_url= explode("/", $url);
         $uri_explode= explode("?", URIAPP);
         $uri_front= $uri_explode[0];
