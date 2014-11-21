@@ -37,4 +37,19 @@ Stack trace:
 #5 C:\xampp\htdocs\edunola\framework\classes\Enola.php(28): load_librarie_in_class(Object(Index), 'controller')
 #6 C:\xampp\htdocs\edunola\
 ----------\n[2014-11-18 20:48:19.000000 127.0.0.1  - Error Fatal - Parse - Strict ] Call to undefined function conect_db_ar()
+----------\n[2014-11-21 17:50:12.000000 127.0.0.1  - Error Fatal - Parse - Strict ] syntax error, unexpected '}'
+----------\n[2014-11-21 18:03:46.000000 127.0.0.1  - Error Fatal - Parse - Strict ] Call to undefined function close_conexion_bd()
+----------\n[2014-11-21 19:08:43.000000 127.0.0.1  - Unknown ] Undefined variable: config
+----------\n[2014-11-21 19:08:43.000000 127.0.0.1  - Unknown ] Undefined variable: config
+----------\n[2014-11-21 19:08:44.000000 127.0.0.1  - Unknown ] Undefined variable: config
+----------\n[2014-11-21 19:08:44.000000 127.0.0.1  - Unknown ] Undefined variable: config
+----------\n[2014-11-21 19:14:02.000000 127.0.0.1  - Unknown ] Use of undefined constant URL - assumed 'URL'
+----------\n[2014-11-21 19:14:02.000000 127.0.0.1  - Unknown ] Use of undefined constant COMPONENT - assumed 'COMPONENT'
+----------\n[2014-11-21 19:14:02.000000 127.0.0.1  - Unknown ] Use of undefined constant URL - assumed 'URL'
+----------\n[2014-11-21 19:14:02.000000 127.0.0.1  - Unknown ] Use of undefined constant COMPONENT - assumed 'COMPONENT'
+----------\n[2014-11-21 19:14:30.000000 127.0.0.1  - Unknown ] Use of undefined constant URLCOMPONENT - assumed 'URLCOMPONENT'
+----------\n[2014-11-21 19:42:15.000000 127.0.0.1  - Unknown ] Use of undefined constant error_404 - assumed 'error_404'
+----------\n[2014-11-21 19:43:39.000000 127.0.0.1  - The component SliderBlog dont exists ] general_error
+----------\n[2014-11-21 19:43:40.000000 127.0.0.1  - The component SliderBlog dont exists ] general_error
+----------\n[2014-11-21 19:47:31.000000 127.0.0.1  - Error Fatal - Parse - Strict ] syntax error, unexpected ','
 ----------\n

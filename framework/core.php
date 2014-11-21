@@ -63,6 +63,8 @@
     if(isset($config['database']['configuration'])){
         define('JSON_CONFIG_BD', $config['database']['configuration']);
     }    
+    //URL_COMPONENT: URL con la cual se deben mapear los controladores
+    define('URL_COMPONENT', $config['url-components']);    
     // PATHFRA: direccion de la carpeta de la aplicacion - definida en index.php
     define('PATHFRA', $path_framework);    
     // PATHAPP: direccion de la carpeta de la aplicacion - definida en index.php
@@ -97,7 +99,9 @@
     //Carga de modulo de seguridad
     require PATHFRA . 'modules/security.php';
     //Carga Clase Base Enola
-    require PATHFRA . 'classes/Enola.php';    
+    require PATHFRA . 'classes/Enola.php';  
+    //Carga Clase En_DataBase
+    require PATHFRA . 'classes/En_DataBase.php';    
     /*
      * Analiza el paso de un error HTTP
      */
@@ -115,21 +119,31 @@
         //$libreria['class'] tiene la direccion completa desde LIBRARIE, no solo el nombre
         $dir= $libreria['class'];
         import_librarie($dir);
-    }    
-    /*
-     * Carga de archivo BD y realiza la conexion a la BD al inicio si es necesario
-     */
-    require PATHFRA . 'modules/database.php';
-    $conf_bd= $config['database'];
-    if($conf_bd['conexion_load'] == 'TRUE' || $conf_bd['conexion_load'] == 'true'){
-        conect_bd();
     }
     
     /**
-     * Configuracion Inicial: Despues de la libreria y la BD de Enola PHP
+     * Configuracion Inicial: Despues de la carga inicial y las libreria
      * Antes de atender el requerimiento HTTP 
      */
     require PATHAPP . 'load_user_config.php';    
+    
+    /*
+     * Almacena la definicion de componentes en una variable global y analiza si carga el modulo componente
+     */    
+    //Leo las componentes de la variable config
+    $componentes= $config['components'];
+    if(count($componentes) > 0){
+        //La guarda como global para que luego pueda ser utilizada
+        $GLOBALS['components']= $componentes;
+        //Cargo el modulo componente
+        require PATHFRA . 'modules/component.php';
+    }
+    //Analiza si se ejecuta un componente via URL
+    if(maps_components()){
+        execute_url_component();
+        //Termina la ejecucion
+        exit;
+    }
     
     /*
      * Cargo el modulo HTTP 
@@ -157,17 +171,6 @@
     if(count($filtros) > 0){
         execute_filters($filtros);
     }        
-    /*
-     * Almacena la definicion de componentes en una variable global y analiza si carga el modulo componente
-     */    
-    //Leo las componentes de la variable config
-    $componentes= $config['components'];
-    if(count($componentes) > 0){
-        //La guarda como global para que luego pueda ser utilizada
-        $GLOBALS['components']= $componentes;
-        //Cargo el modulo componente
-        require PATHFRA . 'modules/component.php';
-    }    
     /**
      *Ejecuto el controlador correspondiente 
      */
@@ -180,10 +183,7 @@
     if(count($filtros_despues) > 0){
         execute_filters($filtros_despues);
     }      
-    /**
-     * Desconecto conexion a BD
-     */
-    close_conexion_bd();        
+     
     /*
      * Si se esta calculando el tiempo, realiza el calculo y envia la respuesta
      */
