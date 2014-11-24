@@ -13,8 +13,7 @@ class En_HttpRequest {
     protected function __construct($uri){
         $this->get_params= clean_vars($_GET);
         $this->post_params= clean_vars($_POST);
-        //Aca le tengo que pasar la url del controlador que se mapeo
-        $this->uri_params= uri_params($uri);
+        //Aca le tengo que pasar la url del controlador que se mapeo        
         $this->session= new Session();
         $this->request_method= $_SERVER['REQUEST_METHOD'];
     }

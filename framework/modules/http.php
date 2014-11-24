@@ -100,6 +100,9 @@
             $dir= explode("/", $controlador_esp['class']);
             $class= $dir[count($dir) - 1];
             $controlador= new $class();
+            //Agrego los parametros URI
+            $controlador->uri_params= uri_params($controlador_esp['url']);
+            //Analizo si hay parametros en la configuracion
             if(isset($controlador_esp['params'])){
                 foreach ($controlador_esp['params'] as $key => $value) {
                     $controlador->$key= $value;

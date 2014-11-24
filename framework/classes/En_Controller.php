@@ -5,6 +5,7 @@
  */
 class En_Controller extends Enola implements Controller{
     protected $request;     
+    protected $view_folder;
     //errores
     public $errores;    
     /**
@@ -13,6 +14,7 @@ class En_Controller extends Enola implements Controller{
     function __construct(){
         parent::__construct('controller');
         $this->request= En_HttpRequest::getInstance();
+        $this->view_folder= PATHAPP . 'source/view/';
     }    
     /**
      * Funcion que es llamada cuando el metodo HTTP es GET
@@ -85,7 +87,7 @@ class En_Controller extends Enola implements Controller{
      * @param type $view 
      */
     protected function load_view($view, $params = NULL){
-        include PATHAPP . 'source/view/' . $view . '.php';
+        include $this->view_folder . $view . '.php';
     }    
 }
 ?>
