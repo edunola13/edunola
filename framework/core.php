@@ -46,8 +46,10 @@
         $performance= new Performance();
         $performance->start();
     }
+	
     //Seteo la codificacion de caracteres, casi siempre es o debe ser UTF-8
-    ini_set('default_charset', $config['charset']);    
+    ini_set('default_charset', $config['charset']);   
+
     // Define las constantes del sistema
     // BASE_URL: Base url de la aplicacion - definida por el usuario en el archivo de configuracion
     
