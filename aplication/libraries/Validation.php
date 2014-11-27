@@ -86,7 +86,7 @@ class Validation {
             }            
             return $formulario_valido;
         }
-    }    
+    }
     /**
      * Devuelve los mensajes de error para cada campo que no haya pasado la validacion.
      * Es un array asociativo con el nombre del campo pasado
@@ -173,7 +173,6 @@ class Validation {
         }
         return $result;
     }
-    
     /*
      * ACA EMPIEZAN LAS REGLAS
      */
@@ -248,6 +247,30 @@ class Validation {
         }
     }    
     /**
+     * Regla length_between: analiza que el string este entre un minimo y un maximo
+     * @param type $nombre
+     * @param type $dato
+     * @param type $param El minimo y el maximo separado por &
+     * @return boolean 
+     */
+    private function length_between($nombre, $dato, $param){
+        $params= explode('&', $param);
+        $min= $params[0];
+        $max= $params[1];
+        if(is_string($dato)){
+            if(strlen($dato) >= $min && strlen($dato) <= $max){
+                return TRUE;
+            }
+            else{
+                $this->add_message($nombre, 'length_between', array('min' => $min, 'max' => $max));
+            }
+        }
+        else{
+            $this->add_message($nombre, 'es_string');
+            return FALSE;
+        }
+    }
+    /**
      * Regla es_integer: analiza que el campo sea un integer
      * @param string $nombre
      * @param DATO $dato
@@ -270,6 +293,9 @@ class Validation {
      * @return boolean
      */
     private function max($nombre, $dato, $max){
+        if($dato == ''){
+            return TRUE;
+        }
         if(is_numeric($dato)){
             $dato= (float)$dato;
             if($dato > $max){
@@ -309,6 +335,30 @@ class Validation {
         }
     }
     /**
+     * Regla num_between: analiza que el numero este entre un minimo y un maximo
+     * @param type $nombre
+     * @param type $dato
+     * @param type $param El minimo y el maximo separado por &
+     * @return boolean 
+     */
+    private function num_between($nombre, $dato, $param){
+        $params= explode('&', $param);
+        $min= $params[0];
+        $max= $params[1];
+        if(is_numeric($dato)){
+            if($dato >= $min && $dato <= $max){
+                return TRUE;
+            }
+            else{
+                $this->add_message($nombre, 'num_between', array('min' => $min, 'max' => $max));
+            }
+        }
+        else{
+            $this->add_message($nombre, 'es_integer');
+            return FALSE;
+        }
+    }
+    /**
      * Regla igual: analiza si 2 datos son iguales
      * @param string $nombre
      * @param DATO $dato
@@ -323,7 +373,71 @@ class Validation {
             $this->add_message($nombre, 'igual', array('acomparar' => $acomparar));
             return FALSE;
         }
-    }    
+    } 
+    /**
+     * Regla username: analiza si un string cumple con un mÃ­nimo de 6 caracteres y un mÃ¡ximo de 20, y que se usen sÃ³lo letras, nÃºmeros y guiÃ³n bajo
+     * @param string $nombre
+     * @param string $dato
+     * @return boolean
+     */
+    private function user_name ($nombre, $dato){
+    	$expresion = '/^[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±\d_]{6,20}$/i';
+    	if(preg_match($expresion, $dato)){
+            return TRUE;
+    	}
+    	else{
+            $this->add_message($nombre, 'user_name');
+            return FALSE;
+    	}
+    }
+    /**
+     * Regla letras: analiza si un string contiene sÃ³lo letras y vocales con acento
+     * @param string $nombre
+     * @param string $dato
+     * @return boolean
+     */
+    private function letters ($nombre, $dato){
+    	$expresion = '/^[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±\s]*$/';
+    	if(preg_match($expresion, $dato)){
+            return TRUE;
+    	}
+    	else{
+            $this->add_message($nombre, 'letters');
+            return FALSE;
+    	}
+    }
+    /**
+     * Regla letras y nums: analiza si un string contiene sÃ³lo letras y/o nÃºmeros
+     * @param string $nombre
+     * @param string $dato
+     * @return boolean
+     */
+    private function letters_numbers ($nombre, $dato){
+    	$expresion = '/^[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±0-9]*$/';
+    	if(preg_match($expresion, $dato)){
+            return TRUE;
+    	}
+    	else{
+            $this->add_message($nombre, 'letters_numbers');
+            return FALSE;
+    	}
+    }
+    /**
+     * Regla telefono: analiza si un nÃºmero de telÃ©fono es correcto
+     * @param string $nombre
+     * @param string $dato
+     * @return boolean
+     */
+    private function telephone ($nombre, $dato){
+    	$expresion = '/^\+?\d{0,3}?[- .]?\(?(?:\d{0,3})\)?[- .]?\d{2,4}?[- .]?\d\d\d\d$/';
+    	if(preg_match($expresion, $dato)){
+            return TRUE;
+    	}
+    	else{
+            $this->add_message($nombre, 'telephone');
+            return FALSE;
+    	}
+    }
     /**
      * Regla email: analiza si el string cumple el formato de mail
      * @param string $nombre
@@ -428,69 +542,46 @@ class Validation {
             return FALSE;
         }        
     }
-	
-	/**
-     * Regla username: analiza si un string cumple con un mínimo de 6 caracteres y un máximo de 15, y que se usen sólo letras, números y guión bajo
-     * @param string $nombre
-     * @param string $dato
-     * @return boolean
+    /**
+     * Ve si el dato fecha es mayor que la fecha pasada
+     * @param type $nombre
+     * @param type $dato
+     * @param type $param tiene el formato y la fecha separada por &
+     * @return boolean 
      */
-    private function userName ($nombre, $dato){
-    	$expresion = '/^[a-z\d_]{6,15}$/i';
-    	if(preg_match($expresion, $dato)){
-    		return TRUE;
+    private function date_is_greater($nombre, $dato, $param){
+        $params= explode('&', $param);
+        $formato= $params[0];
+        $fecha= $params[1];
+    	$date1  = DateTime::createFromFormat($formato, "$dato");
+    	$date2  = DateTime::createFromFormat($formato, "$fecha");    	 
+    	if(($date1 > $date2)){
+            return TRUE;
     	}
     	else{
-    		$this->add_message($nombre, 'userName');
-    		return FALSE;
+            $this->add_message($nombre, 'date_is_greater', array('fecha' => $fecha));
+            return FALSE;
     	}
     }
     /**
-     * Regla letras: analiza si un string contiene sólo letras y vocales con acento
-     * @param string $nombre
-     * @param string $dato
-     * @return boolean
+     * Ve si el dato fecha es menor que la fecha pasada
+     * @param type $nombre
+     * @param type $dato
+     * @param type $param tiene el formato y la fecha separada por &
+     * @return boolean 
      */
-    private function letters ($nombre, $dato){
-    	$expresion = '/^[a-zA-Záéíóúñ\s]*$/';
-    	if(preg_match($expresion, $dato)){
-    		return TRUE;
+    private function date_is_lover($nombre, $dato, $param){
+        $params= explode('&', $param);
+        $formato= $params[0];
+        $fecha= $params[1];
+    	$date1  = DateTime::createFromFormat($formato, "$dato");
+    	$date2  = DateTime::createFromFormat($formato, "$fecha");    	 
+    	if(($date1 < $date2)){
+            return TRUE;
     	}
     	else{
-    		$this->add_message($nombre, 'letters');
-    		return FALSE;
-    	}
-    }
-    /**
-     * Regla letras y nums: analiza si un string contiene sólo letras y/o números
-     * @param string $nombre
-     * @param string $dato
-     * @return boolean
-     */
-    private function lettersNumbers ($nombre, $dato){
-    	$expresion = '/^[a-zA-Z0-9]*$/';
-    	if(preg_match($expresion, $dato)){
-    		return TRUE;
-    	}
-    	else{
-    		$this->add_message($nombre, 'lettersNumbers');
-    		return FALSE;
-    	}
-    }
-    /**
-     * Regla telefono: analiza si un número de teléfono es correcto según la lista de wikipedia
-     * @param string $nombre
-     * @param string $dato
-     * @return boolean
-     */
-    private function telephone ($nombre, $dato){
-    	$expresion = '/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/';
-    	if(preg_match($expresion, $dato)){
-    		return TRUE;
-    	}
-    	else{
-    		$this->add_message($nombre, 'telephone');
-    		return FALSE;
+            $this->add_message($nombre, 'date_is_lover', array('fecha' => $fecha));
+            return FALSE;
     	}
     }
 }

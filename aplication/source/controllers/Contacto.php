@@ -62,7 +62,7 @@ class Contacto extends En_Controller{
     public function validate() {
         //Valido los campos del form
         $validacion= new Validation();
-        $validacion->add_rule('nombre', $this->email['nombre'], 'required');
+        $validacion->add_rule('nombre', $this->email['nombre'], 'length_between[2&6]');
         $validacion->add_rule('email', $this->email['email'], 'email');
         $validacion->add_rule('asunto', $this->email['asunto'], 'required');
         $validacion->add_rule('mensaje', $this->email['mensaje'], 'required');

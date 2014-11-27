@@ -55,4 +55,5 @@ Stack trace:
 ----------\n[2014-11-24 01:57:57.000000 ::1  - Unknown ] Undefined variable: uri
 ----------\n[2014-11-24 02:00:03.000000 ::1  - Unknown ] Undefined property: UiServices::$hola
 ----------\n[2014-11-24 02:01:17.000000 ::1  - Unknown ] Undefined property: UiServices::$hola
+----------\n[2014-11-27 20:22:31.000000 127.0.0.1  - Unknown ] Undefined variable: params
 ----------\n
