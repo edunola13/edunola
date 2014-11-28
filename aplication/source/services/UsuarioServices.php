@@ -8,19 +8,26 @@
  * Importar
  */
 import_aplication_file('source/services/PostServices');
+import_aplication_file('source/models/UsuarioDao');
 class UsuarioServices {
+    
+//    public function iniciarSesion($usuario, $clave){
+//        $clave= encode_md5_y_sha_1($clave);
+//        $select= array('select' => 'id, usuario, nombre, email, fecha_nacimiento, habilitado, tipo_usuario');
+//        $options= array('conditions' => array('usuario = ? and clave = ? and habilitado = ? and fecha_baja IS NULL', $usuario, $clave, TRUE));
+//        $usuarios= Usuario::all($select, $options);
+//        if(isset($usuarios[0])){
+//            return $usuarios[0];
+//        }
+//        else{
+//            return NULL;
+//        }
+//    }
     
     public function iniciarSesion($usuario, $clave){
         $clave= encode_md5_y_sha_1($clave);
-        $select= array('select' => 'id, usuario, nombre, email, fecha_nacimiento, habilitado, tipo_usuario');
-        $options= array('conditions' => array('usuario = ? and clave = ? and habilitado = ? and fecha_baja IS NULL', $usuario, $clave, TRUE));
-        $usuarios= Usuario::all($select, $options);
-        if(isset($usuarios[0])){
-            return $usuarios[0];
-        }
-        else{
-            return NULL;
-        }
+        $dao= new UsuarioDao();
+        return $dao->usuario_activo($usuario, $clave);
     }
     
     public function usuarios($id){
