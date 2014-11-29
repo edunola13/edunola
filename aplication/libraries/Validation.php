@@ -538,7 +538,7 @@ class Validation {
             return TRUE;
         }
         else{
-            $this->add_message($nombre, 'fecha', array('formato' => $formato));
+            $this->add_message($nombre, 'date', array('formato' => $formato));
             return FALSE;
         }        
     }

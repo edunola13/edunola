@@ -40,6 +40,7 @@ class En_DataBase extends Enola{
             //Abro la conexion
                 
             $gbd = new PDO($dsn, $cbd['user'], $cbd['pass'], array(PDO::ATTR_PERSISTENT => $cbd['persistente'], PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES '.$cbd['charset']));
+            $gbd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             //Guarda la conexion en un variable global
             $GLOBALS['gbd']= $gbd;
             //Retorno la conexion 

@@ -120,9 +120,6 @@ class Usuarios extends En_Controller{
         if($this->request->param_post('id') != NULL){
             $this->usuario= $this->servicio->usuario($this->request->param_post('id'));
         }
-        else{
-            $this->usuario= new Usuario();
-        }
         $this->usuario->usuario= $this->request->param_post('usuario');
         if($this->request->param_post('id') == NULL){
             $this->usuario->clave= $this->request->param_post('clave');

@@ -166,16 +166,16 @@ class PostServices {
         return $post;
     }
     
-    public function eliminar_posts($id_usuario){
-        $cond= array('conditions' => array('autor = ?', $id_usuario));
-        $posts= Post::all($cond); 
-        foreach ($posts as $post) {
-            if($post->fecha_baja == NULL){
-                $post->fecha_baja= date("Y-m-d");
-            }
-            $post->save();
-        }
-    }
+//    public function eliminar_posts($id_usuario){
+//        $cond= array('conditions' => array('autor = ?', $id_usuario));
+//        $posts= Post::all($cond); 
+//        foreach ($posts as $post) {
+//            if($post->fecha_baja == NULL){
+//                $post->fecha_baja= date("Y-m-d");
+//            }
+//            $post->save();
+//        }
+//    }
     
     protected function eliminar_relaciones($post_id){
         PostRelacion::table()->delete(array('post_id' => array($post_id)));

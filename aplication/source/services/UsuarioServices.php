@@ -10,75 +10,59 @@
 import_aplication_file('source/services/PostServices');
 import_aplication_file('source/models/UsuarioDao');
 class UsuarioServices {
-    
-//    public function iniciarSesion($usuario, $clave){
-//        $clave= encode_md5_y_sha_1($clave);
-//        $select= array('select' => 'id, usuario, nombre, email, fecha_nacimiento, habilitado, tipo_usuario');
-//        $options= array('conditions' => array('usuario = ? and clave = ? and habilitado = ? and fecha_baja IS NULL', $usuario, $clave, TRUE));
-//        $usuarios= Usuario::all($select, $options);
-//        if(isset($usuarios[0])){
-//            return $usuarios[0];
-//        }
-//        else{
-//            return NULL;
-//        }
-//    }
+    protected $dao;
+    public function __construct() {
+        $this->dao= new UsuarioDao();
+    }
     
     public function iniciarSesion($usuario, $clave){
-        $clave= encode_md5_y_sha_1($clave);
-        $dao= new UsuarioDao();
-        return $dao->usuario_activo($usuario, $clave);
+        $clave= encode_md5_y_sha_1($clave);        
+        return $this->dao->usuario_activo($usuario, $clave);
     }
     
     public function usuarios($id){
-        $options= array('conditions' => array('usuario != ? and id != ? and fecha_baja IS NULL', 'eduardo_n', $id));
-        return Usuario::all($options);
+        return $this->dao->usuarios($id);
     }
     
     public function usuario($id){
-        return Usuario::find($id);
+        return $this->dao->usuario($id);
     }
     
     public function agregar($usuario){
         $usuario->fecha_alta= date("Y-m-d");
         $usuario->clave= encode_md5_y_sha_1($usuario->clave);
-        $usuario->save();
+        $this->dao->agregar($usuario);
         return $usuario;
     }
     
     public function modificar($usuario, $modClave = FALSE){
+        unset($usuario->fecha_alta);
+        unset($usuario->fecha_baja);
         if($modClave){
             $usuario->clave= encode_md5_y_sha_1($usuario->clave);
         }
-        $usuario->save();
+        $this->dao->modificar($usuario);
         return $usuario;
     }
-    
+
     public function eliminar($id){
-        $usuario= Usuario::find($id);
+        $usuario= $this->usuario($id);
         if($usuario->fecha_baja == NULL){
             $usuario->fecha_baja= date("Y-m-d");
-            $servicio= new PostServices();
-            $servicio->eliminar_posts($usuario->id);
         }
-        $usuario->save();
+        $this->dao->eliminar($usuario);
         return $usuario;
     }
-    
-    public function existe_usuario($usuario, $excepto_id = NULL){
-        $options= array();
-        if($excepto_id != NULL){
-            $options= array('conditions' => array('usuario = ? and id != ?', $usuario, $excepto_id));
+
+    public function existe_usuario($usuario, $ex_id = NULL){
+        if($ex_id == NULL){
+            $ex_id= 0;
         }
-        else{
-            $options= array('conditions' => array('usuario = ?', $usuario));
-        }
-        $usuarios= Usuario::all($options);
-        if(count($usuarios) > 0){
-            return TRUE;
-        }
-        else{
+        if($this->dao->cant_usuarios($usuario, $ex_id) == 0){
             return FALSE;
+        }
+        else{
+            return TRUE;
         }
     }
 }
