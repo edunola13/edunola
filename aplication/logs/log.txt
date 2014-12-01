@@ -106,4 +106,29 @@ Stack trace:
 ----------\n[2014-11-29 19:08:07.000000 ::1  - Level Error: 2048 ] Creating default object from empty value
 ----------\n[2014-11-29 19:08:12.000000 ::1  - Level Error: 2048 ] Creating default object from empty value
 ----------\n[2014-11-29 19:09:06.000000 ::1  - Level Error: 2048 ] Creating default object from empty value
+----------\n[2014-11-29 19:48:18.000000 ::1  - Error Fatal - Parse - Strict ] Class 'Usuario' not found
+----------\n[2014-11-29 19:49:11.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-11-29 19:49:11.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-11-29 19:49:11.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-11-29 19:49:11.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-11-29 19:49:11.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-11-29 19:49:12.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-11-29 19:50:56.000000 ::1  - Unknown ] Undefined property: stdClass::$usuario
+----------\n[2014-11-29 19:50:56.000000 ::1  - Unknown ] Undefined property: stdClass::$nombre
+----------\n[2014-11-29 19:50:56.000000 ::1  - Unknown ] Undefined property: stdClass::$email
+----------\n[2014-11-29 19:50:56.000000 ::1  - Unknown ] Undefined property: stdClass::$fecha_nacimiento
+----------\n[2014-11-29 19:50:56.000000 ::1  - Unknown ] Undefined property: stdClass::$habilitado
+----------\n[2014-11-29 19:50:56.000000 ::1  - Unknown ] Undefined property: stdClass::$tipo_usuario
+----------\n[2014-11-29 19:53:07.000000 ::1  - Unknown ] Undefined property: User::$usuario
+----------\n[2014-11-29 19:53:07.000000 ::1  - Unknown ] Undefined property: User::$nombre
+----------\n[2014-11-29 19:53:07.000000 ::1  - Unknown ] Undefined property: User::$email
+----------\n[2014-11-29 19:53:07.000000 ::1  - Unknown ] Undefined property: User::$fecha_nacimiento
+----------\n[2014-11-29 19:53:07.000000 ::1  - Unknown ] Undefined property: User::$habilitado
+----------\n[2014-11-29 19:53:07.000000 ::1  - Unknown ] Undefined property: User::$tipo_usuario
+----------\n[2014-11-29 19:54:26.000000 ::1  - Unknown ] Undefined property: User::$usuario
+----------\n[2014-11-29 19:54:26.000000 ::1  - Unknown ] Undefined property: User::$nombre
+----------\n[2014-11-29 19:54:26.000000 ::1  - Unknown ] Undefined property: User::$email
+----------\n[2014-11-29 19:54:26.000000 ::1  - Unknown ] Undefined property: User::$fecha_nacimiento
+----------\n[2014-11-29 19:54:26.000000 ::1  - Unknown ] Undefined property: User::$habilitado
+----------\n[2014-11-29 19:54:26.000000 ::1  - Unknown ] Undefined property: User::$tipo_usuario
 ----------\n
