@@ -60,7 +60,14 @@ class En_Controller extends Enola implements Controller{
     /**
      * Funcion lee los campos de un formulario
      */
-    protected function read_fields(){        
+    protected function read_fields($var_name, $class){
+        $object= new $class();
+        foreach ($this->request->post_params as $key => $value) {
+            if(property_exists($object, $key)){
+                $object->$key= $value;
+            }
+        }
+        $this->$var_name= $object;
     }    
     /**
      * Funcion que valido los campos de un formulario

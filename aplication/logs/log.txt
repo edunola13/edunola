@@ -186,4 +186,45 @@ Stack trace:
 ----------\n[2014-12-03 00:49:44.000000 ::1  - SQLSTATE[HY000]: General error: 1364 Field 'usuario' doesn't have a default value ] general_error
 ----------\n[2014-12-03 00:50:19.000000 ::1  - SQLSTATE[HY000]: General error: 1364 Field 'usuario' doesn't have a default value ] general_error
 ----------\n[2014-12-03 00:50:19.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:103)
+----------\n[2014-12-03 20:49:55.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:49:55.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:51:20.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:51:20.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:53:24.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:53:24.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:53:32.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:53:32.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:54:33.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:54:33.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:55:51.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:55:51.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:56:29.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:56:29.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:56:29.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:56:29.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:56:49.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:56:49.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:57:59.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:57:59.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:58:04.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:58:04.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:58:41.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:58:41.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:58:41.000000 127.0.0.1  - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'habilitado' cannot be null ] general_error
+----------\n[2014-12-03 20:59:25.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:59:25.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:59:25.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:59:25.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:59:39.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:59:39.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 20:59:39.000000 127.0.0.1  - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'habilitado' cannot be null ] general_error
+----------\n[2014-12-03 21:00:49.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 21:00:49.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 21:00:49.000000 127.0.0.1  - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'habilitado' cannot be null ] general_error
+----------\n[2014-12-03 21:01:03.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 21:01:03.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 21:01:03.000000 127.0.0.1  - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'habilitado' cannot be null ] general_error
+----------\n[2014-12-03 21:01:30.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 21:01:30.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-03 21:01:30.000000 127.0.0.1  - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'habilitado' cannot be null ] general_error
 ----------\n

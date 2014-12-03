@@ -21,7 +21,7 @@
                     <?php Tags::boolean_checkbox("Habilitado", "habilitado", $this->usuario->habilitado); ?>
                     <?php if(isset($this->errores['tipo'])){
                     Tags::alert_message("warning", $this->errores["tipo"]); }?>
-                    <?php Tags::select("Tipo Usuario", "tipo", $this->usuario->tipo_usuario); ?>
+                    <?php Tags::select("Tipo Usuario", "tipo_usuario", $this->usuario->tipo_usuario); ?>
                         <?php Tags::select_option("Administrador", "administrador"); ?>
                         <?php Tags::select_option("Blogger", "blogger"); ?>
                     <?php Tags::end_select(); ?>
