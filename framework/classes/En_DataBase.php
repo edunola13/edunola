@@ -14,8 +14,8 @@ class En_DataBase extends Enola{
 	if($conect){
             $this->conexion= $this->get_conexion();
 	}
-      }
-	
+    }
+    
     private function get_conexion(){
 	//Leo archivo de configuracion de BD
         if(defined('JSON_CONFIG_BD')){
@@ -53,6 +53,110 @@ class En_DataBase extends Enola{
     
     private function close_conexion(){
         $this->conexion= NULL;
+    }
+    
+    protected function results_in_objects($PdoStatement, $class){
+        $result= array();
+        while($reg= $PdoStatement->fetchObject()){
+            $instanciaClase= new $class();
+            foreach ($reg as $key => $value) {
+                $instanciaClase->$key= $value;
+            }
+            $result[]= $instanciaClase;
+        }
+        return $result;
+    }
+    
+    protected function first_result_in_object($PdoStatement, $class){
+        $tupla= $PdoStatement->fetchObject();
+        if($tupla == NULL){
+            return NULL;
+        }
+        else{
+            $instanciaClase= new $class();
+            foreach ($tupla as $key => $value) {
+                $instanciaClase->$key= $value;
+            }
+            return $instanciaClase;
+        }
+    }
+   
+    protected function add_object($table, $object, $excepts_vars = array()){
+        $vars= get_object_vars($object);
+        $vars= $this->delete_vars($vars, $excepts_vars);
+        $sql= 'INSERT INTO ' . $table . ' (';
+        foreach ($vars as $key => $value) {
+            $sql .= $key . ',';
+        }
+        $sql = trim($sql, ',');
+        $sql .= ') values(';
+        foreach ($vars as $key => $value) {
+            $sql .= ':' . $key . ',';
+        }
+        $sql = trim($sql, ',');
+        $sql .= ')';
+        $consulta= $this->conexion->prepare($sql);
+        foreach ($vars as $key => $value) {
+            if($value === FALSE){
+                $consulta->bindValue($key, 0);
+            }
+            else{
+                $consulta->bindValue($key, $value);
+            }
+        }
+        $consulta->execute();
+        $error= $consulta->errorInfo();
+        if($error[0] == ''){
+            return FALSE;
+        }
+        else{
+            return TRUE;
+        }
+    }
+    
+    protected function update_object($table, $object, $where = '', $where_values = array(), $excepts_vars = array()){
+        $vars= get_object_vars($object);
+        $vars= $this->delete_vars($vars, $excepts_vars);
+        $sql= 'UPDATE ' . $table . ' SET ';
+        foreach ($vars as $key => $value) {
+            $sql .= $key . '=:' . $key . ',';
+        }
+        $sql = trim($sql, ',');
+        if($where != ''){
+            $sql .= ' WHERE ' . $where;
+        }
+        $consulta= $this->conexion->prepare($sql);
+        foreach ($vars as $key => $value){
+            if($value === FALSE){
+                $consulta->bindValue($key, 0);
+            }
+            else{
+                $consulta->bindValue($key, $value);
+            }
+        }
+        foreach ($where_values as $key => $value){
+            if($value === FALSE){
+                $consulta->bindValue($key, 0);
+            }
+            else{
+                $consulta->bindValue($key, $value);
+            }
+        }
+        $consulta->execute();
+        $error= $consulta->errorInfo();
+        if($error[0] == ''){
+            return FALSE;
+        }
+        else{
+            return TRUE;
+        }
+    }
+    
+     private function delete_vars($vars, $excepts_vars){
+        foreach ($excepts_vars as $key => $value) {
+            unset($vars[$value]);
+        }
+        return $vars;
     }
 }
 ?>

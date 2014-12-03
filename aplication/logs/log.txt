@@ -131,4 +131,59 @@ Stack trace:
 ----------\n[2014-11-29 19:54:26.000000 ::1  - Unknown ] Undefined property: User::$fecha_nacimiento
 ----------\n[2014-11-29 19:54:26.000000 ::1  - Unknown ] Undefined property: User::$habilitado
 ----------\n[2014-11-29 19:54:26.000000 ::1  - Unknown ] Undefined property: User::$tipo_usuario
+----------\n[2014-12-02 21:56:42.000000 ::1  - Unknown ] require_once(C:\xampp\htdocs\edunola\aplication/source/models/User.php.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory
+----------\n[2014-12-02 21:57:03.000000 ::1  - Unknown ] Invalid argument supplied for foreach()
+----------\n[2014-12-02 21:58:12.000000 ::1  - Unknown ] Invalid argument supplied for foreach()
+----------\n[2014-12-02 22:10:48.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-02 22:10:48.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-02 22:10:48.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-02 22:10:48.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-02 22:10:48.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-02 22:10:48.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-02 22:10:48.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-02 22:11:38.000000 ::1  - Level Error: 2048 ] Creating default object from empty value
+----------\n[2014-12-02 22:12:14.000000 ::1  - Level Error: 2048 ] Creating default object from empty value
+----------\n[2014-12-02 22:12:14.000000 ::1  - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'appedunola.usuariosd' doesn't exist ] general_error
+----------\n[2014-12-02 22:12:14.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\aplication\source\models\UsuarioDao.php:43)
+----------\n[2014-12-02 22:31:07.000000 ::1  - SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens ] general_error
+----------\n[2014-12-02 22:31:33.000000 ::1  - SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens ] general_error
+----------\n[2014-12-02 22:31:41.000000 ::1  - SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens ] general_error
+----------\n[2014-12-02 22:34:51.000000 ::1  - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'usuario' cannot be null ] general_error
+----------\n[2014-12-02 22:34:51.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:102)
+----------\n[2014-12-02 22:36:01.000000 ::1  - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'usuario' cannot be null ] general_error
+----------\n[2014-12-02 22:36:01.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:100)
+----------\n[2014-12-02 22:38:16.000000 ::1  - SQLSTATE[01000]: Warning: 1264 Out of range value for column 'habilitado' at row 1 ] general_error
+----------\n[2014-12-02 22:38:16.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:102)
+----------\n[2014-12-02 22:38:54.000000 ::1  - SQLSTATE[01000]: Warning: 1264 Out of range value for column 'habilitado' at row 1 ] general_error
+----------\n[2014-12-02 22:38:54.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:101)
+----------\n[2014-12-02 22:39:51.000000 ::1  - SQLSTATE[01000]: Warning: 1264 Out of range value for column 'habilitado' at row 1 ] general_error
+----------\n[2014-12-02 22:39:51.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:101)
+----------\n[2014-12-02 22:41:25.000000 ::1  - SQLSTATE[01000]: Warning: 1264 Out of range value for column 'habilitado' at row 1 ] general_error
+----------\n[2014-12-02 22:41:25.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:101)
+----------\n[2014-12-02 22:42:22.000000 ::1  - Error Fatal - Parse - Strict ] Cannot pass parameter 2 by reference
+----------\n[2014-12-02 22:45:30.000000 ::1  - SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'habilitado' at row 1 ] general_error
+----------\n[2014-12-02 22:45:30.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:101)
+----------\n[2014-12-02 22:49:01.000000 ::1  - SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'id' at row 1 ] general_error
+----------\n[2014-12-02 22:49:01.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:106)
+----------\n[2014-12-02 22:49:48.000000 ::1  - SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'id' at row 1 ] general_error
+----------\n[2014-12-02 22:49:48.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:101)
+----------\n[2014-12-02 22:49:59.000000 ::1  - SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'habilitado' at row 1 ] general_error
+----------\n[2014-12-02 22:49:59.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:101)
+----------\n[2014-12-02 22:54:10.000000 ::1  - SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id,usuario,clave,nombre,email,fecha_nacimiento,habilitado,tipo_usuario,fecha_alt' at line 1 ] general_error
+----------\n[2014-12-02 22:54:10.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:107)
+----------\n[2014-12-02 22:54:37.000000 ::1  - SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id,usuario,clave,nombre,email,fecha_nacimiento,habilitado,tipo_usuario,fecha_alt' at line 1 ] general_error
+----------\n[2014-12-02 22:56:37.000000 ::1  - SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id,usuario,clave,nombre,email,fecha_nacimiento,habilitado,tipo_usuario,fecha_alt' at line 1 ] general_error
+----------\n[2014-12-02 22:57:25.000000 ::1  - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'fecha_baja' in 'where clause' ] general_error
+----------\n[2014-12-03 00:07:17.000000 ::1  - SQLSTATE[HY093]: Invalid parameter number: Columns/Parameters are 1-based ] general_error
+----------\n[2014-12-03 00:08:17.000000 ::1  - SQLSTATE[HY093]: Invalid parameter number: Columns/Parameters are 1-based ] general_error
+----------\n[2014-12-03 00:08:17.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:127)
+----------\n[2014-12-03 00:09:29.000000 ::1  - SQLSTATE[HY093]: Invalid parameter number: Columns/Parameters are 1-based ] general_error
+----------\n[2014-12-03 00:09:29.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:119)
+----------\n[2014-12-03 00:13:11.000000 ::1  - SQLSTATE[HY093]: Invalid parameter number: Columns/Parameters are 1-based ] general_error
+----------\n[2014-12-03 00:13:11.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:119)
+----------\n[2014-12-03 00:23:59.000000 ::1  - Unknown ] get_class_vars() expects parameter 1 to be string, object given
+----------\n[2014-12-03 00:23:59.000000 ::1  - Unknown ] Invalid argument supplied for foreach()
+----------\n[2014-12-03 00:49:44.000000 ::1  - SQLSTATE[HY000]: General error: 1364 Field 'usuario' doesn't have a default value ] general_error
+----------\n[2014-12-03 00:50:19.000000 ::1  - SQLSTATE[HY000]: General error: 1364 Field 'usuario' doesn't have a default value ] general_error
+----------\n[2014-12-03 00:50:19.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\classes\En_DataBase.php:103)
 ----------\n

@@ -8,7 +8,7 @@
  * Importar 
  */
 import_aplication_file("source/services/UsuarioServices");
-
+import_aplication_file('source/models/User');
 class Usuarios extends En_Controller{
     protected $usuarios;
     protected $usuario;
@@ -120,6 +120,9 @@ class Usuarios extends En_Controller{
         if($this->request->param_post('id') != NULL){
             $this->usuario= $this->servicio->usuario($this->request->param_post('id'));
         }
+        else{
+            $this->usuario= new User();
+        }
         $this->usuario->usuario= $this->request->param_post('usuario');
         if($this->request->param_post('id') == NULL){
             $this->usuario->clave= $this->request->param_post('clave');
@@ -134,7 +137,10 @@ class Usuarios extends En_Controller{
         $this->usuario->fecha_nacimiento= $this->request->param_post('fecha_nacimiento');
         $this->usuario->habilitado= $this->request->param_post('habilitado');
         if(! $this->usuario->habilitado == 1){
-            $this->usuario->habilitado= 0;
+            $this->usuario->habilitado= FALSE;
+        }
+        else{
+            $this->usuario->habilitado= TRUE;
         }
         $this->usuario->tipo_usuario= $this->request->param_post('tipo');
     }
