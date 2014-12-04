@@ -92,14 +92,7 @@ class Usuarios extends En_Controller{
         if($this->request->request_method == "POST"){
             if($this->request->param_post('id') != NULL){
                 $id= $this->request->param_post('id');
-                $usuario= $this->servicio->usuario($id);
-                if($usuario->usuario == 'eduardo_n'){
-                    $rta= FALSE;
-                }
-                else{
-                    $rta= $this->servicio->eliminar($id); 
-                }                              
-                if($rta){
+                if($this->servicio->eliminar($id)){
                     $this->mensaje= "El usuario fue eliminado correctamente.";
                 }
                 else{
@@ -118,68 +111,36 @@ class Usuarios extends En_Controller{
     
     protected function read_fields() {
         parent::read_fields('usuario', 'User');
-        //print_r($this->usuario);
-//        print_r($this->usuario);
-//        if($this->request->param_post('id') != NULL){
-//            $this->usuario= $this->servicio->usuario($this->request->param_post('id'));
-//        }
-//        else{
-//            $this->usuario= new User();
-//        }
-//        $this->usuario->usuario= $this->request->param_post('usuario');
-//        if($this->request->param_post('id') == NULL){
-//            $this->usuario->clave= $this->request->param_post('clave');
-//        }
-//        else{
-//            if($this->request->param_post('clave') != ''){
-//                $this->usuario->clave= $this->request->param_post('clave');                
-//            }
-//        }
-//        $this->usuario->nombre= $this->request->param_post('nombre');
-//        $this->usuario->email= $this->request->param_post('email');
-//        $this->usuario->fecha_nacimiento= $this->request->param_post('fecha_nacimiento');
-//        $this->usuario->habilitado= $this->request->param_post('habilitado');
-//        if(! $this->usuario->habilitado == 1){
-//            $this->usuario->habilitado= FALSE;
-//        }
-//        else{
-//            $this->usuario->habilitado= TRUE;
-//        }
-//        $this->usuario->tipo_usuario= $this->request->param_post('tipo');
+        if($this->request->param_post('habilitado') == NULL){
+            $this->usuario->habilitado= 0;
+        }
     }
     
-    protected function validate(){
-        //Valido los campos del form
-        $validacion= new Validation();
-        if($this->request->param_post('id') != ''){
-            $validacion->add_rule('id', $this->usuario->id, 'required');
+    protected function config_validation() {
+        $reglas= array('usuario' => 'required|min_length[5]|max_length[20]', 'nombre' => 'required|min_length[10]|max_length[50]',
+            'email' => 'email', 'fecha_nacimiento' => 'date[Y-m-d]', 'tipo_usuario' => 'required');
+        if($this->request->param_post('id') != NULL){
+            $reglas['id']= 'required';
         }
-        $validacion->add_rule('usuario', $this->usuario->usuario, 'required|min_length[5]|max_length[20]');
         if($this->request->param_post('id') == NULL){
-            $validacion->add_rule('clave', $this->usuario->clave, 'required|min_length[5]|max_length[20]');
+            $reglas['clave']= 'required|min_length[5]|max_length[20]';
         }
         else{
             if($this->request->param_post('clave') != ''){
-                $validacion->add_rule('clave', $this->usuario->clave, 'required|min_length[5]|max_length[20]');
+                $reglas['clave']= 'required|min_length[5]|max_length[20]';
             }
         }
-        $validacion->add_rule('nombre', $this->usuario->nombre, 'required|min_length[10]|max_length[50]');
-        $validacion->add_rule('email',  $this->usuario->email, 'email');
-        $validacion->add_rule('fecha_nacimiento', $this->usuario->fecha_nacimiento, 'date[Y-m-d]');
-        $validacion->add_rule('tipo_usuario', $this->usuario->tipo_usuario, 'required');
-
-        if(! $validacion->validate()){
-            //Consigo los errores
-            $this->errores= $validacion->error_messages();
-            return FALSE;
-        }
-        else{
-            if($this->servicio->existe_usuario($this->usuario->usuario, $this->request->param_post('id'))){
+        return $reglas;
+    }
+    
+    protected function validate(){
+        if(parent::validate($this->usuario)){
+            if($this->servicio->existe_usuario($this->usuario->usuario, $this->usuario->id)){
                 $this->errores['usuario']= "El usuario ya existe";
                 return FALSE;
             }
             else{
-                if($this->request->param_post('id') != NULL){
+                if($this->usuario->id != NULL){
                     $usuario_mod= $this->servicio->usuario($this->usuario->id);
                     if($usuario_mod->usuario == 'eduardo_n'){
                         $this->errores['usuario']= "Usuario Incorrecto";
@@ -187,14 +148,16 @@ class Usuarios extends En_Controller{
                     }
                 }
                 return TRUE;
-            }            
+            }
+        }
+        else{
+            return FALSE;
         }
     }
-    
+
     protected function error(){
         $this->load_data();
         $this->load_view("admin/usuarios");
     }
 }
-
 ?>

@@ -58,11 +58,18 @@ class En_Controller extends Enola implements Controller{
     }
     
     /**
-     * Funcion lee los campos de un formulario
+     * Funcion lee los campos de un formulario y asigna a una variable el objeto con todos sus atributos
      */
     protected function read_fields($var_name, $class){
+        $vars= array();
+        if($this->request->request_method == 'POST'){
+            $vars= $this->request->post_params;
+        }
+        else{
+            $vars= $this->request->get_params;
+        }        
         $object= new $class();
-        foreach ($this->request->post_params as $key => $value) {
+        foreach ($vars as $key => $value) {
             if(property_exists($object, $key)){
                 $object->$key= $value;
             }
@@ -70,10 +77,29 @@ class En_Controller extends Enola implements Controller{
         $this->$var_name= $object;
     }    
     /**
-     * Funcion que valido los campos de un formulario
+     * Funcion que valido las variables de un objeto en base a una configuracion de validacion
      */
-    protected function validate(){        
-    }    
+    protected function validate($object){
+        $validacion= new Validation();        
+        $reglas= $this->config_validation();
+        foreach ($reglas as $key => $regla) {
+            $validacion->add_rule($key, $object->$key, $regla);
+        }        
+        if(! $validacion->validate()){
+            //Consigo los errores y retorno FALSE
+            $this->errores= $validacion->error_messages();
+            return FALSE;
+        }
+        else{
+            return TRUE;            
+        }
+    }
+    /**
+     * Funcion que arma una configuracion para la validacion
+     */
+    protected function config_validation(){
+        return array();
+    }
     /**
      * Funcion que actua cuando acurre un error en la validacion
      */

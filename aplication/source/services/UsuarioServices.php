@@ -41,12 +41,18 @@ class UsuarioServices {
         if($modClave){
             $usuario->clave= encode_md5_y_sha_1($usuario->clave);
         }
+        else{
+            unset($usuario->clave);
+        }
         $this->dao->modificar($usuario);
         return $usuario;
     }
 
     public function eliminar($id){
         $usuario= $this->usuario($id);
+        if($usuario->usuario == 'eduardo_n'){
+            return FALSE;
+        }
         if($usuario->fecha_baja == NULL){
             $usuario->fecha_baja= date("Y-m-d");
         }

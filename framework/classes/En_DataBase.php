@@ -15,7 +15,10 @@ class En_DataBase extends Enola{
             $this->conexion= $this->get_conexion();
 	}
     }
-    
+    /**
+     * Abre una conexion en base a la configuracion de la BD
+     * @return \PDO
+     */
     private function get_conexion(){
 	//Leo archivo de configuracion de BD
         if(defined('JSON_CONFIG_BD')){
@@ -50,23 +53,39 @@ class En_DataBase extends Enola{
                 general_error('Conexion Error', $e->getMessage(), 'error_bd');
         }
     }
-    
+    /**
+     * Cierra la conexion
+     */
     private function close_conexion(){
         $this->conexion= NULL;
     }
-    
+    /**
+     * En base a la ejecucion de una consulta y una clase devuelve un arreglo con instancias de la clase pasada
+     * con los respectivos valores que trajo la consulta
+     * @param type $PdoStatement
+     * @param type $class
+     * @return \class
+     */
     protected function results_in_objects($PdoStatement, $class){
         $result= array();
         while($reg= $PdoStatement->fetchObject()){
             $instanciaClase= new $class();
             foreach ($reg as $key => $value) {
-                $instanciaClase->$key= $value;
+                if(property_exists($instanciaClase, $key)){
+                    $instanciaClase->$key= $value;
+                }
             }
             $result[]= $instanciaClase;
         }
         return $result;
     }
-    
+    /**
+     * En base a la ejecucion de una consulta y una clase devuelve una instancia de la clase pasada
+     * con los respectivos valores que trajo la consulta
+     * @param type $PdoStatement
+     * @param type $class
+     * @return null|\class
+     */
     protected function first_result_in_object($PdoStatement, $class){
         $tupla= $PdoStatement->fetchObject();
         if($tupla == NULL){
@@ -75,13 +94,23 @@ class En_DataBase extends Enola{
         else{
             $instanciaClase= new $class();
             foreach ($tupla as $key => $value) {
-                $instanciaClase->$key= $value;
+                if(property_exists($instanciaClase, $key)){
+                    $instanciaClase->$key= $value;
+                }
             }
             return $instanciaClase;
         }
     }
-   
+    /**
+     * En base a una tabla especificada y un objeto agrega el objeto en la tabla. 
+     * Usa todos los atributos publicos del objeto
+     * @param type $table
+     * @param type $object
+     * @param type $excepts_vars
+     * @return boolean
+     */
     protected function add_object($table, $object, $excepts_vars = array()){
+        //Consigo las variables publicas del objeto
         $vars= get_object_vars($object);
         $vars= $this->delete_vars($vars, $excepts_vars);
         $sql= 'INSERT INTO ' . $table . ' (';
@@ -113,9 +142,13 @@ class En_DataBase extends Enola{
             return TRUE;
         }
     }
-    
+    /**
+     * En base a una tabla especificada y un objeto modifica el objeto en la tabla. 
+     * Usa todos los atributos publicos del objeto
+     */
     protected function update_object($table, $object, $where = '', $where_values = array(), $excepts_vars = array()){
         $vars= get_object_vars($object);
+        //Consigo las variables publicas del objeto
         $vars= $this->delete_vars($vars, $excepts_vars);
         $sql= 'UPDATE ' . $table . ' SET ';
         foreach ($vars as $key => $value) {
@@ -151,9 +184,14 @@ class En_DataBase extends Enola{
             return TRUE;
         }
     }
-    
-     private function delete_vars($vars, $excepts_vars){
-        foreach ($excepts_vars as $key => $value) {
+    /**
+     * Elimina elementos de $vars que tengan como clave el valor de un elemento de $excepts_vars
+     * @param type $vars
+     * @param type $excepts_vars
+     * @return type
+     */
+    private function delete_vars($vars, $excepts_vars){
+        foreach ($excepts_vars as $value) {
             unset($vars[$value]);
         }
         return $vars;
