@@ -63,7 +63,7 @@
         //Analiza las librerias
         foreach ($GLOBALS['libraries_file'] as $name => $libreria) { 
             if(isset($libreria['load_in'])){
-                //Si esta seteada la variable cargar_en y contiene la definicion contralador carga la libreria
+                //Si esta seteada la variable cargar_en y contiene la definicion $type carga la libreria
                 if(strpos($libreria['load_in'], $type) !== FALSE){
                     $dir= $libreria['class'];
                     $dir= explode("/", $dir);

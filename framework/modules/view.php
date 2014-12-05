@@ -18,8 +18,7 @@
     }    
     /**
      * Retorna el locale actual.
-     * En caso de que el locale este indicado en la URL sera igual a locale_uri, si no sera igual al locale definido por
-     * defecto.
+     * En caso de que el locale este indicado en la URL sera igual a locale_uri, si no sera igual al locale definido por defecto.
      * @return string
      */
     function locale(){

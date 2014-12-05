@@ -31,7 +31,7 @@
      }     
      /**
       * Simple filtro que saca las '' y "" para que no se pueda realizar xss
-      * Ahi que mejorarlo
+      * Hay que mejorarlo
       * @param string $valor
       * @return string
       */

@@ -23,7 +23,7 @@ class Usuarios extends En_Controller{
     }
     
     public function index(){
-        $this->usuario= new Usuario();
+        $this->usuario= new User();
         $this->load_data();
         $this->load_view("admin/usuarios");
     }
@@ -38,7 +38,7 @@ class Usuarios extends En_Controller{
                 $usuarioMod= $this->servicio->agregar($this->usuario);
                 if($usuarioMod){
                     $this->mensaje= "Agregado correctamente";
-                    $this->usuario= new Usuario();
+                    $this->usuario= new User();
                     $this->load_data();
                     $this->load_view("admin/usuarios");
                 }

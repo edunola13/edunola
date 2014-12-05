@@ -30,7 +30,7 @@
         /*
         * Analizar Internacionalizacion
         */        
-        //Crea las variable LOCALE, LOCALE_URI, URI LOCALE, BASEURL_LOCALE
+        //Crea las variable LOCALE, LOCALE_URI, URI_LOCALE, BASEURL_LOCALE
         $locale_actual= NULL;
         $locale_uri= NULL;
         $uri_app_locale= $uri_actual;
@@ -39,7 +39,6 @@
         if(isset($GLOBALS['i18n']['locales'])){
             //Consigue el locale por defecto
             $locale_actual= $GLOBALS['i18n']['default'];
-
             //Consigo la primer parte de la URI para ver si esta internacionalizada
             $uri_locale= explode("/", $uri_actual);
             $uri_locale= $uri_locale[0];
@@ -55,8 +54,7 @@
                 if($uri_locale == $locale){
                     //Cambio el locale y el locale uri por el correspondiente
                     $locale_actual= $locale;
-                    $locale_uri= $locale;
-                                        
+                    $locale_uri= $locale;                                        
                     //Salgo del For
                     break;
                 }
@@ -94,7 +92,7 @@
         if(substr($url, 0, 1) == "/"){
             $url= substr($url, 1);
         }        
-        //Separa al filtro y la uri en partes para poder analizarlas
+        //Separa la url pasada y la uri en partes para poder analizarlas
         $partes_url= explode("/", $url);
         
         //Saco de la uri actual los parametros
@@ -112,7 +110,7 @@
             $count_partes_uri= count($partes_url);
             for($i= 0; $i < $count_partes_uri; $i++) {
                 if(count($partes_uri_actual) >= ($i + 1)){
-                    //Si hay un * no me importa que viene despues, filtra todo, no deberia haber nada despues
+                    //Si hay un * no me importa que viene despues, mapea todo, no deberia haber nada despues
                     if($partes_url[$i] != "*"){
                         $pos_ocurrencia= strpos($partes_url[$i], "*");
                         if($pos_ocurrencia != FALSE){
@@ -135,7 +133,7 @@
                         }
                         //Si alguna esta vacia no compara el mapeo con () y voy directo a la comparacion
                         if(empty($partes_url[$i]) || empty($partes_uri_actual[$i])){
-                            //Si no coinciden las partes el filtro no debe aplicarse
+                            //Si no coinciden las partes no mapean
                             if($partes_url[$i] != $partes_uri_actual[$i]){
                                 $mapea= FALSE;
                                 break;
@@ -145,7 +143,7 @@
                             //Si la parte de la uri empieza con ( y termina con ) puede ir cualquier string ahi por lo que pasa directamente esta parte de la validacion
                             if(! ($partes_url[$i]{0} == "(" and $partes_url[$i]{strlen($partes_url[$i]) -1} == ")")){
                                 //Si no contiene ( y ) debe mapear
-                                //Si no coinciden las partes no mapea
+                                //Si no coinciden las partes no mapean
                                 if($partes_url[$i] != $partes_uri_actual[$i]){
                                     $mapea= FALSE;
                                     break;
@@ -165,11 +163,11 @@
             }            
         }
         else{
-            //Si el tamano del filtro es menor que la uri uso el for recorriendo las partes de la uri
+            //Si el tamano de la url pasada es menor que la uri uso el for recorriendo las partes de la uri
             $count_partes_uri_actual= count($partes_uri_actual);
             for($i= 0; $i < $count_partes_uri_actual; $i++){
                 if(count($partes_url) >= ($i + 1)){                
-                    //Si hay un * no me importa que viene despues, filtra todo, no deberia haber nada despues
+                    //Si hay un * no me importa que viene despues, mapea todo, no deberia haber nada despues
                     if($partes_url[$i] != "*"){
                         $pos_ocurrencia= strpos($partes_url[$i], "*");
                         if($pos_ocurrencia != FALSE){
@@ -192,7 +190,7 @@
                         }
                         //Si alguna esta vacia no compara el mapeo con () y voy directo a la comparacion
                         if(empty($partes_url[$i]) || empty($partes_uri_actual[$i])){
-                            //Si no coinciden las partes el filtro no debe aplicarse
+                            //Si no coinciden las partes no mapean
                             if($partes_url[$i] != $partes_uri_actual[$i]){
                                 $mapea= FALSE;
                                 break;
@@ -201,9 +199,8 @@
                         else{
                             //Si la parte de la uri empieza con ( y termina con ) puede ir cualquier string ahi por lo que pasa directamente esta parte de la validacion
                             if(! ($partes_url[$i]{0} == "(" and $partes_url[$i]{strlen($partes_url[$i]) -1} == ")")){
-                                //Si no contiene ( y ) debe mapear
-                        
-                                //Si no coinciden las partes el filtro no debe aplicarse
+                                //Si no contiene ( y ) debe mapear                        
+                                //Si no coinciden las partes no mapean
                                 if($partes_url[$i] != $partes_uri_actual[$i]){
                                     $mapea= FALSE;
                                     break;
@@ -216,7 +213,7 @@
                     }
                 }
                 else{
-                    //El filtro no tiene mas partes y no hay coincidencia completa
+                    //La url pasada no tiene mas partes y no hay coincidencia completa
                     $mapea= FALSE;
                     break;
                 }

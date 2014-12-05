@@ -6,5 +6,5 @@
  */
 
 //Carga el active record con su configuracion
-conect_db_ar(PATHAPP . 'source/models', PATHAPP . CONFIGURATION . JSON_CONFIG_BD);
+//conect_db_ar(PATHAPP . 'source/models', PATHAPP . CONFIGURATION . JSON_CONFIG_BD);
 ?>

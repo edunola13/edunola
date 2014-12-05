@@ -3,14 +3,12 @@
      * Realiza la configuracion completa del sistema y empieza a delegar el requerimiento del cliente a los modulos del
      * framework y a los del cliente
      */
-
     /*
      * Lee archivo configuracion.json donde se encuentra toda la configuracion de variables, filtros, controladores, 
      * librerias, helpers, etc.
      */
     $json_configuration= file_get_contents($path_aplication . 'configuration.json');
-    $config= json_decode($json_configuration, true);
-    
+    $config= json_decode($json_configuration, true);    
     if(! is_array($config)){
         //Arma una respuesta de error de configuracion.
         //No realiza el llamado a funcions de error porque todavia no se cargo el modulo de errores
@@ -39,20 +37,18 @@
     }    
     //Carga la clase Rendimiento
     require $path_framework . 'classes/Performance.php';
-    //Analiza si calcula el tiempo que tarda la aplicacion en ejecutarse o no
+    //Analiza si calcula el tiempo que tarda la aplicacion en ejecutarse
     $performance= NULL;
     if($config['calculate_performance'] == 'TRUE' || $config['calculate_performance'] == 'true'){
         //Incluye la clase Rendimiento 
         $performance= new Performance();
         $performance->start();
-    }
-	
+    }	
     //Seteo la codificacion de caracteres, casi siempre es o debe ser UTF-8
     ini_set('default_charset', $config['charset']);   
 
     // Define las constantes del sistema
-    // BASE_URL: Base url de la aplicacion - definida por el usuario en el archivo de configuracion
-    
+    // BASE_URL: Base url de la aplicacion - definida por el usuario en el archivo de configuracion    
     $pos= strlen($config['base_url']) - 1;
     if($config['base_url'][$pos] != '/'){
         $config['base_url'] .= '/';
@@ -60,7 +56,7 @@
     define('BASEURL', $config['base_url']);    
     //CONFIGURATION: carpeta base de configuracion - definida por el usuario en el archivo de configuracion
     define('CONFIGURATION', $config['configuration']);    
-    //JSON_CONFIG_BD: archivo de configuracion para la base de datps
+    //JSON_CONFIG_BD: archivo de configuracion para la base de datos
     //Si el usuario definio que va a tener bd, en el archivo de configuracion guarda el archivo de configuracion de la BD
     if(isset($config['database']['configuration'])){
         define('JSON_CONFIG_BD', $config['database']['configuration']);
@@ -88,8 +84,7 @@
     //Define un manejador de excepciones - definido en el modulo errores
     set_error_handler('_error_handler');
     //Define un manejador de fin de cierre - definido en el modulo de errores
-    register_shutdown_function('_shutdown'); 
-        
+    register_shutdown_function('_shutdown');         
     //Carga de modulo URL-URI
     require PATHFRA . 'modules/url_uri.php';
     //Define la uri de la aplicacion y la setea como una variable estatica
@@ -124,7 +119,7 @@
     }
     
     /**
-     * Configuracion Inicial: Despues de la carga inicial y las libreria
+     * Configuracion Inicial: Despues de la carga inicial y las libreria permite que el usuario realice su propia configuracion
      * Antes de atender el requerimiento HTTP 
      */
     require PATHAPP . 'load_user_config.php';    

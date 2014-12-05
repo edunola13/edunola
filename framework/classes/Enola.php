@@ -9,10 +9,8 @@ abstract class Enola {
         $this->type= $type;
         $this->load_libraries();
     }
-
-
     /**
-     * Agrega la instancia de una libreria a la instancia de una clase que extienda de Controlador
+     * Agrega la instancia de una libreria a la instancia de una clase que extienda de Enola
      * @param Clase de la Libreria $clase
      * @param string $nombre
      */
@@ -20,7 +18,7 @@ abstract class Enola {
         add_instance($clase, $this, $nombre);
     }    
     /**
-     * Agrega la instancia de una Clase a la instancia de una clase que extienda de Controlador
+     * Agrega la instancia de una Clase a la instancia de una clase que extienda de Enola
      * @param Clase $clase
      * @param string $nombre
      */
