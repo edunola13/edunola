@@ -8,9 +8,7 @@ class En_Controller extends Enola implements Controller{
     protected $view_folder;
     //errores
     public $errores;    
-    /**
-     * Constructor que carga las librerias y carga los parametros limpiandolos
-     */
+
     function __construct(){
         parent::__construct('controller');
         $this->request= En_HttpRequest::getInstance();

@@ -39,7 +39,7 @@ class Login extends En_Controller{
                 }
                 else{
                     //Seteo el valor de usuario a la sesion
-                    $this->request->session->set('usuario_session', $this->usuario);
+                    $this->request->session->set_serialize('usuario_session', $this->usuario);
                     //Seteo el tipo de usuario
                     $this->request->session->set('user_logged', $this->usuario->tipo_usuario);
                     //Redirecciono al back

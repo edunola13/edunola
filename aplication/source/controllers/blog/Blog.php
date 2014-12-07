@@ -92,8 +92,7 @@ class Blog extends En_Controller{
             $this->post= NULL;
         }
         if($this->post != NULL){
-            $this->post->vistas++;
-            $this->servicioPost->modificar($this->post);
+            $this->servicioPost->agregar_vista($this->post->id);
             $this->posts_relacionados= $this->servicioPost->posts_relacionados($this->post->id);
         }        
         $this->load_view("blog/post");

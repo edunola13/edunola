@@ -20,7 +20,7 @@ class En_DataBase extends Enola{
      * Abre una conexion en base a la configuracion de la BD
      * @return \PDO
      */
-    private function get_conexion(){
+    protected function get_conexion(){
 	//Leo archivo de configuracion de BD si es la primera vez
         if($this->config_db == NULL){
             if(defined('JSON_CONFIG_BD')){
@@ -58,7 +58,7 @@ class En_DataBase extends Enola{
     /**
      * Cierra la conexion
      */
-    private function close_conexion(){
+    protected function close_conexion(){
         $this->conexion= NULL;
     }
     /**

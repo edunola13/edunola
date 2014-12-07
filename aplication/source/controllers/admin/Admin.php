@@ -22,7 +22,7 @@ class Admin extends En_Controller{
     
     public function index(){
         if($this->request->request_method == "GET"){
-            $this->usuario= $this->request->session->get('usuario_session');
+            $this->usuario= $this->request->session->get_unserialize('usuario_session');
             $this->load_view("admin/index");
         }
         if($this->request->request_method == "POST"){
@@ -38,8 +38,8 @@ class Admin extends En_Controller{
                 $usuarioMod= $this->servicio->modificar($this->usuario, $modClave);
                 if($usuarioMod){
                     $this->mensaje= "Modificado correctamente";
-                    $this->request->session->set('usuario_session', $usuarioMod);
-                    $this->usuario= $this->request->session->get('usuario_session');
+                    $this->request->session->set_serialize('usuario_session', $usuarioMod);
+                    $this->usuario= $this->request->session->get_unserialize('usuario_session');
                     $this->load_view("admin/index");
                 }
                 else{

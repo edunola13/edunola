@@ -105,7 +105,7 @@ class Usuarios extends En_Controller{
     }
     
     protected function load_data() {
-        $id= $this->request->session->get('usuario_session')->id;
+        $id= $this->request->session->get_unserialize('usuario_session')->id;
         $this->usuarios= $this->servicio->usuarios($id);
     }
     

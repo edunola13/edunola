@@ -23,7 +23,7 @@
                     <?php if(isset($this->posts_relacionados)) { ?>
                     <?php Tags::panel('Posts Relacionados'); ?>
                         <?php foreach ($this->posts_relacionados as $relacion) { ?>
-                            <?php Tags::li_a($relacion->post_relacionado->titulo,  BASEURL . "blog/post/" . replace_spaces($relacion->post_relacionado->titulo)); ?>
+                            <?php Tags::li_a($relacion->titulo,  BASEURL . "blog/post/" . replace_spaces($relacion->titulo)); ?>
                         <?php } ?>
                     <?php Tags::end_panel(); ?>
                     <?php } ?>

@@ -6,7 +6,6 @@ class En_HttpRequest {
     private static $instancia;    
     public $get_params;
     public $post_params;
-    public $uri_params;
     public $session;
     public $request_method;
     
@@ -47,19 +46,6 @@ class En_HttpRequest {
     public function param_post($nombre){
         if(isset($this->post_params[$nombre])){
             return $this->post_params[$nombre];
-        }
-        else{
-            return NULL;
-        }
-    }    
-    /**
-     * Devuelve un parametro "URI" si existe y si no devuelve NULL
-     * @param string $nombre
-     * @return null o string
-     */
-    public function param_uri($nombre){
-        if(isset($this->uri_params[$nombre])){
-            return $this->uri_params[$nombre];
         }
         else{
             return NULL;

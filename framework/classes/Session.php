@@ -16,29 +16,45 @@ class Session {
      * @param string $nombre
      * @param DATO $valor
      */
-    public function set($nombre,$valor){
-        $_SESSION[$nombre] = $valor;
-    }    
+    public function set($name,$value){
+        $_SESSION[$name] = $value;
+    }
+    /**
+     * Setea un dato a la sesion serializandolo previamente
+     * @param type $nombre
+     * @param type $valor
+     */
+    public function set_serialize($name,$value){
+        $_SESSION[$name]= serialize($value);
+    }
     /**
      * Devuelve un dato de la sesion o NULL si no existe
      * @param string $nombre
      * @return NULL o DATO
      */
-    public function get($nombre){
-        if (isset ($_SESSION[$nombre])) {
-            return $_SESSION[$nombre];
+    public function get($name){
+        if (isset ($_SESSION[$name])) {
+            return $_SESSION[$name];
         }
         else {
             return NULL;
         }
-    }    
+    }
+    public function get_unserialize($name){
+        if (isset ($_SESSION[$name])) {
+            return unserialize($_SESSION[$name]);
+        }
+        else {
+            return NULL;
+        }
+    }
     /**
      * Analza si existe un determinado dato asociado a la sesion
      * @param string $nombre
      * @return boolean
      */
-    public function exist($nombre){
-        if (isset ($_SESSION[$nombre])) {
+    public function exist($name){
+        if (isset ($_SESSION[$name])) {
             return TRUE;
         }
         else{
@@ -49,8 +65,8 @@ class Session {
      * Borra un dato asociado a la sesion
      * @param string $nombre
      */
-    public function unset_var($nombre){
-        unset ($_SESSION[$nombre] ) ;
+    public function unset_var($name){
+        unset ($_SESSION[$name] ) ;
     }    
     /**
      * Borra la sesion

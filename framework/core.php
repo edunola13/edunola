@@ -179,8 +179,7 @@
     $filtros_despues= $config['filters_after_processing'];
     if(count($filtros_despues) > 0){
         execute_filters($filtros_despues);
-    }      
-     
+    }     
     /*
      * Si se esta calculando el tiempo, realiza el calculo y envia la respuesta
      */

@@ -26,7 +26,7 @@ class Posts extends En_Controller{
     }
     
     public function index(){
-        $usuario= $this->request->session->get('usuario_session');
+        $usuario= $this->request->session->get_unserialize('usuario_session');
         $filtro= array('id_usuario' => $usuario->id);
         
         $cantidad= $this->servicioPost->cant_posts($filtro);
@@ -36,7 +36,7 @@ class Posts extends En_Controller{
     }
     
     public function page(){
-        $usuario= $this->request->session->get('usuario_session');
+        $usuario= $this->request->session->get_unserialize('usuario_session');
         $filtro= array('id_usuario' => $usuario->id);
         
         $pagina= 1;
@@ -56,7 +56,7 @@ class Posts extends En_Controller{
     
     public function delete(){
         if($this->request->request_method == "POST"){
-            $usuario= $this->request->session->get('usuario_session');
+            $usuario= $this->request->session->get_unserialize('usuario_session');
             $filtro= array('id_usuario' => $usuario->id);
             
             if($this->request->param_post('id') != NULL){
@@ -89,21 +89,21 @@ class Posts extends En_Controller{
     }
     
     public function add(){
-        $usuario= $this->request->session->get('usuario_session');
-        $filtro= array('id_usuario' => $usuario->id, 'habilitado' => TRUE);
+        $usuario= $this->request->session->get_unserialize('usuario_session');
+        $filtro= array('id_usuario' => $usuario->id, 'id_excepto' => 0);
         
-        if($this->request->request_method == "POST"){
+        if($this->request->request_method == "POST"){           
             $this->read_fields();
-            $this->posts= $this->servicioPost->posts($filtro);
+            $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
             if(! $this->validate()){
                 $this->load_view("admin/post_add");
             }
             else{
-                $this->post->autor= $this->request->session->get('usuario_session')->id;
+                $this->post->autor= $usuario->id;
                 $usuarioAdd= $this->servicioPost->agregar($this->post, $this->relaciones);
                 if($usuarioAdd){
                     $this->mensaje= "Agregado correctamente";
-                    $this->posts= $this->servicioPost->posts($filtro);
+                    $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
                     $this->post= new Post();
                     $this->load_view("admin/post_add");
                 }
@@ -115,32 +115,33 @@ class Posts extends En_Controller{
         }
         if($this->request->request_method == "GET"){
             $this->post= new Post();           
-            $this->posts= $this->servicioPost->posts($filtro);
+            $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
             $this->load_view("admin/post_add");
         }
     }
     
-    public function update(){
-        $usuario= $this->request->session->get('usuario_session');        
+    public function update(){        
+        $usuario= $this->request->session->get_unserialize('usuario_session');        
         
-        if($this->request->request_method == "POST"){            
+        if($this->request->request_method == "POST"){
+            $post_actual= $this->servicioPost->post($this->params[0]);
             $this->read_fields();
-            $filtro= array('id_usuario' => $usuario->id, 'excepto_id' => $this->post->id, 'habilitado' => TRUE);
-            $this->posts= $this->servicioPost->posts($filtro);
+            $filtro= array('id_usuario' => $usuario->id, 'id_excepto' => $this->post->id);
+            $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
             if(! $this->validate()){
                 $this->load_view("admin/post_update");
             }
             else{
+                $this->post->autor= $post_actual->autor;
                 if($usuario->tipo_usuario == 'administrador'){
                     $usuarioMod= $this->servicioPost->modificar($this->post, $this->relaciones);
                 }
                 else{
                     $usuarioMod= $this->servicioPost->modificar($this->post, $this->relaciones, $usuario->id);
-                }
-                
+                }                
                 if($usuarioMod){
                     $this->mensaje= "Modificado correctamente";                    
-                    $this->post= $this->servicioPost->post($usuarioMod->id);
+                    $this->post= $this->servicioPost->post($this->post->id);
                     $this->load_view("admin/post_update");
                 }
                 else{
@@ -156,53 +157,43 @@ class Posts extends En_Controller{
                     exit;
                 }
             }
-            $filtro= array('id_usuario' => $usuario->id, 'excepto_id' => $this->post->id, 'habilitado' => TRUE);
-            $this->posts= $this->servicioPost->posts($filtro);
+            $filtro= array('id_usuario' => $usuario->id, 'id_excepto' => $this->post->id);
+            $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
             $this->relaciones= $this->servicioPost->id_relaciones($this->post->id);
             $this->load_view("admin/post_update");
         }
     }
     
     protected function read_fields() {
-        if($this->request->param_post('id') != NULL){
-            $this->post= $this->servicioPost->post($this->request->param_post('id'));
-        }
-        else{
-            $this->post= new Post();
-        }
-        $this->post->titulo= $this->request->param_post('titulo');
-        $this->post->descripcion= $this->request->param_post('descripcion');
-        $this->post->contenido= $this->request->param_post('contenido');
-        $this->post->habilitado= $this->request->param_post('habilitado');
-        if(! $this->post->habilitado == 1){
+        parent::read_fields('post', 'Post');
+        if($this->request->param_post('habilitado') == NULL){
             $this->post->habilitado= 0;
         }
         $this->relaciones= $this->request->param_post('relacion');
     }
     
+    protected function config_validation() {
+        $reglas= array('titulo' => 'required|min_length[5]|max_length[50]', 
+            'descripcion' => 'required|min_length[30]|max_length[300]',
+            'contenido' => 'required|min_length[50]');
+        if($this->request->param_post('id') != NULL){
+            $reglas['id']= 'required';
+        }
+        return $reglas;
+    }
+    
     protected function validate(){
-        //Valido los campos del form
-        $validacion= new Validation();
-        if($this->request->param_post('id') != ''){
-            $validacion->add_rule('id', $this->post->id, 'required');
-        }
-        $validacion->add_rule('titulo', $this->post->titulo, 'required|min_length[5]|max_length[50]');
-        $validacion->add_rule('descripcion', $this->post->descripcion, 'required|min_length[30]|max_length[300]');
-        $validacion->add_rule('contenido', $this->post->contenido, 'required|min_length[50]');
-
-        if(! $validacion->validate()){
-            //Consigo los errores
-            $this->errores= $validacion->error_messages();
-            return FALSE;
-        }
-        else{
+        if(parent::validate($this->post)){
             if($this->servicioPost->existe_post($this->post->titulo, $this->request->param_post('id'))){
                 $this->errores['titulo']= "El post ya existe";
                 return FALSE;
             }
             else{
                 return TRUE;
-            }            
+            }
+        }
+        else{
+            return FALSE;
         }
     }
 }
