@@ -14,6 +14,7 @@
 <script>
   $(function() {
     $("#dialog").dialog({
+	  width: 700,
       autoOpen: false,
       show: {
         duration: 100

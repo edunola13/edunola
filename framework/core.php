@@ -54,6 +54,8 @@
         $config['base_url'] .= '/';
     }
     define('BASEURL', $config['base_url']);    
+	//ENVIRONMENT: Indica el ambiente de la aplicacion
+	define('ENVIRONMENT', $config['environment']);
     //CONFIGURATION: carpeta base de configuracion - definida por el usuario en el archivo de configuracion
     define('CONFIGURATION', $config['configuration']);    
     //JSON_CONFIG_BD: archivo de configuracion para la base de datos

@@ -31,6 +31,8 @@ class Twig {
         $this->loader = new Twig_Loader_Filesystem(PATHAPP . $this->template_dir);
         //$this->loader = new Twig_Loader_Filesystem(realpath(dirname(__FILE__)) . '/' . $this->template_dir);
         
+		$this->con_environment= ENVIRONMENT;
+		
         if($this->con_environment == 'production'){
             //Para produccion
             $this->environment = new Twig_Environment($this->loader, array('cache' => PATHAPP . $this->cache_dir));

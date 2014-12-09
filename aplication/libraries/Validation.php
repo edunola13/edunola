@@ -144,7 +144,7 @@ class Validation {
      * @param type $lineas
      * @return type
      */
-    function parse_properties($lineas) {
+    private function parse_properties($lineas) {
         $isWaitingOtherLine = false;
         $result= NULL;
         foreach($lineas as $i=>$linea) {
