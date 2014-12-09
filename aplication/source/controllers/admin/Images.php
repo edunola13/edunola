@@ -91,7 +91,7 @@ class Images extends En_Controller{
         else{
             //Creo que el tamano es un MG
             if($_FILES['imagen']['type'] != 'image/jpeg' || $_FILES['imagen']['size'] > 1200000){
-                $this->errores['imagen']= 'La imagen debe ser de tipo image/jpeg y tener tamaño menor a 1000000';
+                $this->errores['imagen']= 'La imagen debe ser de tipo image/jpeg y tener tamaño menor a 1200000';
                 return FALSE;
             }
             if($this->servicioImagen->existe_imagen($this->nombre)){

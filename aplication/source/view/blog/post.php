@@ -27,6 +27,14 @@
                         <?php } ?>
                     <?php Tags::end_panel(); ?>
                     <?php } ?>
+                        
+                    <?php if(isset($this->tags_relacionados)) { ?>
+                    <?php Tags::panel('Tags'); ?>
+                        <?php foreach ($this->tags_relacionados as $tag) { ?>
+                            <?php Tags::li_a($tag->nombre,  BASEURL . "blog/tag/" . replace_spaces($tag->nombre)); ?>
+                        <?php } ?>
+                    <?php Tags::end_panel(); ?>
+                    <?php } ?>
                 </div>
             </div>
             <div class="col col-md-4">

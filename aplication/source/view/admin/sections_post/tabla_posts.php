@@ -1,6 +1,6 @@
             <?php Tags::title("Administracion de Posts"); ?>
             <?php Tags::alert_message("info", $this->mensaje);?>
-            <a title="Update" href="<?php echo BASEURL . 'admin/blog/add'; ?>" class="btn btn-primary">Agregar</a>
+            <a title="Agregar" href="<?php echo BASEURL . 'admin/blog/add'; ?>" class="btn btn-primary">Agregar</a>
             <?php Tags::table(); ?>
                 <thead><tr>
                     <th>Titulo</th>

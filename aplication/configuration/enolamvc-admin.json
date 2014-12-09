@@ -5,6 +5,7 @@
         "index": {"class": "admin/Admin", "url": ""},
         "usuarios": {"class": "admin/Usuarios", "url": "usuarios"},
         "blog": {"class": "admin/Posts", "url": "blog"},
+        "tags": {"class": "admin/TagsCon", "url": "tags"},
         "images": {"class": "admin/Images", "url": "blog/images"}
     }
 }

@@ -6,7 +6,7 @@
  */
 class En_DataBase extends Enola{
     protected $config_db;
-    protected $conexion;    
+    protected $conexion;   
     /**
      * Constructor que conecta a la bd y carga las librerias que se indicaron en el archivo de configuracion
      */
@@ -112,36 +112,41 @@ class En_DataBase extends Enola{
      * @return boolean
      */
     protected function add_object($table, $object, $excepts_vars = array()){
-        //Consigo las variables publicas del objeto
-        $vars= get_object_vars($object);
-        $vars= $this->delete_vars($vars, $excepts_vars);
-        $sql= 'INSERT INTO ' . $table . ' (';
-        foreach ($vars as $key => $value) {
-            $sql .= $key . ',';
-        }
-        $sql = trim($sql, ',');
-        $sql .= ') values(';
-        foreach ($vars as $key => $value) {
-            $sql .= ':' . $key . ',';
-        }
-        $sql = trim($sql, ',');
-        $sql .= ')';
-        $consulta= $this->conexion->prepare($sql);
-        foreach ($vars as $key => $value) {
-            if($value === FALSE){
-                $consulta->bindValue($key, 0);
+        try{
+            //Consigo las variables publicas del objeto
+            $vars= get_object_vars($object);
+            $vars= $this->delete_vars($vars, $excepts_vars);
+            $sql= 'INSERT INTO ' . $table . ' (';
+            foreach ($vars as $key => $value) {
+                $sql .= $key . ',';
+            }
+            $sql = trim($sql, ',');
+            $sql .= ') values(';
+            foreach ($vars as $key => $value) {
+                $sql .= ':' . $key . ',';
+            }
+            $sql = trim($sql, ',');
+            $sql .= ')';
+            $consulta= $this->conexion->prepare($sql);
+            foreach ($vars as $key => $value) {
+                if($value === FALSE){
+                    $consulta->bindValue($key, 0);
+                }
+                else{
+                    $consulta->bindValue($key, $value);
+                }
+            }
+            $consulta->execute();
+            $error= $consulta->errorInfo();
+            if($error[0] != 00000){            
+                return FALSE;
             }
             else{
-                $consulta->bindValue($key, $value);
+                return TRUE;
             }
-        }
-        $consulta->execute();
-        $error= $consulta->errorInfo();
-        if($error[0] == ''){
+        } catch (PDOException $e) {
+            general_error('PDO Error', $e->getMessage(), 'error_bd');
             return FALSE;
-        }
-        else{
-            return TRUE;
         }
     }
     /**
@@ -149,41 +154,46 @@ class En_DataBase extends Enola{
      * Usa todos los atributos publicos del objeto
      */
     protected function update_object($table, $object, $where = '', $where_values = array(), $excepts_vars = array()){
-        $vars= get_object_vars($object);
-        //Consigo las variables publicas del objeto
-        $vars= $this->delete_vars($vars, $excepts_vars);
-        $sql= 'UPDATE ' . $table . ' SET ';
-        foreach ($vars as $key => $value) {
-            $sql .= $key . '=:' . $key . ',';
-        }
-        $sql = trim($sql, ',');
-        if($where != ''){
-            $sql .= ' WHERE ' . $where;
-        }
-        $consulta= $this->conexion->prepare($sql);
-        foreach ($vars as $key => $value){
-            if($value === FALSE){
-                $consulta->bindValue($key, 0);
+        try{
+            $vars= get_object_vars($object);
+            //Consigo las variables publicas del objeto
+            $vars= $this->delete_vars($vars, $excepts_vars);
+            $sql= 'UPDATE ' . $table . ' SET ';
+            foreach ($vars as $key => $value) {
+                $sql .= $key . '=:' . $key . ',';
+            }
+            $sql = trim($sql, ',');
+            if($where != ''){
+                $sql .= ' WHERE ' . $where;
+            }
+            $consulta= $this->conexion->prepare($sql);
+            foreach ($vars as $key => $value){
+                if($value === FALSE){
+                    $consulta->bindValue($key, 0);
+                }
+                else{
+                    $consulta->bindValue($key, $value);
+                }
+            }
+            foreach ($where_values as $key => $value){
+                if($value === FALSE){
+                    $consulta->bindValue($key, 0);
+                }
+                else{
+                    $consulta->bindValue($key, $value);
+                }
+            }
+            $consulta->execute();
+            $error= $consulta->errorInfo();
+            if($error[0] != 00000){
+                return FALSE;
             }
             else{
-                $consulta->bindValue($key, $value);
+                return TRUE;
             }
-        }
-        foreach ($where_values as $key => $value){
-            if($value === FALSE){
-                $consulta->bindValue($key, 0);
-            }
-            else{
-                $consulta->bindValue($key, $value);
-            }
-        }
-        $consulta->execute();
-        $error= $consulta->errorInfo();
-        if($error[0] == ''){
+        } catch (PDOException $e) {
+            general_error('PDO Error', $e->getMessage(), 'error_bd');
             return FALSE;
-        }
-        else{
-            return TRUE;
         }
     }
     /**

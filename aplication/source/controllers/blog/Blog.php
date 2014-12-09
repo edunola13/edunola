@@ -8,17 +8,19 @@
  * Importar
  */
 import_aplication_file("source/services/PostServices");
-
+import_aplication_file("source/services/TagServices");
 class Blog extends En_Controller{
     protected $can_por_page= 3;
     protected $posts;
     protected $post;
     
-    protected $servicioPost;   
+    protected $servicioPost;
+    protected $servicioTag;
     
     public function __construct() {
         parent::__construct();
         $this->servicioPost= new PostServices();
+        $this->servicioTag= new TagServices();
     }
     
     public function index(){
@@ -82,6 +84,17 @@ class Blog extends En_Controller{
         }        
     }
     
+    public function tag(){
+        if(isset($this->params[0])){
+            $nombre= replace(' ', '-', urldecode($this->params[0]));
+            $this->posts= $this->servicioPost->tag_posts($nombre);
+            $this->load_view("blog/posts_tag");
+        }
+        else{
+            redirect('blog');
+        }        
+    }
+    
     public function post(){
         $titulo= "";
         if(isset($this->params[0])){
@@ -94,6 +107,7 @@ class Blog extends En_Controller{
         if($this->post != NULL){
             $this->servicioPost->agregar_vista($this->post->id);
             $this->posts_relacionados= $this->servicioPost->posts_relacionados($this->post->id);
+            $this->tags_relacionados= $this->servicioTag->tags_post($this->post->id);
         }        
         $this->load_view("blog/post");
     }

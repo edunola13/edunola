@@ -126,7 +126,6 @@ class EnolaMVC implements Controller{
                 }
                 //Consigue la clase del controlador, analiza que contenga el metodo y lo ejecuta pasandole los
                 //parametros correspondiente
-                $this->folder_controllers= trim($this->folder_controllers, "/");
                 $dir= $this->folder_controllers . '/' . $controller['class'] . '.php';
                 require $dir;
                 $dir= explode("/", $controller['class']);
@@ -151,7 +150,7 @@ class EnolaMVC implements Controller{
             }
         }        
         if(! $ejecutado){
-            throw new Exception('Error Enola MVC' . 'Any controller map with the actual requirement');
+            throw new Exception('Error Enola MVC - ' . 'Any controller map with the actual requirement');
         }
     }
     

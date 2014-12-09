@@ -33,6 +33,11 @@
                             <?php Tags::select_option($pos->titulo, $pos->id); ?>
                         <?php } ?>
                     <?php Tags::end_select(); ?>
+                    <?php Tags::select("Tags", "tags[]", $this->tags_rel, TRUE); ?>
+                        <?php foreach ($this->tags as $tag) { ?>
+                            <?php Tags::select_option($tag->nombre, $tag->id); ?>
+                        <?php } ?>
+                    <?php Tags::end_select(); ?>
                                 
                     <?php Tags::botonera(); ?>
                         <?php Tags::button("submit", "Agregar"); ?>

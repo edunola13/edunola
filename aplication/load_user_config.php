@@ -5,6 +5,5 @@
  * Y antes de empezar a trabajar el requerimiento HTTP, digamos antes de que se ejecuten los filtros, controladores, etc. 
  */
 
-//Carga el active record con su configuracion
-//conect_db_ar(PATHAPP . 'source/models', PATHAPP . CONFIGURATION . JSON_CONFIG_BD);
+
 ?>

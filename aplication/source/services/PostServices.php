@@ -44,6 +44,10 @@ class PostServices {
         return $this->dao->fecha_posts($mes, $ano);
     }
     
+    public function tag_posts($nombre_tag){
+        return $this->dao->posts_tag($nombre_tag);
+    }
+    
     public function ultimos_posts(){
         return $this->dao->ultimos_posts();
     }
@@ -64,6 +68,10 @@ class PostServices {
         return $this->dao->id_relaciones($post_id);
     }
     
+    public function id_relaciones_tags($post_id){
+        return $this->dao->id_relaciones_tags($post_id);
+    }
+    
     public function post($id){
         return $this->dao->post($id);
     }
@@ -72,13 +80,13 @@ class PostServices {
         return $this->dao->post_titulo($titulo);
     }
     
-    public function agregar($post, $relaciones){
+    public function agregar($post, $relaciones, $tags){
         $post->fecha_alta= date("Y-m-d");
         $post->vistas= 0;
-        return $this->dao->agregar($post, $relaciones);
+        return $this->dao->agregar($post, $relaciones, $tags);
     }
     
-    public function modificar($post, $relaciones = FALSE, $usuario_id = NULL){
+    public function modificar($post, $relaciones, $tags, $usuario_id = NULL){
         if($usuario_id != NULL){
             if($usuario_id != $post->autor){
                 return FALSE;
@@ -86,7 +94,7 @@ class PostServices {
         }
         unset($post->fecha_alta);
         unset($post->vistas);
-        return $this->dao->modificar($post, $relaciones);
+        return $this->dao->modificar($post, $relaciones, $tags);
     }
     
     public function agregar_vista($id){

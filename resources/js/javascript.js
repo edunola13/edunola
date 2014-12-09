@@ -42,7 +42,7 @@ function delete_user(id){
     $("#dialog-confirm").dialog({
         resizable: true,
         height:200,
-        width: 400,
+        width: 600,
         buttons: {
             "Eliminar": function() {
                 $( this ).dialog( "close" );
@@ -80,7 +80,7 @@ function delete_post(id, page){
     $("#dialog-confirm").dialog({
         resizable: true,
         height:200,
-        width: 400,
+        width: 600,
         buttons: {
             "Eliminar": function() {
                 $( this ).dialog( "close" );
@@ -192,4 +192,100 @@ function buscar_imagen(pagina, valueOri){
         error: function (){
         }
     } );
+}
+
+function actualizar_tags(){
+    $.ajax( {
+        type: 'GET',
+        url: 'tags/lista_tags',
+        dataType: "html",
+        success: function (rta) {
+            $(".list").html(rta);
+        },
+        error: function (){
+        }
+    } );
+}
+
+$(function() {
+    DialogAddTag = $( "#form-add-tag" ).dialog({
+          autoOpen: false,
+          width: 700,
+          modal: true,
+          close: function() {
+            $( "#form-add-tag" ).html('');
+          }
+    });
+});
+
+function form_add_tag(){
+    $( "#form-add-tag" ).html('');
+    DialogAddTag.dialog( "open" );
+    $.ajax( {
+        type: 'GET',
+        url: 'tags/add',
+        dataType: "html",
+        success: function (rta) {
+            $("#form-add-tag").html(rta);
+        },
+        error: function (){
+            alert('Error');
+        }
+    } );
+}
+
+$(function() {
+    DialogUpdTag = $( "#form-update-tag" ).dialog({
+          autoOpen: false,
+          width: 700,
+          modal: true,
+          close: function() {
+            $( "#form-update-tag" ).html('');
+          }
+    });
+});
+
+function form_update_tag(id){
+    $( "#form-update-tag" ).html('');
+    DialogUpdTag.dialog( "open" );
+    $.ajax( {
+        type: 'GET',
+        url: 'tags/update?id=' + id,
+        dataType: "html",
+        success: function (rta) {
+            $("#form-update-tag").html(rta);
+        },
+        error: function (){
+            alert('Error');
+        }
+    } );
+}
+
+function delete_tag(id){
+    $("#dialog-confirm").dialog({
+        resizable: true,
+        height:200,
+        width: 600,
+        buttons: {
+            "Eliminar": function() {
+                $( this ).dialog( "close" );               
+                $.ajax({
+                    type: "POST",
+                    url: "tags/delete",
+                    data: {id:id},
+                    dataType: "html",
+                    success: function (msg) {
+                        $(".list").html(msg);
+                    },
+                    error: function (msg){
+                        alert("Error. Vuelva a Intentarlo.");
+                    }        
+                });
+            },
+            "Cancelar": function() {
+                $( this ).dialog( "close" );
+            }
+        }
+    });
+    $("#dialog-confirm").dialog("open");
 }

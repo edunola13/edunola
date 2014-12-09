@@ -48,7 +48,6 @@
     "libraries": {
         "validacion": {"class": "Validation"},
         "paginador": {"class": "Paginator"},
-        "uiservices": {"class": "ServiciosUI-0.2/servicioui"},
-        "active-record": {"class": "php-activerecord/configAR-Enola"}
+        "uiservices": {"class": "ServiciosUI-0.2/servicioui"}
     }
 }

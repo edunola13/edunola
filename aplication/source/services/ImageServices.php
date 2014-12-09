@@ -4,28 +4,28 @@
  *
  * @author Enola
  */
+import_aplication_file('source/models/ImageDao');
 class ImageServices {
+    protected $dao;
+    public function __construct() {
+        $this->dao= new ImageDao();
+    }
     
     public function search_images($find, $limit = 0, $offset = 0){
-        $cond= array('conditions' => array("nombre LIKE '%" . $find . "%'"), 'limit' => $limit, 'offset' => $offset, 'order' => 'nombre desc');        
-        return Image::all($cond);
+        return $this->dao->search_images($find, $limit, $offset);
     }
     
     public function cant_images_search($find){
-        $cond= array('select' => 'count(*) as cant', 'conditions' => array("nombre LIKE '%" . $find . "%'"));
-        $cantidad= Image::find($cond);
-        return $cantidad->cant;
+        return $this->dao->cant_search_images($find);
     }
     
     public function agregar($image){
-        $image->save();
-        return $image;
+        return $this->dao->agregar($image);
     }
     
     public function existe_imagen($nombre){
-        $options= array('conditions' => array('nombre = ?', $nombre));
-        $images= Image::all($options);
-        if(count($images) > 0){
+        $image= $this->dao->imagen($nombre);
+        if($image != NULL){
             return TRUE;
         }
         else{

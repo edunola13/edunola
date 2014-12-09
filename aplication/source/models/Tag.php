@@ -1,12 +1,13 @@
 <?php
 /**
- * Description of Image
+ * Description of Tag
  *
  * @author Enola
  */
-class Image {
+class Tag {
     public $id;
     public $nombre;
+    public $descripcion;
     
     public function __construct() {
         

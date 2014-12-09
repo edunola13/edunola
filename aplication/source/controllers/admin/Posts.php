@@ -8,21 +8,24 @@
  * Importar
  */
 import_aplication_file("source/services/PostServices");
-
+import_aplication_file("source/services/TagServices");
 class Posts extends En_Controller{
     protected $posts;
     protected $post;
     protected $relaciones;
+    protected $tags_rel;
     protected $cant_por_pagina= 10;
     
     protected $mensaje;
     protected $mensaje_error;
     
-    protected $servicioPost;   
+    protected $servicioPost;
+    protected $servicioTag;
     
     public function __construct() {
         parent::__construct();
         $this->servicioPost= new PostServices();
+        $this->servicioTag= new TagServices();
     }
     
     public function index(){
@@ -95,12 +98,13 @@ class Posts extends En_Controller{
         if($this->request->request_method == "POST"){           
             $this->read_fields();
             $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
+            $this->tags= $this->servicioTag->tags();
             if(! $this->validate()){
                 $this->load_view("admin/post_add");
             }
             else{
                 $this->post->autor= $usuario->id;
-                $usuarioAdd= $this->servicioPost->agregar($this->post, $this->relaciones);
+                $usuarioAdd= $this->servicioPost->agregar($this->post, $this->relaciones, $this->tags_rel);
                 if($usuarioAdd){
                     $this->mensaje= "Agregado correctamente";
                     $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
@@ -116,6 +120,7 @@ class Posts extends En_Controller{
         if($this->request->request_method == "GET"){
             $this->post= new Post();           
             $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
+            $this->tags= $this->servicioTag->tags();
             $this->load_view("admin/post_add");
         }
     }
@@ -128,16 +133,17 @@ class Posts extends En_Controller{
             $this->read_fields();
             $filtro= array('id_usuario' => $usuario->id, 'id_excepto' => $this->post->id);
             $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
+            $this->tags= $this->servicioTag->tags();
             if(! $this->validate()){
                 $this->load_view("admin/post_update");
             }
             else{
                 $this->post->autor= $post_actual->autor;
                 if($usuario->tipo_usuario == 'administrador'){
-                    $usuarioMod= $this->servicioPost->modificar($this->post, $this->relaciones);
+                    $usuarioMod= $this->servicioPost->modificar($this->post, $this->relaciones, $this->tags_rel);
                 }
                 else{
-                    $usuarioMod= $this->servicioPost->modificar($this->post, $this->relaciones, $usuario->id);
+                    $usuarioMod= $this->servicioPost->modificar($this->post, $this->relaciones, $this->tags_rel, $usuario->id);
                 }                
                 if($usuarioMod){
                     $this->mensaje= "Modificado correctamente";                    
@@ -160,6 +166,8 @@ class Posts extends En_Controller{
             $filtro= array('id_usuario' => $usuario->id, 'id_excepto' => $this->post->id);
             $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
             $this->relaciones= $this->servicioPost->id_relaciones($this->post->id);
+            $this->tags= $this->servicioTag->tags();
+            $this->tags_rel= $this->servicioPost->id_relaciones_tags($this->post->id);
             $this->load_view("admin/post_update");
         }
     }
@@ -170,6 +178,7 @@ class Posts extends En_Controller{
             $this->post->habilitado= 0;
         }
         $this->relaciones= $this->request->param_post('relacion');
+        $this->tags_rel= $this->request->param_post('tags');
     }
     
     protected function config_validation() {

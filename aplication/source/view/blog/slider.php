@@ -17,4 +17,10 @@
             <li><a href="<?php echo BASEURL . 'blog/fecha/' . $post->mes . '/' . $post->ano;?>"><?php echo  $post->mes . '-' . $post->ano . '('. $post->cant .')'; ?></a></li>
         <?php } ?>
     </ol>
+    <h4>Tags</h4>
+    <ol class="list-unstyled">
+        <?php foreach ($this->tags as $tag) { ?>
+            <li><a href="<?php echo BASEURL . 'blog/tag/' . replace_spaces($tag->nombre);?>"><?php echo  $tag->nombre; ?></a></li>
+        <?php } ?>
+    </ol>
 </div>

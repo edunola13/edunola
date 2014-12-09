@@ -80,6 +80,18 @@ class PostDao extends En_DataBase{
         return $posts;
     }
     
+    public function posts_tag($nombre_tag){
+        $consulta= $this->conexion->prepare('SELECT p.id, p.titulo, p.descripcion, p.fecha_alta, p.autor FROM post as p INNER JOIN post_tag as pt ON p.id=pt.post_id INNER JOIN tag as t ON t.id=pt.tag_id
+            WHERE fecha_baja IS NULL and habilitado = TRUE and t.nombre=:nombre');
+        $consulta->execute(array('nombre' => $nombre_tag));
+        $posts= $this->results_in_objects($consulta, 'Post');
+        $userDao= new UsuarioDao();            
+        foreach ($posts as $post) {
+            $post->usuario= $userDao->usuario($post->autor);
+        }
+        return $posts;
+    }
+    
     public function ultimos_posts(){
         $consulta= $this->conexion->prepare('SELECT * FROM post WHERE fecha_baja IS NULL and habilitado = TRUE order by id desc limit 10');
         $consulta->execute();
@@ -123,6 +135,17 @@ class PostDao extends En_DataBase{
         return $ids;
     }
     
+    public function id_relaciones_tags($post_id){
+        $consulta= $this->conexion->prepare('SELECT tag_id FROM post_tag 
+            WHERE post_id=:post_id');
+        $consulta->execute(array(':post_id' => $post_id));
+        $ids= array();
+        while($object= $consulta->fetchObject()){
+            $ids[]= $object->tag_id;
+        }
+        return $ids;
+    }
+    
     public function post($id){
         $consulta= $this->conexion->prepare('SELECT * FROM post WHERE id=:id');
         $consulta->execute(array(':id' => $id));
@@ -147,14 +170,22 @@ class PostDao extends En_DataBase{
         return $resultado->cant;
     }
     
-    public function agregar($post, $relaciones){
+    public function agregar($post, $relaciones = FALSE, $tags = FALSE){
         $this->conexion->beginTransaction();
         try{
             $this->add_object('post', $post);
             $post= $this->post_titulo($post->titulo);
-            foreach ($relaciones as $relacion) {
-                $consulta= $this->conexion->prepare('INSERT INTO post_relacion(post_id, post_relacion_id) values(:post_id, :post_relacion_id)');
-                $consulta->execute(array(':post_id' => $post->id, ':post_relacion_id' => $relacion));
+            if($relaciones){
+                foreach ($relaciones as $relacion) {
+                    $consulta= $this->conexion->prepare('INSERT INTO post_relacion(post_id, post_relacion_id) values(:post_id, :post_relacion_id)');
+                    $consulta->execute(array(':post_id' => $post->id, ':post_relacion_id' => $relacion));
+                }
+            }
+            if($tags){
+                foreach ($tags as $tag) {
+                    $consulta= $this->conexion->prepare('INSERT INTO post_tag(post_id, tag_id) values(:post_id, :tag_id)');
+                    $consulta->execute(array(':post_id' => $post->id, ':tag_id' => $tag));
+                }
             }
             $this->conexion->commit();
             return TRUE;
@@ -164,16 +195,24 @@ class PostDao extends En_DataBase{
         }
     }
     
-    public function modificar($post, $relaciones = FALSE){
+    public function modificar($post, $relaciones = FALSE, $tags = FALSE){
         $this->conexion->beginTransaction();
         try{
-            $this->update_object('Post', $post, 'id=:id');
-            if($relaciones){
-                $eliminar= $this->conexion->prepare('DELETE FROM post_relacion WHERE post_id = :post_id');
-                $eliminar->execute(array(':post_id' => $post->id));
+            $this->update_object('post', $post, 'id=:id');
+            $eliminar= $this->conexion->prepare('DELETE FROM post_relacion WHERE post_id = :post_id');
+            $eliminar->execute(array(':post_id' => $post->id));
+            if($relaciones){                
                 foreach ($relaciones as $relacion) {
                     $consulta= $this->conexion->prepare('INSERT INTO post_relacion(post_id, post_relacion_id) values(:post_id, :post_relacion_id)');
                     $consulta->execute(array(':post_id' => $post->id, ':post_relacion_id' => $relacion));
+                }
+            }
+            $eliminar_tag= $this->conexion->prepare('DELETE FROM post_tag WHERE post_id = :post_id');
+            $eliminar_tag->execute(array(':post_id' => $post->id));
+            if($tags){                
+                foreach ($tags as $tag) {
+                    $consulta= $this->conexion->prepare('INSERT INTO post_tag(post_id, tag_id) values(:post_id, :tag_id)');
+                    $consulta->execute(array(':post_id' => $post->id, ':tag_id' => $tag));
                 }
             }
             $this->conexion->commit();
@@ -188,7 +227,7 @@ class PostDao extends En_DataBase{
     public function modificar_vars($post){
         $this->conexion->beginTransaction();
         try{
-            $this->update_object('Post', $post, 'id=:id');
+            $this->update_object('post', $post, 'id=:id');
             $this->conexion->commit();
             return TRUE;
         } catch (PDOException $e){
