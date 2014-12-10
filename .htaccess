@@ -4,7 +4,16 @@
     Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
 </IfModule>
 
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault A604800
+    <filesmatch ".(jpg|JPG|gif|GIF|png|css|ico|js)$">
+        ExpiresDefault "access plus 7 day"
+    </filesmatch>
+</IfModule>
+
 RewriteEngine on
 RewriteCond $1 !^(index.php|resources|enolaphp|serviciosui|builder|juegos|pruebasTrabajo|pruebasUnity|sitemap.xml|robots.txt|BingSiteAuth.xml|google79bb81eb75c40196.html) 
 RewriteRule ^(.*)$ /edunola/index.php/$1 [L]
 ErrorDocument 404 /edunola/index.php?error_apache_enola=404
+

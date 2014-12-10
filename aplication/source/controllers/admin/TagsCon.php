@@ -74,7 +74,6 @@ class TagsCon extends En_Controller{
                 if($agregado){
                     $this->tipo_mensaje= 'info';
                     $this->mensaje= "Modificado correctamente";
-                    $this->tag= new Tag();
                     $this->load_view('admin/sections_tag/update_tag');
                 }
                 else{

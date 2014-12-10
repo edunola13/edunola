@@ -23,7 +23,7 @@
                 <?php Tags::end_paragraph(); ?>
                 <?php Tags::paragraph("left"); ?>
                     Actualmente me encuentro realizando varios desarrollos. Estoy realizando una simulacion para mi tesina de
-                    Grado, trabajando como labber en Aknotec y desarrollando Enola PHP.
+                    Grado, trabajando como Desarrollador en Aknotec y desarrollando Enola PHP y Servicios UI.
                 <?php Tags::end_paragraph(); ?>
             </article>
             <article class="col col-md-4">

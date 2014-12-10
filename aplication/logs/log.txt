@@ -102,4 +102,8 @@
 ----------\n[2014-12-09 18:06:54.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
 ----------\n[2014-12-09 18:06:54.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
 ----------\n[2014-12-09 18:06:54.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Usuarios::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-10 13:24:23.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-10 13:24:23.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-10 13:34:41.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-10 13:34:41.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
 ----------\n

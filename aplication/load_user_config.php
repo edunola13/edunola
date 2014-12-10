@@ -5,5 +5,4 @@
  * Y antes de empezar a trabajar el requerimiento HTTP, digamos antes de que se ejecuten los filtros, controladores, etc. 
  */
 
-
 ?>
