@@ -106,4 +106,18 @@
 ----------\n[2014-12-10 13:24:23.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
 ----------\n[2014-12-10 13:34:41.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
 ----------\n[2014-12-10 13:34:41.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-11 19:10:57.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-11 19:10:57.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-12 17:56:07.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-12 17:56:07.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-12 18:07:57.000000 127.0.0.1  - SQLSTATE[42000] [1115] Unknown character set: 'ISO' ] general_error
+----------\n[2014-12-12 18:07:57.000000 127.0.0.1  - SQLSTATE[42000] [1115] Unknown character set: 'ISO' ] general_error
+----------\n[2014-12-12 18:07:57.000000 127.0.0.1  - Error Fatal - Parse - Strict ] Call to a member function prepare() on a non-object
+----------\n[2014-12-12 18:08:59.000000 127.0.0.1  - Error Fatal - Parse - Strict ] syntax error, unexpected T_VARIABLE
+----------\n[2014-12-12 18:09:15.000000 127.0.0.1  - SQLSTATE[42000] [1115] Unknown character set: 'ISO' ] general_error
+----------\n[2014-12-12 18:09:15.000000 127.0.0.1  - SQLSTATE[42000] [1115] Unknown character set: 'ISO' ] general_error
+----------\n[2014-12-12 18:09:15.000000 127.0.0.1  - Error Fatal - Parse - Strict ] Call to a member function prepare() on a non-object
+----------\n[2014-12-12 18:09:44.000000 127.0.0.1  - SQLSTATE[42000] [1115] Unknown character set: 'ISO' ] general_error
+----------\n[2014-12-12 18:09:44.000000 127.0.0.1  - SQLSTATE[42000] [1115] Unknown character set: 'ISO' ] general_error
+----------\n[2014-12-12 18:09:44.000000 127.0.0.1  - Error Fatal - Parse - Strict ] Call to a member function prepare() on a non-object
 ----------\n

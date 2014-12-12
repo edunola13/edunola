@@ -9,10 +9,9 @@
     
     <div class="container">        
         <?php require_once 'sections/header.php'; ?>
-    
         <section class="row">
             <article class="col col-md-2">
-                <?php Tags::image("Eduardo Sebasian Nola", BASEURL . 'resources/images/foto-personal.png');?>
+                <?php Tags::image("Eduardo Sebastian Nola", BASEURL . 'resources/images/foto-personal.png');?>
             </article>
             <article class="col col-md-6">
                 <?php Tags::paragraph("left"); ?>
