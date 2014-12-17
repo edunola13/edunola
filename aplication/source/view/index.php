@@ -38,8 +38,6 @@
             </article>          
         </section>               
     </div>
-        
     <?php require_once 'sections/footer.php'; ?>
-    
 </body>
 </html>
