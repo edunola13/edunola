@@ -1,4 +1,5 @@
     <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
     <meta name="description" content="Analista en Sistemas. Desarrollo de Sistemas de Software principalmente desarrollo de juegos y desarrollos de aplicaciones/paginas web en la Plata, Buenos Aires"></meta>
     <title>Eduardo Sebastian Nola - Analista Programador Universitario</title>
         
