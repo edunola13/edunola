@@ -38,7 +38,8 @@
        
     "url-components": "enola-widgets",
     "components":{
-        "slider-blog": {"class": "SliderBlog", "enabled-url": "TRUE"}
+        "slider-blog": {"class": "SliderBlog", "enabled-url": "TRUE"},
+        "comments-blog": {"class": "CommentsBlog", "enabled-url": "TRUE"}
     },
             
     "database": {

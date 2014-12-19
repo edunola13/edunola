@@ -4,7 +4,8 @@
             "front": "/*"
         },
         "deny": {
-            "administracion": "admin*"
+            "administracion": "admin*",
+            "comments-remove": "comments/delete*"
         },
         "error": "login"
     },    

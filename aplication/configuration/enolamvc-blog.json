@@ -2,6 +2,7 @@
     "base_url": "",
     
     "controllers": {
-        "index": {"class": "blog/Blog", "url": "blog"}
+        "index": {"class": "blog/Blog", "url": "blog"},
+        "comments": {"class": "admin/Comments", "url": "blog/comments"}
     }
 }
