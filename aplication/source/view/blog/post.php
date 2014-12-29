@@ -64,8 +64,8 @@
             </div>
         </section>
     </div>
-        
-    <?php require_once PATHAPP.  'source/view/sections/footer.php'; ?>
+
+    <?php require_once PATHAPP.  'source/view/sections/footer.php'; ?>    
     <script type="text/javascript">
         $( window ).load(function() {
             $( ".blog-post" ).find("img").addClass("img-responsive");

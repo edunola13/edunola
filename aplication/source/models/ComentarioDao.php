@@ -22,8 +22,18 @@ class ComentarioDao extends En_DataBase{
         return $comentarios;
     }
     
+    public function comentario($id){
+        $consulta= $this->conexion->prepare('SELECT * FROM comentario WHERE id=:id');
+        $consulta->execute(array(':id' => $id));
+        return $this->first_result_in_object($consulta, 'Comentario');
+    }
+    
     public function add_comentario($comentario){
         return $this->add_object('comentario', $comentario);
+    }
+    
+    public function update_comentario($comentario){
+        return $this->update_object('comentario', $comentario, 'id=:id');
     }
 }
 

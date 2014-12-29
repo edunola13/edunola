@@ -23,6 +23,16 @@ class ComentarioServices {
         }
         return $this->dao->add_comentario($comentario);
     }
+    
+    public function comentario($id){
+        return $this->dao->comentario($id);
+    }
+    
+    public function update_comentario($id){
+        $comentario= $this->comentario($id);
+        $comentario->habilitado= FALSE;
+        return $this->dao->update_comentario($comentario);
+    }
 }
 
 ?>

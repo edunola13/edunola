@@ -155,4 +155,25 @@
 ----------\n[2014-12-28 22:02:24.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
 ----------\n[2014-12-28 22:02:24.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
 ----------\n[2014-12-28 22:02:24.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-29 18:55:49.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-29 18:55:49.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-29 18:55:53.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-29 18:55:53.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-29 18:55:53.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-29 18:55:53.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-29 18:59:35.000000 127.0.0.1  - Unknown ] Undefined variable: param
+----------\n[2014-12-29 18:59:35.000000 127.0.0.1  - Unknown ] Undefined variable: param
+----------\n[2014-12-29 18:59:35.000000 127.0.0.1  - Unknown ] Undefined variable: param
+----------\n[2014-12-29 19:02:50.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-29 19:02:50.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-29 19:02:50.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-29 19:02:50.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-29 19:03:01.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-29 19:03:01.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-29 19:03:05.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-29 19:03:05.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-29 19:03:05.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-29 19:03:05.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-29 19:15:37.000000 127.0.0.1  - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2' for key 'PRIMARY' ] general_error
+----------\n[2014-12-29 19:16:43.000000 127.0.0.1  - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2' for key 'PRIMARY' ] general_error
 ----------\n

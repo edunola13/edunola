@@ -17,7 +17,14 @@ class CommentsBlog extends En_Component{
     
     public function rendering($params = NULL) {
         $this->comentarios= $this->servicio->comentarios($params[0]);
-        $this->load_view('blog/comentarios');
+        $params= array('idPost' => $params[0]);
+        if($this->session->get('user_logged') == 'administrador'){
+            $params['admin']= TRUE;
+        }
+        else{
+            $params['admin']= FALSE;
+        }
+        $this->load_view('blog/comentarios', $params);
     }
 }
 

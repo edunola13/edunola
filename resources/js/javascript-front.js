@@ -54,3 +54,26 @@ $( "body" ).on( "submit","#form-comentario form", function( event ) {
     	} );
     	event.preventDefault();
 });
+
+function eliminar_comentario(id, idPost){
+    var r = confirm("Esta seguro que desea eliminar el Post?");
+    if (r == true) {
+        $.ajax({
+            type: "GET",
+            url: '../delete_comentario/' + id,
+            dataType: "html",
+            success: function (msg) {
+                var obj = jQuery.parseJSON(msg);
+                if(obj.rta === true){
+                    comentarios(idPost);
+                }
+                else{
+                    alert('Hubo un Error, vuelva a intentarlo');
+                }
+            },
+            error: function (msg){
+                alert("Error. Vuelva a Intentarlo.");
+            }        
+        });
+    }
+}

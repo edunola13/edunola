@@ -142,6 +142,20 @@ class Blog extends En_Controller{
         }
     }
     
+    public function delete_comentario(){
+        if($this->request->request_method == 'GET'){
+            $id= $this->params[0];
+            $servicio= new ComentarioServices();
+            if($servicio->update_comentario($id)){
+                $rta= array('rta' => TRUE);
+            }
+            else{
+                $rta= array('rta' => FALSE);
+            }
+            echo json_encode($rta);
+        }
+    }
+    
     protected function config_validation() {
         $config= array('nombre' => 'required|max_length[25]',
             'comentario' => 'required|max_length[250]');
