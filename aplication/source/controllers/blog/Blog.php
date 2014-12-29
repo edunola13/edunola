@@ -9,10 +9,16 @@
  */
 import_aplication_file("source/services/PostServices");
 import_aplication_file("source/services/TagServices");
+import_aplication_file("source/services/ComentarioServices");
+import_aplication_file("source/models/User");
 class Blog extends En_Controller{
     protected $can_por_page= 3;
     protected $posts;
     protected $post;
+    protected $posts_relacionados;
+    protected $tags_relacionados;
+    
+    protected $comentario;
     
     protected $servicioPost;
     protected $servicioTag;
@@ -100,16 +106,46 @@ class Blog extends En_Controller{
         if(isset($this->params[0])){
             $titulo= replace(' ', '-', urldecode($this->params[0]));
         }
-        $this->post= $this->servicioPost->post_titulo($titulo);
-        if($this->post->habilitado == FALSE){
-            $this->post= NULL;
-        }
+        $this->post= $this->servicioPost->post_titulo($titulo);        
         if($this->post != NULL){
-            $this->servicioPost->agregar_vista($this->post->id);
-            $this->posts_relacionados= $this->servicioPost->posts_relacionados($this->post->id);
-            $this->tags_relacionados= $this->servicioTag->tags_post($this->post->id);
+            if($this->post->habilitado == FALSE){
+                $this->post= NULL;
+            }
+            else{
+                $this->servicioPost->agregar_vista($this->post->id);
+                $this->posts_relacionados= $this->servicioPost->posts_relacionados($this->post->id);
+                $this->tags_relacionados= $this->servicioTag->tags_post($this->post->id);
+            }
         }        
         $this->load_view("blog/post");
+    }
+    
+    public function add_comentario(){
+        if($this->request->request_method == 'POST'){
+            $this->read_fields('comentario', 'Comentario');
+            $rta= array();
+            if(! $this->validate($this->comentario)){
+                $rta= array('rta' => FALSE);
+                $rta['errores']= 'Los Campos se encuentran mal completados';
+            }
+            else{
+                $servicio= new ComentarioServices();
+                $usuario= $this->request->session->get_unserialize('usuario_session');
+                if($servicio->add_comentario($this->comentario, $usuario)){
+                    $rta= array('rta' => TRUE);
+                }
+                else{
+                    $rta= array('rta' => FALSE, 'errores' => 'Hubo un problema, vuelva a intentarlo');
+                }                
+            }
+            echo json_encode($rta);
+        }
+    }
+    
+    protected function config_validation() {
+        $config= array('nombre' => 'required|max_length[25]',
+            'comentario' => 'required|max_length[250]');
+        return $config;
     }
 }
 

@@ -1,7 +1,7 @@
 {
     "base_url": "http://localhost/edunola/",
     "environment": "development",
-    "calculate_performance": "TRUE",
+    "calculate_performance": "FALSE",
     "configuration": "configuration/",
     "charset": "UTF-8",
       

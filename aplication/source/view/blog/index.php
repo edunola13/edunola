@@ -12,6 +12,10 @@
         <?php require_once 'sections/title.php'; ?>
         <section class="row">
             <div class="col col-md-8">
+                <div class="second-title">
+                    <h2 class="blog-post-title">Mis Ultimos Posts</h2>
+                </div>
+                
                 <?php foreach ($this->posts as $post) { ?>
                     <div class="blog-post">
                         <h2 class="blog-post-title"><?php echo $post->titulo; ?></h2>
@@ -28,7 +32,7 @@
             <div class="col col-md-4">
                 <?php execute_component("slider-blog"); ?>
             </div>
-        </section>            
+        </section>           
     </div>
         
     <?php require_once PATHAPP.  'source/view/sections/footer.php'; ?>

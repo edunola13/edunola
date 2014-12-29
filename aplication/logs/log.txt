@@ -62,4 +62,97 @@
 ----------\n[2014-12-18 15:50:42.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
 ----------\n[2014-12-18 15:52:01.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
 ----------\n[2014-12-18 15:52:01.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 03:08:12.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 03:08:12.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 03:08:16.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 03:08:16.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 03:17:00.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-28 03:17:00.000000 ::1  - Unknown ] Undefined property: Blog::$posts_relacionados
+----------\n[2014-12-28 03:17:00.000000 ::1  - Unknown ] Undefined property: Blog::$tags_relacionados
+----------\n[2014-12-28 03:18:12.000000 ::1  - Unknown ] Undefined property: Blog::$posts_relacionados
+----------\n[2014-12-28 03:18:12.000000 ::1  - Unknown ] Undefined property: Blog::$tags_relacionados
+----------\n[2014-12-28 03:22:53.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 03:22:53.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 03:38:41.000000 ::1  - SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by vistas desc' at line 1 ] general_error
+----------\n[2014-12-28 03:38:41.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\aplication\source\view\blog\post.php:4)
+----------\n[2014-12-28 03:48:33.000000 ::1  - Unknown ] Undefined property: Blog::$email
+----------\n[2014-12-28 03:48:33.000000 ::1  - Unknown ] Undefined property: Blog::$email
+----------\n[2014-12-28 18:55:38.000000 ::1  - Error Fatal - Parse - Strict ] Class 'ComentarioDao' not found
+----------\n[2014-12-28 19:00:16.000000 ::1  - Error Fatal - Parse - Strict ] Class 'Comentario' not found
+----------\n[2014-12-28 20:24:06.000000 ::1  - Error Fatal - Parse - Strict ] Class 'Comentario' not found
+----------\n[2014-12-28 20:42:11.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 20:42:11.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 20:42:12.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 20:42:12.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 21:12:01.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 21:12:01.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 21:12:01.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 21:12:01.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 21:12:01.000000 ::1  - Unknown ] main() [<a href='function.main'>function.main</a>]: The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition &quot;Usuario&quot; of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+----------\n[2014-12-28 21:12:01.000000 ::1  - Unknown ] main() [<a href='function.main'>function.main</a>]: The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition &quot;Usuario&quot; of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+----------\n[2014-12-28 21:12:01.000000 ::1  - Unknown ] main() [<a href='function.main'>function.main</a>]: The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition &quot;Usuario&quot; of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+----------\n[2014-12-28 21:12:01.000000 ::1  - Unknown ] main() [<a href='function.main'>function.main</a>]: The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition &quot;Usuario&quot; of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+----------\n[2014-12-28 21:12:01.000000 ::1  - Unknown ] main() [<a href='function.main'>function.main</a>]: The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition &quot;Usuario&quot; of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+----------\n[2014-12-28 21:12:01.000000 ::1  - Unknown ] main() [<a href='function.main'>function.main</a>]: The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition &quot;Usuario&quot; of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+----------\n[2014-12-28 21:12:01.000000 ::1  - Unknown ] main() [<a href='function.main'>function.main</a>]: The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition &quot;Usuario&quot; of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+----------\n[2014-12-28 21:12:08.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 21:12:08.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 21:12:13.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 21:12:13.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 21:12:14.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 21:12:14.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 21:12:39.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 21:12:39.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 21:12:39.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 21:12:39.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 21:51:45.000000 ::1  - Unknown ] Undefined property: CommentsBlog::$request
+----------\n[2014-12-28 21:51:45.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-28 21:51:45.000000 ::1  - Error Fatal - Parse - Strict ] Call to a member function get_unserialize() on a non-object
+----------\n[2014-12-28 21:53:07.000000 ::1  - Error Fatal - Parse - Strict ] Class 'Session' not found
+----------\n[2014-12-28 21:54:16.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-28 21:54:49.000000 ::1  - Unknown ] Undefined variable: usuario
+----------\n[2014-12-28 21:54:49.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-28 21:58:15.000000 ::1  - Error Fatal - Parse - Strict ] Cannot access private property Comentario::$usuario
+----------\n[2014-12-28 21:58:31.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-28 21:58:31.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-28 21:58:31.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-28 21:58:31.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-28 21:58:31.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-28 21:58:31.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2014-12-28 21:59:59.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 21:59:59.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:00:05.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:00:05.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:00:05.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:00:05.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:01:00.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:01:00.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:01:00.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:01:00.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:01:58.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:01:58.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:02.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:02.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:10.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:10.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:10.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:10.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:11.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:11.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:11.000000 ::1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:11.000000 ::1  - Level Error: 2048 ] Declaration of Usuarios::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:13.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:13.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:13.000000 ::1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:13.000000 ::1  - Level Error: 2048 ] Declaration of Usuarios::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:17.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:17.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:17.000000 ::1  - Level Error: 2048 ] Declaration of Usuarios::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:17.000000 ::1  - Level Error: 2048 ] Declaration of Usuarios::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:20.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:20.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:24.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:24.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2014-12-28 22:02:24.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2014-12-28 22:02:24.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
 ----------\n

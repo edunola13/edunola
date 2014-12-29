@@ -99,7 +99,7 @@ class PostDao extends En_DataBase{
     }
     
     public function mas_vistos(){
-        $consulta= $this->conexion->prepare('SELECT * FROM post WHERE fecha_baja IS NULL and habilitado = TRUE order by vistas limit 10');
+        $consulta= $this->conexion->prepare('SELECT * FROM post WHERE fecha_baja IS NULL and habilitado = TRUE order by vistas desc limit 10');
         $consulta->execute();
         return $this->results_in_objects($consulta, 'Post');
     }
