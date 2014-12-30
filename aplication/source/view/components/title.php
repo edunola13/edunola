@@ -1,3 +1,1 @@
-<h3>
-<?php echo $valores["config.title"]; ?>
-</h3>
+<h3> <?php echo $valores["config.title"]; ?> </h3>
