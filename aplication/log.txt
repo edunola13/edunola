@@ -1,0 +1,3 @@
+[2014-12-29 22:11:02.000000 200.58.111.171  - Level Error: 8 ] Undefined property: CommentsBlog::$session
+----------\n[2014-12-29 22:11:02.000000 200.58.111.171  - 1 ] Call to a member function get() on a non-object
+----------\n
