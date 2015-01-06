@@ -1,2 +1,1 @@
-
-<?php echo $valores["config.value"]; ?>
+ <?php echo $valores["config.value"]; ?> 
