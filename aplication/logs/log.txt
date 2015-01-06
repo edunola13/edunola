@@ -1,0 +1,11 @@
+[2015-01-06 21:06:51.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 21:06:51.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 21:06:51.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 21:06:51.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 21:06:55.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 21:06:55.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 21:07:01.000000 ::1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 21:07:01.000000 ::1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 21:07:01.000000 ::1  - Level Error: 2048 ] Declaration of Admin::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 21:07:01.000000 ::1  - Level Error: 2048 ] Declaration of Admin::validate() should be compatible with that of En_Controller::validate()
+----------\n
