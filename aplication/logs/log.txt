@@ -340,4 +340,72 @@
 ----------\n[2014-12-30 20:13:35.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
 ----------\n[2014-12-30 20:15:17.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::read_fields() should be compatible with that of En_Controller::read_fields()
 ----------\n[2014-12-30 20:15:17.000000 127.0.0.1  - Level Error: 2048 ] Declaration of Login::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:28:59.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:28:59.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:29:08.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:29:08.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:29:14.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:14.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:14.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:14.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:14.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:29:14.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:29:19.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:19.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:19.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:19.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:19.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:29:19.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:29:23.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:23.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:23.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:23.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:23.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:29:23.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:29:28.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:28.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:28.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:28.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:28.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:29:28.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:29:33.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:33.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:33.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:33.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:33.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:29:33.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:29:37.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:37.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:37.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:37.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:37.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:29:37.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:29:42.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:42.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:42.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:42.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:42.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:29:42.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:29:47.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:47.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:47.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:47.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:47.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:29:47.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:29:52.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:52.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:52.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:52.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:52.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:29:52.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:29:57.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:57.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:57.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:57.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:29:57.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::read_fields() should be compatible with that of En_Controller::read_fields()
+----------\n[2015-01-06 20:29:57.000000 ::1  - Level Error: 2048 ] Declaration of Contacto::validate() should be compatible with that of En_Controller::validate()
+----------\n[2015-01-06 20:30:01.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:30:01.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:30:01.000000 ::1  - Unknown ] Undefined property: Contacto::$email
+----------\n[2015-01-06 20:30:01.000000 ::1  - Unknown ] Undefined property: Contacto::$email
 ----------\n
