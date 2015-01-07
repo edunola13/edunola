@@ -96,10 +96,10 @@ class Posts extends En_Controller{
         $filtro= array('id_usuario' => $usuario->id, 'id_excepto' => 0);
         
         if($this->request->request_method == "POST"){           
-            $this->read_fields();
+            $this->read_fields('post', 'Post');
             $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
             $this->tags= $this->servicioTag->tags();
-            if(! $this->validate()){
+            if(! $this->validate($this->post)){
                 $this->load_view("admin/post_add");
             }
             else{
@@ -130,11 +130,11 @@ class Posts extends En_Controller{
         
         if($this->request->request_method == "POST"){
             $post_actual= $this->servicioPost->post($this->params[0]);
-            $this->read_fields();
+            $this->read_fields('post', 'Post');
             $filtro= array('id_usuario' => $usuario->id, 'id_excepto' => $this->post->id);
             $this->posts= $this->servicioPost->posts_para_relaciones($filtro);
             $this->tags= $this->servicioTag->tags();
-            if(! $this->validate()){
+            if(! $this->validate($this->post)){
                 $this->load_view("admin/post_update");
             }
             else{
@@ -172,8 +172,8 @@ class Posts extends En_Controller{
         }
     }
     
-    protected function read_fields() {
-        parent::read_fields('post', 'Post');
+    protected function read_fields($var_name, $class = NULL) {
+        parent::read_fields($var_name, $class);
         if($this->request->param_post('habilitado') == NULL){
             $this->post->habilitado= 0;
         }
@@ -191,8 +191,8 @@ class Posts extends En_Controller{
         return $reglas;
     }
     
-    protected function validate(){
-        if(parent::validate($this->post)){
+    protected function validate($var){
+        if(parent::validate($var)){
             if($this->servicioPost->existe_post($this->post->titulo, $this->request->param_post('id'))){
                 $this->errores['titulo']= "El post ya existe";
                 return FALSE;

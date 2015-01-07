@@ -24,8 +24,8 @@ class Login extends En_Controller{
     
     public function doPost(){
         if(! $this->request->session->exist('user_logged')){
-            $this->read_fields();
-            if(! $this->validate()){
+            $this->read_fields('usuario');
+            if(! $this->validate($this->usuario)){
                 $this->load_view("login");
             }            
             else{
@@ -53,17 +53,11 @@ class Login extends En_Controller{
         }
     }
     
-    protected function read_fields() {
-        //Consigo los campos del form
-        $this->usuario['usuario']= $this->request->param_post('usuario');
-        $this->usuario['clave']= $this->request->param_post('clave');
-    }
-    
-    protected function validate() {
+    protected function validate($var) {
         //Valido los campos del form
         $validacion= new Validation();
-        $validacion->add_rule('usuario', $this->usuario['usuario'], 'required|min_length[5]|max_length[20]');
-        $validacion->add_rule('clave', $this->usuario['clave'], 'required|min_length[5]|max_length[20]');
+        $validacion->add_rule('usuario', $var['usuario'], 'required|min_length[5]|max_length[20]');
+        $validacion->add_rule('clave', $var['clave'], 'required|min_length[5]|max_length[20]');
 
         if(! $validacion->validate()){
             //Consigo los errores

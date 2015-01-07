@@ -78,7 +78,7 @@ class Images extends En_Controller{
         $this->nombre= $this->request->param_post('nombre');
     }
     
-    protected function validate() {
+    protected function validate($var) {
         //Valido los campos del form
         $validacion= new Validation();
         $validacion->add_rule('nombre', $this->nombre, 'required');

@@ -30,8 +30,8 @@ class Usuarios extends En_Controller{
     
     public function add(){
         if($this->request->request_method == "POST"){
-            $this->read_fields();
-            if(! $this->validate()){
+            $this->read_fields('usuario', 'User');
+            if(! $this->validate($this->usuario)){
                 $this->error();
             }
             else{                
@@ -65,8 +65,8 @@ class Usuarios extends En_Controller{
             }
         }
         if($this->request->request_method == "POST"){
-            $this->read_fields();
-            if(! $this->validate()){
+            $this->read_fields('usuario', 'User');
+            if(! $this->validate($this->usuario)){
                 $this->load_data();
                 $this->load_view("admin/usuarios", "update");
             }
@@ -109,8 +109,8 @@ class Usuarios extends En_Controller{
         $this->usuarios= $this->servicio->usuarios($id);
     }
     
-    protected function read_fields() {
-        parent::read_fields('usuario', 'User');
+    protected function read_fields($var_name, $class = NULL) {
+        parent::read_fields($var_name, $class);
         if($this->request->param_post('habilitado') == NULL){
             $this->usuario->habilitado= 0;
         }
@@ -133,8 +133,8 @@ class Usuarios extends En_Controller{
         return $reglas;
     }
     
-    protected function validate(){
-        if(parent::validate($this->usuario)){
+    protected function validate($var){
+        if(parent::validate($var)){
             if($this->servicio->existe_usuario($this->usuario->usuario, $this->usuario->id)){
                 $this->errores['usuario']= "El usuario ya existe";
                 return FALSE;

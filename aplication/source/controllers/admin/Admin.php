@@ -26,8 +26,8 @@ class Admin extends En_Controller{
             $this->load_view("admin/index");
         }
         if($this->request->request_method == "POST"){
-            $this->read_fields();
-            if(! $this->validate()){
+            $this->read_fields('usuario', 'User');
+            if(! $this->validate($this->usuario)){
                 $this->error();
             }
             else{
@@ -35,6 +35,8 @@ class Admin extends En_Controller{
                 if($this->request->param_post('clave') != ''){
                     $modClave= TRUE;
                 }
+                unset($this->usuario->habilitado);
+                unset($this->usuario->tipo_usuario);
                 $usuarioMod= $this->servicio->modificar($this->usuario, $modClave);
                 if($usuarioMod){
                     $this->mensaje= "Modificado correctamente";
@@ -50,28 +52,17 @@ class Admin extends En_Controller{
         }        
     }
     
-    protected function read_fields() {
-        $this->usuario= $this->servicio->usuario($this->request->param_post('id'));
-        $this->usuario->usuario= $this->request->param_post('usuario');
-        if($this->request->param_post('clave') != ''){
-            $this->usuario->clave= $this->request->param_post('clave');
-        }
-        $this->usuario->nombre= $this->request->param_post('nombre');
-        $this->usuario->email= $this->request->param_post('email');
-        $this->usuario->fecha_nacimiento= $this->request->param_post('fecha_nacimiento');
-    }
-    
-    protected function validate(){
+    protected function validate($var){
         //Valido los campos del form
         $validacion= new Validation();
-        $validacion->add_rule('id', $this->usuario->id, 'required');
-        $validacion->add_rule('usuario', $this->usuario->usuario, 'required|min_length[5]|max_length[20]');
+        $validacion->add_rule('id', $var->id, 'required');
+        $validacion->add_rule('usuario', $var->usuario, 'required|min_length[5]|max_length[20]');
         if($this->request->param_post('clave') != ''){
-            $validacion->add_rule('clave', $this->usuario->clave, 'required|min_length[5]|max_length[20]');
+            $validacion->add_rule('clave', $var->clave, 'required|min_length[5]|max_length[20]');
         }
-        $validacion->add_rule('nombre', $this->usuario->nombre, 'required|min_length[10]|max_length[50]');
-        $validacion->add_rule('email',  $this->usuario->email, 'email');
-        $validacion->add_rule('fecha_nacimiento', $this->usuario->fecha_nacimiento, 'date[Y-m-d]');
+        $validacion->add_rule('nombre', $var->nombre, 'required|min_length[10]|max_length[50]');
+        $validacion->add_rule('email',  $var->email, 'email');
+        $validacion->add_rule('fecha_nacimiento', $var->fecha_nacimiento, 'date[Y-m-d]');
 
         if(! $validacion->validate()){
             //Consigo los errores

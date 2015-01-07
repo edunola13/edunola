@@ -35,7 +35,7 @@ class TagsCon extends En_Controller{
             $this->load_view('admin/sections_tag/add_tag');
         }
         else{
-            $this->read_fields();
+            $this->read_fields('tag', 'Tag');
             if(! $this->validate($this->tag)){
                 $this->load_view('admin/sections_tag/add_tag');
             }
@@ -65,7 +65,7 @@ class TagsCon extends En_Controller{
             $this->load_view('admin/sections_tag/update_tag');
         }
         else{
-            $this->read_fields();
+            $this->read_fields('tag', 'Tag');
             if(! $this->validate($this->tag)){
                 $this->load_view('admin/sections_tag/update_tag');
             }
@@ -107,10 +107,6 @@ class TagsCon extends En_Controller{
         }
     }
     
-    public function read_fields() {
-        parent::read_fields('tag', 'Tag');
-    }
-    
     public function config_validation() {
         $reglas= array('nombre' => 'required|max_length[20]', 'descripcion' => 'required|min_length[10]|max_length[250]');
         if($this->request->param_post('id') != NULL){
@@ -119,8 +115,8 @@ class TagsCon extends En_Controller{
         return $reglas;
     }
     
-    public function validate($object) {
-        if(parent::validate($object)){
+    public function validate($var) {
+        if(parent::validate($var)){
             if($this->servicio->existe_tag($this->tag->nombre, $this->tag->id)){
                 $this->errores['nombre']= 'El nombre de Tag ya existe';
                 return FALSE;

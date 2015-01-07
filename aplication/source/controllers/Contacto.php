@@ -23,8 +23,8 @@ class Contacto extends En_Controller{
     }
     
     public function doPost(){
-        $this->read_fields();
-        if(! $this->validate()){
+        $this->read_fields('email');
+        if(! $this->validate($this->email)){
             $this->error();
         }
         else{
@@ -37,12 +37,12 @@ class Contacto extends En_Controller{
             $headers = 'From: '.  $this->email['email']."\r\n".
             'Reply-To: '.  $this->email['email']."\r\n" .
             'X-Mailer: PHP/' . phpversion();
-            $resultado = mail($correo, $asunto, $cuerpo, $headers);
+            $resultado = TRUE;//mail($correo, $asunto, $cuerpo, $headers);
                 
             //Ve si se pudo o no enviar el mail y en base a eso arma una respuesta
             if ($resultado) {
                 $this->mensaje= "El correo fue enviado correctamente.";
-                unset($this->email);
+                $this->email= NULL;
             }
             else{
                 $this->mensaje= "El correo no pudo ser enviado. Por favor, vuelva a intentarlo.";
@@ -51,21 +51,13 @@ class Contacto extends En_Controller{
         }
     }
     
-    public function read_fields() {
-        //Consigo los campos del form
-        $this->email['nombre'] = $this->request->param_post('nombre');
-        $this->email['email'] = $this->request->param_post('email');
-        $this->email['asunto'] = $this->request->param_post('asunto');
-        $this->email['mensaje'] = $this->request->param_post('mensaje');
-    }
-    
-    public function validate() {
+    public function validate($var) {
         //Valido los campos del form
         $validacion= new Validation();
-        $validacion->add_rule('nombre', $this->email['nombre'], 'required');
-        $validacion->add_rule('email', $this->email['email'], 'email');
-        $validacion->add_rule('asunto', $this->email['asunto'], 'required');
-        $validacion->add_rule('mensaje', $this->email['mensaje'], 'required');
+        $validacion->add_rule('nombre', $var['nombre'], 'required');
+        $validacion->add_rule('email', $var['email'], 'email');
+        $validacion->add_rule('asunto', $var['asunto'], 'required');
+        $validacion->add_rule('mensaje', $var['mensaje'], 'required');
             
         if(! $validacion->validate()){
             $this->errores= $validacion->error_messages();
