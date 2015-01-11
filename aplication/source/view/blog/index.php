@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
     <?php require_once PATHAPP.  'source/view/sections/head.php'; ?>
-    <link href="<?php echo BASEURL . 'resources/css/blog.css'; ?>" rel="stylesheet">
 </head>
 <body>
     <?php $menu= "blog"; ?>

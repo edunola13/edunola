@@ -3,9 +3,7 @@
     <meta name="description" content="Analista en Sistemas. Desarrollo de Sistemas de Software principalmente desarrollo de juegos y desarrollos de aplicaciones/paginas web en la Plata, Buenos Aires"></meta>
     <title>Eduardo Sebastian Nola - Analista Programador Universitario</title>
     
-    <link href="<?php echo BASEURL . 'resources/css/bootstrap.min.css'; ?>" rel="stylesheet">
-    <link href="<?php echo BASEURL . 'resources/css/bootstrap-theme.min.css'; ?>" rel="stylesheet">
-    <link href="http://edunola.com.ar/serviciosui/resources/css/themes/base.css" rel="stylesheet">
+    <?php Tags::theme('cosmo');?>
     <link href="<?php echo BASEURL . 'resources/css/blog.css'; ?>" rel="stylesheet">
     <link href="<?php echo BASEURL . 'resources/css/estilo.css'; ?>" rel="stylesheet">
     
