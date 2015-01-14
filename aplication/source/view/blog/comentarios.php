@@ -3,7 +3,7 @@
                     <div>
                     <?php if($params['admin']){?>
                     <button type="button" class="btn btn-xs pull-right" title="Delete" onclick="eliminar_comentario('<?php echo $comentario->id?>','<?php echo $params['idPost'];?>')">
-                        <span class=".glyphicon .glyphicon-trash"></span>
+                        <span class="glyphicon glyphicon-trash"></span>
                     </button>
                     <?php }?>
                     <div class="media comentario">
