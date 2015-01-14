@@ -12,6 +12,9 @@
         <?php require_once 'sections/title.php'; ?>
         <section class="row">
             <div class="col col-md-8">
+                <div>
+                    <h2 class="titulo-principal">Resultados de la Busqueda Actual...</h2>
+                </div>
                 <?php if(count($this->posts) == 0){ ?>
                     <h4>No se encontraron resultados para su Busqueda.</h4>
                 <?php } ?>

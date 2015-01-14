@@ -11,8 +11,8 @@
         <?php require_once 'sections/title.php'; ?>
         <section class="row">
             <div class="col col-md-8">
-                <div class="second-title">
-                    <h2 class="blog-post-title">Mis Ultimos Posts</h2>
+                <div>
+                    <h2 class="titulo-principal">Mis Ultimos Posts</h2>
                 </div>
                 
                 <?php foreach ($this->posts as $post) { ?>

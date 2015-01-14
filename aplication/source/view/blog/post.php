@@ -14,8 +14,8 @@
             <div class="col col-md-8">
                 <div class="blog-post">                    
                     <?php if($this->post != NULL) { ?>
-                        <div class="second-title">
-                            <h2 class="blog-post-title"><?php echo $this->post->titulo; ?></h2>
+                        <div>
+                            <h2 class="titulo-principal"><?php echo $this->post->titulo; ?></h2>
                             <p class="blog-post-meta"><?php echo $this->post->fecha_alta; ?> por <a href="#"><?php echo $this->post->usuario->nombre ; ?></a></p>
                         </div>
                         <?php echo $this->post->contenido; ?>

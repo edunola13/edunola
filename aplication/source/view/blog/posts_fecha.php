@@ -12,8 +12,8 @@
         <?php require_once 'sections/title.php'; ?>
         <section class="row">
             <div class="col col-md-8">
-                <div class="second-title">
-                    <h2 class="blog-post-title">Posts de Periodo <?php echo $this->params[0] . '-' . $this->params[1]; ?></h2>
+                <div>
+                    <h2 class="titulo-principal">Posts de Periodo <?php echo $this->params[0] . '-' . $this->params[1]; ?></h2>
                 </div>
                 <?php foreach ($this->posts as $post) { ?>
                     <div class="blog-post">
