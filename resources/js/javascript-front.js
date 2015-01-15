@@ -1,5 +1,5 @@
-//var url= "http://localhost/edunola/";
-var url= "http://www.edunola.com.ar/";
+var url= "http://localhost/edunola/";
+//var url= "http://www.edunola.com.ar/";
 
 function buscar_post(){
     var search= $(".well");
