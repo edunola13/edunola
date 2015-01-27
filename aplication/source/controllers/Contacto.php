@@ -31,14 +31,51 @@ class Contacto extends En_Controller{
             //Los campos son correctos, armo el mail
             $correo= "edunola13@hotmail.com";
             $asunto = $this->email['asunto'];
-            $cuerpo = "Nombre: ". $this->email['nombre']. "\n" . "Email:". $this->email['email']. "\n" . $this->email['mensaje'];
-                
-            //Modifico el header para poner como from y reply to al mail del consultante
-            $headers = 'From: '.  $this->email['email']."\r\n".
-            'Reply-To: '.  $this->email['email']."\r\n" .
-            'X-Mailer: PHP/' . phpversion();
-            $resultado = TRUE;//mail($correo, $asunto, $cuerpo, $headers);
-                
+            $cuerpo = "Nombre: ". $this->email['nombre']. "<br/>" . "Email:". $this->email['email']. "<br/>" . $this->email['mensaje'];
+            
+            import_librarie('PHPMailer/class.phpmailer');            
+            
+            $mail = new PHPMailer();
+            $mail->IsSMTP();  // telling the class to use SMTP  	
+            //$mail->SMTPDebug = 2;
+            
+  	    $mail->Host     = "smtp.live.com";
+            $mail->SMTPAuth      = true;
+            $mail->SMTPSecure    = 'tls';
+            $mail->Port          = 587;
+            $mail->Username      = "edunola13@hotmail.com"; // SMTP account username
+            $mail->Password      = "Anabella89$";
+
+            $mail->SetFrom($correo, $asunto);
+            $mail->SetFrom($correo, $asunto);
+//            $mail->Host     = "smtp.gmail.com";
+//            $mail->SMTPAuth      = true;
+//            $mail->SMTPSecure    = 'ssl';
+//            $mail->Port          = 465;
+//            $mail->Username      = "anabelladigrazia@gmail.com"; // SMTP account username
+//            $mail->Password      = "Lucia2013";
+//
+//            $mail->SetFrom('anabelladigrazia@gmail.com', 'Secretaría de Transporte - Resolucion 939 [NO-REPLY]');
+//            $mail->SetFrom('anabelladigrazia@gmail.com', 'Resolucion 939 [NO-REPLY]');
+            
+            $mail->AddAddress($correo);
+				
+            $mail->Subject  = utf8_decode($asunto);
+            $mail->AltBody = 'Use un visor compatible con HTML';
+            $mail->MsgHTML(utf8_decode($cuerpo));		
+            $mail->WordWrap = 50;
+            set_time_limit(200);
+            $resultado;
+            if(!$mail->Send()) {
+                //echo 'Message was not sent.';
+                //echo 'Mailer error: ' . $mail->ErrorInfo;
+                $resultado= FALSE;
+            } else {
+		//echo 'Message has been sent.';
+		$resultado= TRUE;			
+            }
+		
+            set_time_limit(30);
             //Ve si se pudo o no enviar el mail y en base a eso arma una respuesta
             if ($resultado) {
                 $this->mensaje= "El correo fue enviado correctamente.";

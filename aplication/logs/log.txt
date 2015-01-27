@@ -2,4 +2,7 @@
 ----------\n[2015-01-14 18:33:00.000000 127.0.0.1  - Unknown ] include() [<a href='function.include'>function.include</a>]: Failed opening 'C:\wamp\www\edunola\aplication/source/view/index.php' for inclusion (include_path='.;C:\php\pear')
 ----------\n[2015-01-14 18:33:47.000000 127.0.0.1  - Unknown ] include(C:\wamp\www\edunola\aplication/source/view/index.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory
 ----------\n[2015-01-14 18:33:47.000000 127.0.0.1  - Unknown ] include() [<a href='function.include'>function.include</a>]: Failed opening 'C:\wamp\www\edunola\aplication/source/view/index.php' for inclusion (include_path='.;C:\php\pear')
+----------\n[2015-01-27 13:13:23.000000 127.0.0.1  - Unknown ] require_once(class.phpmailer.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory
+----------\n[2015-01-27 13:13:45.000000 127.0.0.1  - Unknown ] require_once(C:\wamp\www\edunola\aplication/libraries/PHPMailer/class.phpmailer.php.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory
+----------\n[2015-01-27 13:13:59.000000 127.0.0.1  - Unknown ] stream_socket_enable_crypto() [<a href='streams.crypto'>streams.crypto</a>]: this stream does not support SSL/crypto
 ----------\n
