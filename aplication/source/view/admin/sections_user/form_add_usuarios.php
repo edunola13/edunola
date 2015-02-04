@@ -1,5 +1,5 @@
             <article class="col col-md-10 col-md-offset-1">
-                <?php Tags::formulario("POST", BASEURL . "admin/usuarios/add", '', "Alta de Usuario"); ?>
+                <?php Tags::form("POST", BASEURL . "admin/usuarios/add", '', "Alta de Usuario"); ?>
                     <?php Tags::alert_message("danger", $this->mensaje_error);?> 
                 
                     <?php if(isset($this->errores['usuario'])){ 
@@ -28,5 +28,5 @@
                     <?php Tags::botonera(); ?>
                         <?php Tags::button("submit", "Agregar"); ?>
                     <?php Tags::end_botonera(); ?>
-                <?php Tags::end_formulario(); ?>
+                <?php Tags::end_form(); ?>
             </article>

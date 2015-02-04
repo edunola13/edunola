@@ -50,7 +50,7 @@
                 
             </div>
             <div id="form-comentario" class="col col-md-10 col-md-offset-1">
-            <?php Tags::formulario('POST', '', '', 'Agregue un Comentario') ?>
+            <?php Tags::form('POST', '', '', 'Agregue un Comentario') ?>
                 <input id="post_id" name="post_id" type="hidden" value="<?php echo $this->post->id;?>">
                 
                 <?php Tags::input("Nombre", "nombre", "text", "Nombre", '');?> 
@@ -60,7 +60,7 @@
                 <?php Tags::botonera(); ?>            
                 <?php Tags::button("submit", "Enviar"); ?>
                 <?php Tags::end_botonera(); ?>
-            <?php Tags::end_formulario();?>
+            <?php Tags::end_form();?>
             </div>
         </section>
     </div>

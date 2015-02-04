@@ -1,5 +1,5 @@
             <article class="col col-md-10 col-md-offset-1">
-                <?php Tags::formulario("POST", BASEURL . "admin/usuarios/update", '', "Modificacion de Usuario"); ?>
+                <?php Tags::form("POST", BASEURL . "admin/usuarios/update", '', "Modificacion de Usuario"); ?>
                     <?php Tags::alert_message("danger", $this->mensaje_error);?> 
                 
                     <input name="id" type="hidden" value="<?php echo $this->usuario->id ?>"/>
@@ -30,5 +30,5 @@
                         <?php Tags::button("submit", "Modificar"); ?>
                         <?php Tags::button("button", "Cancelar", 'primary', "cancel_update", "add()") ?>               
                     <?php Tags::end_botonera(); ?>
-                <?php Tags::end_formulario(); ?>
+                <?php Tags::end_form(); ?>
             </article>

@@ -10,7 +10,7 @@
     
         <section class="row">
             <article class="col col-md-7">
-                <?php Tags::formulario("POST", BASEURL . "admin", '', "Información Personal"); ?>
+                <?php Tags::form("POST", BASEURL . "admin", '', "Información Personal"); ?>
                     <?php Tags::alert_message("info", $this->mensaje);?> 
                 
                     <input name="id" type="hidden" value="<?php echo $this->usuario->id ?>"/>
@@ -33,7 +33,7 @@
                     <?php Tags::botonera(); ?>
                         <?php Tags::button("submit", "Modificar"); ?>
                     <?php Tags::end_botonera(); ?>
-                <?php Tags::end_formulario(); ?>
+                <?php Tags::end_form(); ?>
             </article>
             <article class="col col-md-5">
                 <?php Tags::thumbnail("Usuarios", "Administre a los usuarios de la Aplicación Web. Liste a los usuarios, de de alta un nuevo usuario, modifique un usuario y elimine un usuario.", BASEURL . "admin/usuarios", "Administrar")?>

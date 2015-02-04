@@ -11,7 +11,7 @@
 
         <section class="row list">
             <article class="col col-md-9">
-                <?php Tags::formulario("POST", BASEURL . "admin/blog/update/" . $this->post->id , '', "Modificacion de Post"); ?>
+                <?php Tags::form("POST", BASEURL . "admin/blog/update/" . $this->post->id , '', "Modificacion de Post"); ?>
                     <?php Tags::alert_message("info", $this->mensaje);?> 
                     <?php Tags::alert_message("danger", $this->mensaje_error);?> 
                 
@@ -43,7 +43,7 @@
                     <?php Tags::botonera(); ?>
                         <?php Tags::button("submit", "Modificar"); ?>
                     <?php Tags::end_botonera(); ?>
-                <?php Tags::end_formulario(); ?>
+                <?php Tags::end_form(); ?>
             </article>
             <div class="col col-md-3">
                 <?php include 'sections_post/slider_images.php'; ?>

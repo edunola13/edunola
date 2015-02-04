@@ -1,4 +1,4 @@
-                <?php Tags::formulario("POST", ''); ?>
+                <?php Tags::form("POST", ''); ?>
                     <?php Tags::alert_message($this->tipo_mensaje, $this->mensaje);?> 
                 
                     <?php if(isset($this->errores['nombre'])){ 
@@ -11,7 +11,7 @@
                     <?php Tags::botonera(); ?>
                         <?php Tags::button("submit", "Agregar"); ?>
                     <?php Tags::end_botonera(); ?>
-                <?php Tags::end_formulario(); ?>
+                <?php Tags::end_form(); ?>
 
 <script>
     $( '#form-add-tag form' ).submit( function( e ) {

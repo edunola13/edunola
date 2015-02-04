@@ -16,7 +16,7 @@
         <?php Tags::end_paragraph(); ?>
         
         <section class="row">
-            <?php Tags::formulario("POST", BASEURL . "contacto"); ?>
+            <?php Tags::form("POST", BASEURL . "contacto"); ?>
                 <?php Tags::alert_message("danger", $this->mensaje);?>            
                 
                 <?php if(isset($this->errores['nombre'])){ 
@@ -44,7 +44,7 @@
                 <?php Tags::button("submit", "Enviar"); ?>
                 <?php Tags::button("reset", "Borrar"); ?>
                 <?php Tags::end_botonera(); ?>
-            <?php Tags::end_formulario(); ?>
+            <?php Tags::end_form(); ?>
         </section>
     </div>
         

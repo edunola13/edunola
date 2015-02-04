@@ -9,6 +9,6 @@
     define('PATH_THEME', $pathThemes);
     define('PATH_JAVASCRIPT', $pathJavaScript);    
     define('PATH_COMPONENT', $pathComponents);
-    require 'ApiUi.php';
-    require 'Tags.php';
+    require 'ApiUi_min.php';
+    require 'Tags_min.php';
 ?>

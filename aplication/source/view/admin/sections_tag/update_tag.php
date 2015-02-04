@@ -1,4 +1,4 @@
-                <?php Tags::formulario("POST", ''); ?>
+                <?php Tags::form("POST", ''); ?>
                     <?php Tags::alert_message($this->tipo_mensaje, $this->mensaje);?> 
                 
                     <input type="hidden" name="id" value="<?php echo $this->tag->id; ?>" />
@@ -13,7 +13,7 @@
                     <?php Tags::botonera(); ?>
                         <?php Tags::button("submit", "Modificar"); ?>
                     <?php Tags::end_botonera(); ?>
-                <?php Tags::end_formulario(); ?>
+                <?php Tags::end_form(); ?>
 
 <script>
     $( '#form-update-tag form' ).submit( function( e ) {

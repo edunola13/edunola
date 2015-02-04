@@ -12,7 +12,7 @@
               
         <section class="row">            
             <div class="col col-md-8 col-md-offset-2">                
-            <?php Tags::formulario("POST", BASEURL . "login", '', "Login"); ?>                     
+            <?php Tags::form("POST", BASEURL . "login", '', "Login"); ?>                     
                 <?php Tags::alert_message("danger", $this->mensaje);?> 
                 
                 <?php if(isset($this->errores['usuario'])){ 
@@ -27,7 +27,7 @@
                 <?php Tags::button("submit", "Ingresar"); ?>
                 <?php Tags::button("reset", "Borrar"); ?>
                 <?php Tags::end_botonera(); ?>
-            <?php Tags::end_formulario(); ?>
+            <?php Tags::end_form(); ?>
             </div>
         </section>
     </div>
