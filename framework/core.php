@@ -47,15 +47,17 @@
     //Seteo la codificacion de caracteres, casi siempre es o debe ser UTF-8
     ini_set('default_charset', $config['charset']);   
 
-    // Define las constantes del sistema
-    // BASE_URL: Base url de la aplicacion - definida por el usuario en el archivo de configuracion    
+    //Define las constantes del sistema
+    //BASE_URL: Base url de la aplicacion - definida por el usuario en el archivo de configuracion    
     $pos= strlen($config['base_url']) - 1;
     if($config['base_url'][$pos] != '/'){
         $config['base_url'] .= '/';
     }
     define('BASEURL', $config['base_url']);    
-	//ENVIRONMENT: Indica el ambiente de la aplicacion
-	define('ENVIRONMENT', $config['environment']);
+    //INDEX_PAGE: Pagina inicial. En blanco si se utiliza mod_rewrite
+    define('INDEX_PAGE', $config['index_page']);
+    //ENVIRONMENT: Indica el ambiente de la aplicacion
+    define('ENVIRONMENT', $config['environment']);
     //CONFIGURATION: carpeta base de configuracion - definida por el usuario en el archivo de configuracion
     define('CONFIGURATION', $config['configuration']);    
     //JSON_CONFIG_BD: archivo de configuracion para la base de datos

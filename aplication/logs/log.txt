@@ -5,4 +5,10 @@
 ----------\n[2015-01-27 13:13:23.000000 127.0.0.1  - Unknown ] require_once(class.phpmailer.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory
 ----------\n[2015-01-27 13:13:45.000000 127.0.0.1  - Unknown ] require_once(C:\wamp\www\edunola\aplication/libraries/PHPMailer/class.phpmailer.php.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory
 ----------\n[2015-01-27 13:13:59.000000 127.0.0.1  - Unknown ] stream_socket_enable_crypto() [<a href='streams.crypto'>streams.crypto</a>]: this stream does not support SSL/crypto
+----------\n[2015-02-03 23:48:12.000000 ::1  - Unknown ] session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at C:\xampp\htdocs\edunola\framework\modules\url_uri.php:17)
+----------\n[2015-02-03 23:48:12.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\modules\url_uri.php:17)
+----------\n[2015-02-03 23:48:45.000000 ::1  - Unknown ] session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at C:\xampp\htdocs\edunola\framework\modules\url_uri.php:18)
+----------\n[2015-02-03 23:48:45.000000 ::1  - Unknown ] Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\edunola\framework\modules\url_uri.php:18)
+----------\n[2015-02-03 23:49:04.000000 ::1  - Unknown ] session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at C:\xampp\htdocs\edunola\framework\modules\url_uri.php:18)
+----------\n[2015-02-03 23:49:48.000000 ::1  - Unknown ] session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at C:\xampp\htdocs\edunola\framework\modules\url_uri.php:18)
 ----------\n
