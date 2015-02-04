@@ -39,7 +39,7 @@
             //Evalua si el componente existe y si se encuentra habilitado via URL
             if(isset($GLOBALS['componentes'][$nombre])){
                 $comp= $GLOBALS['componentes'][$nombre];
-                if($comp['enabled-url'] == 'TRUE' || $comp['enabled-url'] == 'true'){                    
+                if($comp['enabled-url'] == 'TRUE' || $comp['enabled-url'] == 'true'){
                     execute_component($nombre, $params, TRUE);
                 }
                 else{
@@ -47,7 +47,7 @@
                 }
             }
             else{
-                echo "There isent a component with the name: " . $nombre;
+                echo "There isent a component with the name: " + $nombre;
             }
         }
         else{  
@@ -72,7 +72,7 @@
             else{
                 $dir= PATHAPP . $comp['location'] . '/' . $comp['class'] . '.php';
             }
-            require $dir;
+            require_once $dir;
             $dir= explode("/", $comp['class']);
             $class= $dir[count($dir) - 1];
             $componente= new $class();
