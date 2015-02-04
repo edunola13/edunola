@@ -1,4 +1,8 @@
 <?php
+	if(PHP_SAPI == 'cli' or !isset($_SERVER['REQUEST_METHOD'])){
+		echo 'puti';
+		exit;
+	}
     /**
      * Este archivo es el primero en ser llamado, carga la configuracion inicial y delega el trabajo a nucleo.php
      */
