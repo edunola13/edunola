@@ -1,7 +1,7 @@
 {
-    "base_url": "http://www.edunola.com.ar/",
+    "base_url": "http://localhost/edunola",
     "index_page": "",
-    "environment": "production",
+    "environment": "development",
     "calculate_performance": "FALSE",
     "configuration": "configuration/",
     "charset": "UTF-8",
