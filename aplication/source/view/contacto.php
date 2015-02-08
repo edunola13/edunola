@@ -16,33 +16,28 @@
         <?php Tags::end_paragraph(); ?>
         
         <section class="row">
-            <?php Tags::form("POST", BASEURL . "contacto"); ?>
+            <?php Tags::form('form_contacto',"POST", BASEURL . "contacto"); ?>
                 <?php Tags::alert_message("danger", $this->mensaje);?>            
                 
-                <?php if(isset($this->errores['nombre'])){ 
-                    Tags::alert_message("warning", $this->errores["nombre"]); }?>
-                <?php Tags::input("Nombre", "nombre", "text", "Nombre", $this->email['nombre']);?> 
-                                
-                <?php if(isset($this->errores['email'])){
-                    Tags::alert_message("warning", $this->errores["email"]); }?>
-                <?php Tags::input("Email", "email", "email", "Email", $this->email['email']);?> 
+                <?php Tags::input("Nombre", 'nombre',"nombre", "text", "Nombre", $this->email['nombre'], (isset($this->errores['nombre']) ? $this->errores['nombre'] : NULL), 'error');?> 
+                
+                <?php Tags::input("Email", 'email',"email", "email", "Email", $this->email['email'], (isset($this->errores['email']) ? $this->errores['email'] : NULL), 'error');?> 
             
                 <?php if(isset($this->errores['asunto'])){
                     Tags::alert_message("warning", $this->errores["asunto"]); }?>
-                <?php Tags::select("Asunto", "asunto", $this->email['asunto']); ?>
+            
+                <?php Tags::select("Asunto", "asunto","asunto", $this->email['asunto'], NULL,FALSE,(isset($this->errores['asunto']) ? $this->errores['asunto'] : NULL),'error'); ?>
                     <?php Tags::select_option("General", "General"); ?>
                     <?php Tags::select_option("Enola PHP", "Enola PHP"); ?>
                     <?php Tags::select_option("UI Services", "UI Services"); ?>
                     <?php Tags::select_option("Games", "Games"); ?>
                 <?php Tags::end_select(); ?>
                   
-                <?php if(isset($this->errores['mensaje'])){
-                    Tags::alert_message("warning", $this->errores["mensaje"]); }?>
-                <?php Tags::textarea("Mensaje", "mensaje", 10, "Mensaje a Enviar", $this->email['mensaje']);?>
+                <?php Tags::textarea("Mensaje", "mensaje","mensaje", 10, "Mensaje a Enviar", $this->email['mensaje'],(isset($this->errores['mensaje']) ? $this->errores['mensaje'] : NULL),'error');?>
             
                 <?php Tags::botonera(); ?>            
-                <?php Tags::button("submit", "Enviar"); ?>
-                <?php Tags::button("reset", "Borrar"); ?>
+                <?php Tags::button('Enviar', '', 'submit');?>
+                <?php Tags::button("Borrar", '', 'reset'); ?>
                 <?php Tags::end_botonera(); ?>
             <?php Tags::end_form(); ?>
         </section>

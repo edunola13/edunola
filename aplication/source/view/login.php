@@ -12,20 +12,19 @@
               
         <section class="row">            
             <div class="col col-md-8 col-md-offset-2">                
-            <?php Tags::form("POST", BASEURL . "login", '', "Login"); ?>                     
+            <?php Tags::form('form-login',"POST", BASEURL . "login", '', "Login"); ?>                     
                 <?php Tags::alert_message("danger", $this->mensaje);?> 
                 
                 <?php if(isset($this->errores['usuario'])){ 
                     Tags::alert_message("warning", $this->errores["usuario"]); }?>
-                <?php Tags::input("Usuario", "usuario", "text", "Usuario", $this->usuario['usuario']);?> 
+                <?php Tags::input("Usuario", "usuario","usuario", "text", "Usuario", $this->usuario['usuario']);?> 
                                 
                 <?php if(isset($this->errores['clave'])){
                     Tags::alert_message("warning", $this->errores["clave"]); }?>
-                <?php Tags::input("Contraseña", "clave", "password", "Contraseña");?> 
+                <?php Tags::input("Contraseña", "clave","clave", "password", "Contraseña");?> 
 
                 <?php Tags::botonera(); ?>            
-                <?php Tags::button("submit", "Ingresar"); ?>
-                <?php Tags::button("reset", "Borrar"); ?>
+                <?php Tags::button('Ingresar', '', 'submit');?>
                 <?php Tags::end_botonera(); ?>
             <?php Tags::end_form(); ?>
             </div>

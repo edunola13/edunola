@@ -8,7 +8,10 @@ class Tags {
     public static function javaScript($nombre = 'base'){
         $api= ApiUi::getInstance();    
         return $api->javaScript($nombre);
-    }    
+    }
+    public static function setProyecto($nombre){
+        ApiUi::$proyecto= $nombre;
+    }
     /* DEFINICION DE TODOS LOS COMPONENTES */
     public static function column_parsed($tableId, $title, $units){
         $api= ApiUi::getInstance();
@@ -155,7 +158,7 @@ class Tags {
         $valores= array('config.seccion' => 'pie');
         $api->componente('botonera', $valores);
     }    
-    public static function button($label, $id = NULL, $onClick = NULL, $type = 'button', $style = 'default', $size = 'md'){
+    public static function button($label, $id = NULL, $type = 'button', $onClick = NULL, $style = 'default', $size = 'md'){
         $api= ApiUi::getInstance();
         $valores= array('config.type' => $type, 'config.label' => $label, 'config.style' => $style, 'config.size' => $size, 'config.id' => $id, 'config.onclick' => $onClick);
         $api->componente('button', $valores);
@@ -201,7 +204,7 @@ class Tags {
         $valores= array('config.seccion' => 'pie');
         $api->componente('checkbox', $valores);
     }
-    public static function checkbox_full($label, $id, $name, $value, $options, $inline = FALSE, $typeError = NULL, $size = 'md'){
+    public static function checkbox_full($label, $id, $name, $value, $options, $varLabel=NULL,$varValue=NULL,$inline = FALSE, $typeError = NULL, $size = 'md'){
         $api= ApiUi::getInstance();
         $valores= array('config.seccion' => 'cabecera', 'config.label' => $label, 'config.size' => $size, 'config.typeError' => $typeError);
         //Imprimo lo que seria el Head
@@ -209,15 +212,24 @@ class Tags {
         //Imprimo los hijos
         $can= 0;
         foreach ($options as $option) {
-            $valores_option= array('config.label' => $option[0], 'config.name' => $name, 'config.id' => $id . $can,'datos.value' => $option[1]);
+            $optionLab= "";
+            $optionVal= "";
+            if(is_object($option)){
+                $optionLab= $option->$varLabel;
+                $optionVal= $option->$varValue;
+            }else{
+                $optionLab= $option[0];
+                $optionVal= $option[1];                
+            }
+            $valores_option= array('config.label' => $optionLab, 'config.name' => $name, 'config.id' => $id . $can,'datos.value' => $optionVal);
             $checked= FALSE;
             if(is_array($value)){
-               if(in_array($option[1], $value)){
+               if(in_array($optionVal, $value)){
                     $checked= TRUE;
                }
             }
             else{
-                if($option[1] == $value){
+                if($optionVal == $value){
                     $checked= TRUE;
                 }
             }                    
@@ -295,7 +307,7 @@ class Tags {
         $GLOBALS['check_num']++;
         $api->componente('checkbox_option', $valores);
     }
-    public static function radio_full($label, $id, $name, $value, $options, $inline = FALSE, $typeError = NULL, $size = 'md'){
+    public static function radio_full($label, $id, $name, $value, $options, $varLabel = NULL, $varValue=NULL, $inline = FALSE, $typeError = NULL, $size = 'md'){
         $api= ApiUi::getInstance();
         $valores= array('config.seccion' => 'cabecera', 'config.label' => $label, 'config.size' => $size, 'config.typeError' => $typeError);
         //Imprimo lo que seria el Head
@@ -303,8 +315,17 @@ class Tags {
         //Imprimo los hijos
         $can= 0;
         foreach ($options as $option) {
-            $valores_option= array('config.label' => $option[0], 'config.name' => $name, 'config.id' => $id . $can,'datos.value' => $option[1]);
-            if($option[1] == $value){
+            $optionLab= "";
+            $optionVal= "";
+            if(is_object($option)){
+                $optionLab= $option->$varLabel;
+                $optionVal= $option->$varValue;
+            }else{
+                $optionLab= $option[0];
+                $optionVal= $option[1];                
+            }
+            $valores_option= array('config.label' => $optionLab, 'config.name' => $name, 'config.id' => $id . $can,'datos.value' => $optionVal);
+            if($optionVal == $value){
                 $valores_option['config.checked']= 'si';
             }
             else{
@@ -366,7 +387,7 @@ class Tags {
         $GLOBALS['radio_num']++;
         $api->componente('radio_option', $valores);
     }
-    public static function select_full($simple, $label, $id, $name, $value, $options, $onchange = NULL, $multiple = FALSE, $message = NULL, $typeError = NULL, $size = 'md'){
+    public static function select_full($simple, $label, $id, $name, $value, $options, $varLabel = NULL, $varValue = NULL,$defaultLabel=NULL,$defaultValue=NULL,$onchange = NULL, $multiple = FALSE, $message = NULL, $typeError = NULL, $size = 'md'){
         $form= 'select';
         if($simple){$form='select_simple';}
         $api= ApiUi::getInstance();
@@ -376,17 +397,30 @@ class Tags {
         //Imprimo lo que seria el Head
         $api->componente($form, $valores);
         //Imprimo los hijos
-        $can= 0;
+        $can= 0;        
+        if($defaultLabel != NULL){
+            $valores_option= array('config.label' => $defaultLabel, 'datos.value' => $defaultValue, 'config.checked' => 'no');
+            $api->componente('select_option', $valores_option);
+        }
         foreach ($options as $option) {
-            $valores_option= array('config.label' => $option[0], 'datos.value' => $option[1]);
+            $optionLab= "";
+            $optionVal= "";
+            if(is_object($option)){
+                $optionLab= $option->$varLabel;
+                $optionVal= $option->$varValue;
+            }else{
+                $optionLab= $option[0];
+                $optionVal= $option[1];                
+            }            
+            $valores_option= array('config.label' => $optionLab, 'datos.value' => $optionVal);
             $checked= FALSE;
             if(is_array($value)){
-               if(in_array($option[1], $value)){
+               if(in_array($optionVal, $value)){
                     $checked= TRUE;
                }
             }
             else{
-                if($option[1] == $value){
+                if($optionVal == $value){
                     $checked= TRUE;
                 }
             }                    
@@ -397,7 +431,6 @@ class Tags {
                 $valores_option['config.checked']= 'no';
             }
             $api->componente('select_option', $valores_option);
-            $can++;
         }        
         //Armo el Pie
         $valores= array('config.seccion' => 'pie');

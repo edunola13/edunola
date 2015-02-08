@@ -1,17 +1,17 @@
-                <?php Tags::form("POST", ''); ?>
+                <?php Tags::form('form-upd-tag',"POST", ''); ?>
                     <?php Tags::alert_message($this->tipo_mensaje, $this->mensaje);?> 
                 
                     <input type="hidden" name="id" value="<?php echo $this->tag->id; ?>" />
                        
                     <?php if(isset($this->errores['nombre'])){ 
                     Tags::alert_message("warning", $this->errores["nombre"]); }?>
-                    <?php Tags::input("Nombre", "nombre", "text", "Nombre", $this->tag->nombre); ?>
+                    <?php Tags::input("Nombre", "nombre","nombre", "text", "Nombre", $this->tag->nombre); ?>
                     <?php if(isset($this->errores['descripcion'])){ 
                     Tags::alert_message("warning", $this->errores["descripcion"]); }?>
-                    <?php Tags::textarea('Descripcion', 'descripcion', 5, 'Descripcion', $this->tag->descripcion); ?>
+                    <?php Tags::textarea('Descripcion', 'descripcion','descripcion', 5, 'Descripcion', $this->tag->descripcion); ?>
                     
                     <?php Tags::botonera(); ?>
-                        <?php Tags::button("submit", "Modificar"); ?>
+                        <?php Tags::button('Modificar', '', 'submit');?>
                     <?php Tags::end_botonera(); ?>
                 <?php Tags::end_form(); ?>
 

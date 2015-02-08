@@ -50,15 +50,15 @@
                 
             </div>
             <div id="form-comentario" class="col col-md-10 col-md-offset-1">
-            <?php Tags::form('POST', '', '', 'Agregue un Comentario') ?>
+            <?php Tags::form('form-coment','POST', '', '', 'Agregue un Comentario') ?>
                 <input id="post_id" name="post_id" type="hidden" value="<?php echo $this->post->id;?>">
                 
-                <?php Tags::input("Nombre", "nombre", "text", "Nombre", '');?> 
+                <?php Tags::input("Nombre", 'nombre',"nombre", "text", "Nombre", '');?> 
                 
-                <?php Tags::textarea("Mensaje", "comentario", 5, "Mensaje a Enviar", '');?>
+                <?php Tags::textarea("Mensaje", 'comentario',"comentario", 5, "Mensaje a Enviar", '');?>
             
                 <?php Tags::botonera(); ?>            
-                <?php Tags::button("submit", "Enviar"); ?>
+                <?php Tags::button('Enviar', '', 'submit');?>
                 <?php Tags::end_botonera(); ?>
             <?php Tags::end_form();?>
             </div>

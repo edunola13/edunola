@@ -53,7 +53,7 @@ class Images extends En_Controller{
         header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
         
         $this->load_data();
-        if(! $this->validate()){
+        if(! $this->validar()){
             $this->load_view("admin/sections_post/rta_image");
         }
         else{
@@ -78,7 +78,7 @@ class Images extends En_Controller{
         $this->nombre= $this->request->param_post('nombre');
     }
     
-    protected function validate($var) {
+    protected function validar() {
         //Valido los campos del form
         $validacion= new Validation();
         $validacion->add_rule('nombre', $this->nombre, 'required');
