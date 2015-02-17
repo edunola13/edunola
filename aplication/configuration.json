@@ -14,9 +14,7 @@
         "games": {"location": "libraries/EnolaMVC-0.2/", "class": "EnolaMVC", "url": "games*",
             "params": {"config": "enolamvc-games.json"}
         },
-        "blog": {"location": "libraries/EnolaMVC-0.2/", "class": "EnolaMVC", "url": "blog*",
-            "params": {"config": "enolamvc-blog.json"}
-        },
+        "blog": {"class": "blog/Blog", "url": "blog/-"},
         "contacto": {"class": "Contacto", "url": "contacto"},
         "login": {"class": "Login", "url": "login"},
         "cerrarSesion": {"class": "CerrarSesion", "url": "cerrarSesion"},        

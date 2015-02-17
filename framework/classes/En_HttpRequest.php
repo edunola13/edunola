@@ -10,8 +10,8 @@ class En_HttpRequest {
     public $request_method;
     
     protected function __construct($uri){
-        $this->get_params= clean_vars($_GET);
-        $this->post_params= clean_vars($_POST);
+        $this->get_params= $_GET;
+        $this->post_params= $_POST;
         //Aca le tengo que pasar la url del controlador que se mapeo        
         $this->session= new Session();
         $this->request_method= $_SERVER['REQUEST_METHOD'];
@@ -46,6 +46,32 @@ class En_HttpRequest {
     public function param_post($nombre){
         if(isset($this->post_params[$nombre])){
             return $this->post_params[$nombre];
+        }
+        else{
+            return NULL;
+        }
+    }
+    /**
+     * Devuelve un parametro GET limpiado si existe y si no devuelve NULL
+     * @param string $nombre
+     * @return null o string
+     */
+    public function get_clean_param($nombre){
+        if(isset($this->get_params[$nombre])){            
+            return clean_vars($this->get_params[$nombre]);
+        }
+        else{
+            return NULL;
+        }
+    }    
+    /**
+     * Devuelve un parametro POST limpiado si existe y si no devuelve NULL
+     * @param string $nombre
+     * @return null o string
+     */
+    public function post_clean_param($nombre){
+        if(isset($this->post_params[$nombre])){
+            return clean_vars($this->post_params[$nombre]);
         }
         else{
             return NULL;

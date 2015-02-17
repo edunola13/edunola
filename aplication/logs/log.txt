@@ -42,4 +42,16 @@
 ----------\n[2015-02-04 18:00:00.000000 127.0.0.1  - Unknown ] Undefined variable: action
 ----------\n[2015-02-04 18:00:00.000000 127.0.0.1  - Unknown ] Missing argument 4 for Tags::select(), called in C:\wamp\www\edunola\aplication\source\view\contacto.php on line 32 and defined
 ----------\n[2015-02-04 18:00:00.000000 127.0.0.1  - Unknown ] Undefined variable: value
+----------\n[2015-02-14 23:27:23.000000 ::1  - Error Fatal - Parse - Strict ] Class EnolaMVC contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (Controller::setUriParams)
+----------\n[2015-02-14 23:27:47.000000 ::1  - Error Fatal - Parse - Strict ] Cannot access protected property IndexGame::$uri_params
+----------\n[2015-02-14 23:29:15.000000 ::1  - The controller EnolaMVC dont exists ] general_error
+----------\n[2015-02-14 23:29:15.000000 ::1  - Error Fatal - Parse - Strict ] Call to a member function doGet() on a non-object
+----------\n[2015-02-14 23:29:59.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-02-14 23:29:59.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-02-14 23:32:09.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-02-14 23:32:09.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-02-14 23:51:17.000000 ::1  - Unknown ] Undefined property: Blog::$params
+----------\n[2015-02-14 23:53:19.000000 ::1  - Unknown ] Undefined property: Blog::$params
+----------\n[2015-02-14 23:53:19.000000 ::1  - Unknown ] Undefined property: Blog::$params
+----------\n[2015-02-14 23:55:53.000000 ::1  - Error Fatal - Parse - Strict ] Call to undefined method En_HttpRequest::param_post()
 ----------\n

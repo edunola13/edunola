@@ -1,4 +1,4 @@
-    <?php Tags::navigation_bar("Nola", BASEURL);?>
+    <?php Tags::navigation_bar("Nola", BASEURL, FALSE);?>
         <?php Tags::nav_bar_left();?>
             <?php Tags::nav_item("Home", BASEURL, $menu == "home" ? "active" : NULL);?>
             <?php Tags::nav_item("Información", BASEURL . 'informacion', $menu == "informacion" ? "active" : NULL); ?>

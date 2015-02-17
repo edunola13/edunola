@@ -38,8 +38,8 @@ class Blog extends En_Controller{
     
     public function page(){
         $pagina= 1;
-        if(isset($this->params[0])){
-            $pagina= $this->params[0];
+        if(isset($this->uri_params[0])){
+            $pagina= $this->uri_params[0];
         }
         $cantidad= $this->servicioPost->cant_posts_front();
         $paginador= new Paginator($this->can_por_page, $cantidad, $pagina);
@@ -54,12 +54,12 @@ class Blog extends En_Controller{
     
     public function search(){
         $find= "";
-        if(isset($this->params[0])){
-            $find= urldecode($this->params[0]);
+        if(isset($this->uri_params[0])){
+            $find= urldecode($this->uri_params[0]);
         }
         $pagina= 1;
-        if(isset($this->params[1])){
-            $pagina= $this->params[1];
+        if(isset($this->uri_params[1])){
+            $pagina= $this->uri_params[1];
         }
         $cantidad= $this->servicioPost->cant_posts_search($find);
         $paginador= new Paginator($this->can_por_page, $cantidad, $pagina);
@@ -79,9 +79,9 @@ class Blog extends En_Controller{
     }
     
     public function fecha(){
-        if(isset($this->params[1]) && isset($this->params[0])){
-            $mes= $this->params[0];
-            $ano= $this->params[1];
+        if(isset($this->uri_params[1]) && isset($this->uri_params[0])){
+            $mes= $this->uri_params[0];
+            $ano= $this->uri_params[1];
             $this->posts= $this->servicioPost->fecha_posts($mes, $ano);
             $this->load_view("blog/posts_fecha");
         }
@@ -91,8 +91,8 @@ class Blog extends En_Controller{
     }
     
     public function tag(){
-        if(isset($this->params[0])){
-            $nombre= replace(' ', '-', urldecode($this->params[0]));
+        if(isset($this->uri_params[0])){
+            $nombre= replace(' ', '-', urldecode($this->uri_params[0]));
             $this->posts= $this->servicioPost->tag_posts($nombre);
             $this->load_view("blog/posts_tag");
         }
@@ -103,8 +103,8 @@ class Blog extends En_Controller{
     
     public function post(){
         $titulo= "";
-        if(isset($this->params[0])){
-            $titulo= replace(' ', '-', urldecode($this->params[0]));
+        if(isset($this->uri_params[0])){
+            $titulo= replace(' ', '-', urldecode($this->uri_params[0]));
         }
         $this->post= $this->servicioPost->post_titulo($titulo);        
         if($this->post != NULL){
@@ -144,7 +144,7 @@ class Blog extends En_Controller{
     
     public function delete_comentario(){
         if($this->request->request_method == 'GET'){
-            $id= $this->params[0];
+            $id= $this->uri_params[0];
             $servicio= new ComentarioServices();
             if($servicio->update_comentario($id)){
                 $rta= array('rta' => TRUE);

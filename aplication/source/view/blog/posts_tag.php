@@ -13,7 +13,7 @@
         <section class="row">
             <div class="col col-md-8">
                 <div>
-                    <h2 class="titulo-principal">Posts de Tag <?php echo $this->params[0]; ?></h2>
+                    <h2 class="titulo-principal">Posts de Tag <?php echo $this->uri_params[0]; ?></h2>
                 </div>
                 
                 <?php foreach ($this->posts as $post) { ?>
