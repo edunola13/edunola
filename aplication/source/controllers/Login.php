@@ -4,7 +4,14 @@
  *
  * @author Usuario_2
  */
+/**
+ * Importar 
+ */
+import_aplication_file("source/services/UsuarioServices");
+
 class Login extends En_Controller{
+    protected $mensaje;
+    protected $usuario;
     
     public function doGet(){
         if($this->request->session->exist('user_logged')){
@@ -17,19 +24,22 @@ class Login extends En_Controller{
     
     public function doPost(){
         if(! $this->request->session->exist('user_logged')){
-            $user;
-            $this->read_fields($user);
-            if(! $this->validate($user)){
-                $this->load_view("login", array('user' => $user));
+            $this->read_fields('usuario');
+            if(! $this->validate($this->usuario)){
+                $this->load_view("login");
             }            
             else{
-                if($user['user'] != "admin" || $user['password'] != "admin"){
+                $servicio= new UsuarioServices();
+                $this->usuario= $servicio->iniciarSesion($this->usuario['usuario'], $this->usuario['clave']);
+                if($this->usuario == NULL){
                     //Armo un mensaje de respuesta
                     $this->mensaje= 'El usuario o contraseña son invalidos';
                     //Lo mando al formulario con el mensaje
-                    $this->load_view("login", array('user' => $user));
+                    $this->load_view("login");
                 }
                 else{
+                    //Seteo el valor de usuario a la sesion
+                    $this->request->session->set_serialize('usuario_session', $this->usuario);
                     //Seteo el tipo de usuario
                     $this->request->session->set('user_logged', $this->usuario->tipo_usuario);
                     //Redirecciono al back
