@@ -32,14 +32,14 @@
                 <?php Tags::thumbnail("Builder", "El Builder HTML es una aplicacion que permitirá a un usuario armar su 
                     propia UI mediante los componentes definidos en el Servidor UI y otras opciones que provee el Builder.
                     Mediante Drag ad Drop el usuario podrá ir agregando componentes, eliminarlos, moverlos de lugar y cambiar
-                    su configuración.", BASEURL . "servicios", "Ver Más")?>
+                    su configuración.", BASEURL . "builder", "Ver Más")?>
             </article>
             <article class="col col-md-6">                
                 <?php Tags::thumbnail("APIs", "Las APIs permiten a su aplicacion utilizar los componentes definidos en el
                     Servidor UI. La API es la encargada de facilitar el uso de los componentes definidos en el Servidor UI. 
                     Para lograr esto, por un lado las APIs presentan una interfaz de acceso sencilla a los componentes y por
                     otro lado se comunica con el servidor para solicitar los componentes. Las APIs se encuentran disponibles
-                    en Java y PHP.", BASEURL . "servicios", "Ver Más")?>
+                    en Java y PHP.", BASEURL . "ui-services", "Ver Más")?>
             </article>
         </section>
     </div>
