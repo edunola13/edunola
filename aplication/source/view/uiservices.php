@@ -8,7 +8,9 @@
     <?php require_once 'sections/nav.php'; ?>
     
     <div class="container">        
-        <?php require_once 'sections/header.php'; ?>
+        <header class="row">
+            <?php Tags::simple_header("UI Services", "- La manera de Integrar las Interfaces de Usuario");?>      
+        </header>
         <section class="row">
             <?php Tags::panel('UI Services'); ?>
                 <?php Tags::paragraph();?>

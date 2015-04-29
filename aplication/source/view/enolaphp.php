@@ -8,7 +8,9 @@
     <?php require_once 'sections/nav.php'; ?>
     
     <div class="container">        
-        <?php require_once 'sections/header.php'; ?>
+        <header class="row">
+            <?php Tags::simple_header("Enola PHP", "- Un Framework Web");?>      
+        </header>
         <section class="row">
             <article class="col col-md-4">
                 <?php Tags::title("Caracteristicas del Framework"); ?>   
@@ -31,7 +33,7 @@
                     necesarias para que usted pueda realizar desde una aplicación simple a una muy compleja de una manera 
                     rápida, sencilla y reutilizando códido. </br>
                     </br>
-                    <a href="http://www.edunola.com.ar/enolaphp/" class="btn btn-default" target="_blank">Pagina Enola PHP</a>
+                    <a href="http://enolaphp.com/" class="btn btn-default" target="_blank">Pagina Enola PHP</a>
                 <?php Tags::end_panel(); ?>
                 <?php Tags::panel("Un poco de J2EE en PHP"); ?>  
                     La idea principal de este framework es tener una estructura parecida a la de J2EE en PHP para 
