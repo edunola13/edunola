@@ -9,9 +9,9 @@
     
     <div class="container">        
         <header class="row">
-            <?php Tags::simple_header("Enola PHP", "- Un Framework Web");?>      
+            <?php Tags::simple_header("Enola PHP", "- Framework para desarrollo de Aplicaciones Web");?>      
         </header>
-        <section class="row">
+        <div class="row">
             <article class="col col-md-4">
                 <?php Tags::title("Caracteristicas del Framework"); ?>   
                 <?php Tags::ul(); ?>
@@ -20,6 +20,7 @@
                     <?php Tags::li("Patron Active Record"); ?>
                     <?php Tags::li("Filtros"); ?>
                     <?php Tags::li("Componentes"); ?>
+                    <?php Tags::li("Cron Jobs"); ?>
                     <?php Tags::li("Internacionalización"); ?>
                     <?php Tags::li("Simple Integración"); ?>
                     <?php Tags::li("Servicios de interfaz de Usuario"); ?>
@@ -40,11 +41,11 @@
                     programar en ambos lenguajes con una misma mentalidad. Cuando uno realiza una aplicación web en 
                     Java utiliza filtros, servlets, archivos de configuración (o anotaciones). También suele utilizar 
                     frameworks como struts para MVC. Nosotros intentamos eso, para eso proveemos filtros, controladores
-                    (que responde a métodos HTTP como los servlets), simples archivos de configuración. También desarrollamos
-                    un mini Framework MVC para Enola PHP que pueda funcionar sobre los controladores del mismo.
+                    (que responde a métodos HTTP como los servlets), simples archivos de configuración. Ademas la idea es
+                    que sea de simple integracin con librerias y otros frameworks.
                 <?php Tags::end_panel(); ?>
             </article>     
-        </section>
+        </div>
     </div>
         
     <?php require_once 'sections/footer.php'; ?>

@@ -29,20 +29,36 @@
                 <?php Tags::paragraph();?>
                 El usuario tendra 2 opciones para consumir los Servicios UI:
                 <?php Tags::end_paragraph();?>
+                <div class="pull-right"><?php Tags::link('', 'https://github.com/edunola13/uiservices/wiki/Components', 'Componentes', TRUE, 'info')?></div>
+                <div class="pull-right"><?php Tags::link('', 'https://github.com/edunola13/uiservices/wiki/UI-Services', 'Información', TRUE, 'default')?></div>
             <?php Tags::end_panel(); ?>
-            <article class="col col-md-6">                
-                <?php Tags::thumbnail("Builder", "El Builder HTML es una aplicacion que permitirá a un usuario armar su 
-                    propia UI mediante los componentes definidos en el Servidor UI y otras opciones que provee el Builder.
-                    Mediante Drag ad Drop el usuario podrá ir agregando componentes, eliminarlos, moverlos de lugar y cambiar
-                    su configuración.", BASEURL . "builder", "Ver Más")?>
-            </article>
-            <article class="col col-md-6">                
-                <?php Tags::thumbnail("APIs", "Las APIs permiten a su aplicacion utilizar los componentes definidos en el
-                    Servidor UI. La API es la encargada de facilitar el uso de los componentes definidos en el Servidor UI. 
-                    Para lograr esto, por un lado las APIs presentan una interfaz de acceso sencilla a los componentes y por
-                    otro lado se comunica con el servidor para solicitar los componentes. Las APIs se encuentran disponibles
-                    en Java y PHP.", BASEURL . "ui-services", "Ver Más")?>
-            </article>
+            <div class="row">
+                <article class="col col-md-6">                
+                    <?php Tags::thumbnail("Builder", "El Builder HTML es una aplicacion que permitirá a un usuario armar su 
+                        propia UI mediante los componentes definidos en el Servidor UI y otras opciones que provee el Builder.
+                        Mediante Drag ad Drop el usuario podrá ir agregando componentes, eliminarlos, moverlos de lugar y cambiar
+                        su configuración.", BASEURL . "builder", "Ir al Builder")?>
+                </article>
+                <article class="col col-md-6">                
+                    <?php Tags::thumbnail("APIs", "Las APIs permiten a su aplicacion utilizar los componentes definidos en el
+                        Servidor UI. La API es la encargada de facilitar el uso de los componentes definidos en el Servidor UI. 
+                        Para lograr esto, por un lado las APIs presentan una interfaz de acceso sencilla a los componentes y por
+                        otro lado se comunica con el servidor para solicitar los componentes. Las APIs se encuentran disponibles
+                        en Java y PHP.", 'https://github.com/edunola13/uiservices/wiki/APIs---Java-y-PHP', "Ver Más")?>
+                </article>
+            </div>
+            <div class="row">
+                <h3 class="col col-md-12">Descargas</h3>
+                <div class="col col-sm-4" style="display:flex;justify-content:center;align-items:center; margin-bottom: 5px;">
+                    <?php Tags::link('', 'https://github.com/edunola13/uiservices', 'Descargar Servidor', TRUE, 'info') ?>
+                </div>
+                <div class="col col-sm-4" style="display:flex;justify-content:center;align-items:center; margin-bottom: 5px;">
+                    <?php Tags::link('', 'https://github.com/edunola13/uiservices-api-php', 'Descargar API PHP', TRUE, 'info') ?>
+                </div>
+                <div class="col col-sm-4" style="display:flex;justify-content:center;align-items:center; margin-bottom: 5px;">
+                    <?php Tags::link('', 'https://github.com/edunola13/uiservices-api-java', 'Descargar API Java', TRUE, 'info') ?>
+                </div>
+            </div>
         </section>
     </div>
         

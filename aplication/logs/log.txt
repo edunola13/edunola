@@ -54,4 +54,7 @@
 ----------\n[2015-02-14 23:53:19.000000 ::1  - Unknown ] Undefined property: Blog::$params
 ----------\n[2015-02-14 23:53:19.000000 ::1  - Unknown ] Undefined property: Blog::$params
 ----------\n[2015-02-14 23:55:53.000000 ::1  - Error Fatal - Parse - Strict ] Call to undefined method En_HttpRequest::param_post()
+----------\n[2015-05-28 14:00:20.000000 127.0.0.1  - Error Fatal - Parse - Strict ] Class 'Sesion' not found
+----------\n[2015-05-28 14:00:25.000000 127.0.0.1  - Error Fatal - Parse - Strict ] Class 'Sesion' not found
+----------\n[2015-05-28 15:23:21.000000 127.0.0.1  - Unknown ] Undefined variable: style
 ----------\n
