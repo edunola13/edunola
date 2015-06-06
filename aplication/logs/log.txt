@@ -57,4 +57,72 @@
 ----------\n[2015-05-28 14:00:20.000000 127.0.0.1  - Error Fatal - Parse - Strict ] Class 'Sesion' not found
 ----------\n[2015-05-28 14:00:25.000000 127.0.0.1  - Error Fatal - Parse - Strict ] Class 'Sesion' not found
 ----------\n[2015-05-28 15:23:21.000000 127.0.0.1  - Unknown ] Undefined variable: style
+----------\n[2015-06-05 20:09:30.000000 ::1  - Error Fatal - Parse - Strict ] Uncaught exception 'Exception' with message 'Error Enola MVC - Any controller map with the actual requirement' in C:\xampp\htdocs\edunola\aplication\libraries\EnolaMVC-0.2\EnolaMVC.php:153
+Stack trace:
+#0 C:\xampp\htdocs\edunola\framework\modules\http.php(132): EnolaMVC->doGet()
+#1 C:\xampp\htdocs\edunola\framework\core.php(195): execute_controller(Array)
+#2 C:\xampp\htdocs\edunola\index.php(31): require('C:\xampp\htdocs...')
+#3 {main}
+  thrown
+----------\n[2015-06-05 20:09:32.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:09:33.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:09:33.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:09:33.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:09:33.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:09:33.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:09:33.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:09:33.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:09:33.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:11:01.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:11:01.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:11:01.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:11:01.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:11:01.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:11:01.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:11:01.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:11:01.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:11:01.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:11:02.000000 ::1  - Error Fatal - Parse - Strict ] Uncaught exception 'Exception' with message 'Error Enola MVC - Any controller map with the actual requirement' in C:\xampp\htdocs\edunola\aplication\libraries\EnolaMVC-0.2\EnolaMVC.php:153
+Stack trace:
+#0 C:\xampp\htdocs\edunola\framework\modules\http.php(132): EnolaMVC->doGet()
+#1 C:\xampp\htdocs\edunola\framework\core.php(195): execute_controller(Array)
+#2 C:\xampp\htdocs\edunola\index.php(31): require('C:\xampp\htdocs...')
+#3 {main}
+  thrown
+----------\n[2015-06-05 20:14:29.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:29.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:29.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:29.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:29.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:29.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:29.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:29.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:29.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:45.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:45.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:46.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:46.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:46.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:46.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:46.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:46.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:46.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:55.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:55.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:55.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:55.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:55.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:55.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:55.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:55.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:14:55.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
 ----------\n
