@@ -105,6 +105,7 @@ class Blog extends En_Controller{
         $titulo= "";
         if(isset($this->uri_params[0])){
             $titulo= replace(' ', '-', urldecode($this->uri_params[0]));
+            $titulo= replace('-', '___', $titulo);
         }
         $this->post= $this->servicioPost->post_titulo($titulo);        
         if($this->post != NULL){

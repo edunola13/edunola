@@ -47,6 +47,7 @@
      * @return string
      */
     function replace_spaces($string){
+        $string= str_replace("-", "___", $string);
         return str_replace(" ", "-", $string);
     }    
     /**

@@ -182,8 +182,8 @@ class Posts extends En_Controller{
     }
     
     protected function config_validation() {
-        $reglas= array('titulo' => 'required|min_length[5]|max_length[50]', 
-            'descripcion' => 'required|min_length[30]|max_length[300]',
+        $reglas= array('titulo' => 'required|min_length[5]|max_length[100]', 
+            'descripcion' => 'required|min_length[30]|max_length[600]',
             'contenido' => 'required|min_length[50]');
         if($this->request->param_post('id') != NULL){
             $reglas['id']= 'required';

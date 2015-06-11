@@ -29,8 +29,8 @@
                 <?php Tags::paragraph();?>
                 El usuario tendra 2 opciones para consumir los Servicios UI:
                 <?php Tags::end_paragraph();?>
-                <div class="pull-right"><?php Tags::link('', 'https://github.com/edunola13/uiservices/wiki/Components', 'Componentes', TRUE, 'info')?></div>
-                <div class="pull-right"><?php Tags::link('', 'https://github.com/edunola13/uiservices/wiki/UI-Services', 'Información', TRUE, 'default')?></div>
+                <div class="pull-right"><?php Tags::link('', 'http://www.edunola.com.ar/blog/post/UI-Services-___-Definición-de-Componentes', 'Componentes', TRUE, 'info')?></div>
+                <div class="pull-right"><?php Tags::link('', 'http://www.edunola.com.ar/blog/post/UI-Services-___-Servicios-de-Interfaz-de-Usuario-___-v.1.0', 'Información', TRUE, 'default')?></div>
             <?php Tags::end_panel(); ?>
             <div class="row">
                 <article class="col col-md-6">                
@@ -44,7 +44,7 @@
                         Servidor UI. La API es la encargada de facilitar el uso de los componentes definidos en el Servidor UI. 
                         Para lograr esto, por un lado las APIs presentan una interfaz de acceso sencilla a los componentes y por
                         otro lado se comunica con el servidor para solicitar los componentes. Las APIs se encuentran disponibles
-                        en Java y PHP.", 'https://github.com/edunola13/uiservices/wiki/APIs---Java-y-PHP', "Ver Más")?>
+                        en Java y PHP.", 'http://www.edunola.com.ar/blog/post/UI-Services-___-APIs-PHP-y-Java', "Ver Más")?>
                 </article>
             </div>
             <div class="row">
@@ -54,9 +54,11 @@
                 </div>
                 <div class="col col-sm-4" style="display:flex;justify-content:center;align-items:center; margin-bottom: 5px;">
                     <?php Tags::link('', 'https://github.com/edunola13/uiservices-api-php', 'Descargar API PHP', TRUE, 'info') ?>
+                    <?php Tags::link('', 'http://www.edunola.com.ar/blog/post/UI-Services-___-Ejemplo-API-PHP', 'Ejemplo', TRUE); ?>
                 </div>
                 <div class="col col-sm-4" style="display:flex;justify-content:center;align-items:center; margin-bottom: 5px;">
                     <?php Tags::link('', 'https://github.com/edunola13/uiservices-api-java', 'Descargar API Java', TRUE, 'info') ?>
+                    <?php Tags::link('', 'http://www.edunola.com.ar/blog/post/UI-Services-___-Ejemplo-API-Java', 'Ejemplo', TRUE); ?>
                 </div>
             </div>
         </section>
