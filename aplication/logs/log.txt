@@ -125,4 +125,15 @@ Stack trace:
 ----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
 ----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
 ----------\n[2015-06-05 20:15:02.000000 ::1  - Unknown ] Trying to get property of non-object
+----------\n[2016-03-22 14:40:46.000000 ::1  - SQLSTATE[HY000] [1049] Unknown database 'appedunola' ] general_error
+----------\n[2016-03-22 14:40:46.000000 ::1  - Error Fatal - Parse - Strict ] Call to a member function prepare() on null
+----------\n[2016-03-22 14:40:52.000000 ::1  - SQLSTATE[HY000] [1049] Unknown database 'appedunola' ] general_error
+----------\n[2016-03-22 14:40:52.000000 ::1  - Error Fatal - Parse - Strict ] Call to a member function prepare() on null
+----------\n[2016-03-22 14:41:07.000000 ::1  - SQLSTATE[HY000] [1049] Unknown database 'appedunola' ] general_error
+----------\n[2016-03-22 14:41:07.000000 ::1  - Error Fatal - Parse - Strict ] Call to a member function prepare() on null
+----------\n[2016-03-22 14:42:32.000000 ::1  - SQLSTATE[HY000] [1049] Unknown database 'appedunola' ] general_error
+----------\n[2016-03-22 14:42:32.000000 ::1  - SQLSTATE[HY000] [1049] Unknown database 'appedunola' ] general_error
+----------\n[2016-03-22 14:42:32.000000 ::1  - Error Fatal - Parse - Strict ] Call to a member function prepare() on null
+----------\n[2016-03-22 14:45:39.000000 ::1  - SQLSTATE[HY000] [1049] Unknown database 'appedunola' ] general_error
+----------\n[2016-03-22 14:45:39.000000 ::1  - Error Fatal - Parse - Strict ] Call to a member function prepare() on null
 ----------\n
